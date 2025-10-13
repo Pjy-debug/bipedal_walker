@@ -1,0 +1,7 @@
+experiment_name: "lunar_lander"
+root_folder: "/mnt1/brx/Rocketdata/"
+data_folders: ["d2rl_data"]
+data_folder_weights: [1]
+local_dir: "/mnt1/brx/Rocketdata/d2rl_data/"
+num_workers: 12
+clip_reward_threshold: 100

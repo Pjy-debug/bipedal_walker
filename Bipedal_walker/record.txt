@@ -1,0 +1,30 @@
+2025.10.6 
+输入password怎么也进不来，删除ssh缓存，重连成功。
+2025.10.8
+brx前辈的代码中，正例部分混有负例。原因是，按理讲希望分类episode，而
+stage1和stage2里的input是step。所以input中的每个元素其实是episode中的step。
+一个正的episode只有最后一个step是正的，其余step都是负的；一个负的episode里所有step都是负的。
+但是前辈在data_process_new.py里使用
+processed_data += new_episode_data
+意味着代码是把new_episode_data中的所有元素逐个加入processed_data里，而非把episode整体加入。
+这样的话，就导致了在正的step样本里包含了负的step样本，导致训练时模型分不清正负例。
+按理讲应使用
+processed_data.append(new_episode_data)
+然后在创建dataset时把input设定为episode['episode'][-1]
+或者从分step的角度讲，把正episode的负step放到负样本集里。
+
+之后注意的问题：
+经历stage1、2、3后最终结果能否与episode对应。test不应shuffle。
+
+10.9
+修改：先加pos_embedding再加state_embedding
+todo：test时不用顾虑正负例ratio=1，可以直接用所有例子计算
+需要考虑一下ratio是什么意思
+
+10.11
+stage1基本完成。
+stage2：运行前人的遗产，模型会把所有样例都认成负例。
+        可能的问题：loss设计；val和test钟大哥weight。
+
+10.12
+发现事故率太大了，因为只用了一部分负例。

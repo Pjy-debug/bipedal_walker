@@ -1,0 +1,632 @@
+nohup: 忽略输入
+Namespace(batch_size=8, output_model_prefix='mlp', start_epoch=801, epochs=900, lr=0.0001, no_cuda=False, final_ratio=0, start_ratio=0, warm_up_epochs=20, threshold=0.5, input_dim=107, embed_dim=256, embed_dim_1=256, embed_dim_2=1024, n_layers=6, n_heads=8, dropout=0.1, ffn_dim=1024, num_classes=2, max_seq_len=11, dataset_dir='/mnt1/hyj/Acc_Test/tta_new/data/test_2025-6-8/processed_data/', log_dir='../new_log/log', is_resume=0, is_chuan=0, model_path='storage/mlp.ep546', best_model_path='storage/mlp.ep680', first_model_path='storage/mlp.ep546', two_model=1)
+ratio is 0,loading data...
+pos data is being loaded...
+neg data is being loaded...
+len of data pos is 780, len of data neg is 200389
+train_pos_size is 546, val_pos_size is 78, test_pos_size is 156
+train_neg_size is 140272, val_neg_size is 20039, test_neg_size is 40078
+train_data_neg_len is 140272, train_data_neg_len_1 is 69902, train_data_neg_len_2 is 70369
+num of pos is 546
+num of neg is 69902
+num of neg is 70369
+20039 78
+sampling...
+num of pos is 78,num of neg is 500,ratio is 6.410256410256411
+num of pos is {}, num of neg is {} 78 500
+  0%|          | 0/578 [00:00<?, ?it/s]100%|██████████| 578/578 [00:00<00:00, 77374.82it/s]
+40078 156
+num of pos is 156,num of neg is 40078,ratio is 256.9102564102564
+num of pos is {}, num of neg is {} 156 40078
+  0%|          | 0/40234 [00:00<?, ?it/s] 20%|█▉        | 7935/40234 [00:00<00:00, 79344.21it/s] 40%|████      | 16289/40234 [00:00<00:00, 81805.75it/s] 61%|██████    | 24475/40234 [00:00<00:00, 81273.17it/s] 82%|████████▏ | 32851/40234 [00:00<00:00, 81845.36it/s]100%|██████████| 40234/40234 [00:00<00:00, 82045.89it/s]
+Successfully build train datasets!
+Successfully build val datasets!
+Successfully build test datasets!
+Train & Validate
+  0%|          | 0/99 [00:00<?, ?it/s]/home/teamcommon/pjy/Bipedal_walker/criticality/stage2/trainer_bing.py:172: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  labels_cls1 = torch.tensor(labels1[:,0],dtype=torch.int64)
+/home/teamcommon/pjy/Bipedal_walker/criticality/stage2/trainer_bing.py:180: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  labels_cls2 = torch.tensor(labels2[:,0],dtype=torch.int64)
+/home/teamcommon/pjy/Bipedal_walker/criticality/stage2/trainer_bing.py:262: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  labels_cls = torch.tensor(labels[:, 0],dtype=torch.int64)
+  1%|          | 1/99 [00:33<54:09, 33.16s/it]  2%|▏         | 2/99 [01:05<53:00, 32.79s/it]  3%|▎         | 3/99 [01:35<50:34, 31.61s/it]  4%|▍         | 4/99 [02:08<50:50, 32.11s/it]  5%|▌         | 5/99 [02:39<49:28, 31.58s/it]  6%|▌         | 6/99 [03:11<49:22, 31.86s/it]  7%|▋         | 7/99 [03:42<48:01, 31.32s/it]  8%|▊         | 8/99 [04:14<48:04, 31.69s/it]  9%|▉         | 9/99 [04:46<47:41, 31.79s/it] 10%|█         | 10/99 [05:17<46:36, 31.42s/it] 11%|█         | 11/99 [05:49<46:35, 31.77s/it] 12%|█▏        | 12/99 [06:20<45:28, 31.36s/it] 13%|█▎        | 13/99 [06:52<45:15, 31.57s/it] 14%|█▍        | 14/99 [07:22<44:09, 31.18s/it] 15%|█▌        | 15/99 [07:55<44:21, 31.69s/it] 16%|█▌        | 16/99 [08:25<43:21, 31.34s/it]length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 801	>	Loss: 53.3490 / Acc: 0.9854 / F1:0.0000 / Precison: 0.0010 / Recall:0.0000
+Val Epoch 801 Iteration 0 (0/3)	Loss: 13.7191 / Acc: 2850.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 801	>	Loss: 10.5585 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 802	>	Loss: 49.0640 / Acc: 0.9989 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 802 Iteration 0 (0/3)	Loss: 14.1561 / Acc: 2725.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 802	>	Loss: 10.5292 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 803	>	Loss: 48.6273 / Acc: 0.9989 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 803 Iteration 0 (0/3)	Loss: 14.0319 / Acc: 2750.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 803	>	Loss: 10.5075 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 804	>	Loss: 48.2411 / Acc: 0.9989 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 804 Iteration 0 (0/3)	Loss: 14.0676 / Acc: 2737.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 804	>	Loss: 10.4975 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 805	>	Loss: 47.9609 / Acc: 0.9989 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 805 Iteration 0 (0/3)	Loss: 13.9994 / Acc: 2750.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 805	>	Loss: 10.4825 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 806	>	Loss: 47.5806 / Acc: 0.9988 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 806 Iteration 0 (0/3)	Loss: 14.3187 / Acc: 2662.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 806	>	Loss: 10.4621 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 807	>	Loss: 47.2352 / Acc: 0.9988 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 807 Iteration 0 (0/3)	Loss: 13.9046 / Acc: 2762.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 807	>	Loss: 10.4477 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 808	>	Loss: 46.9472 / Acc: 0.9988 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 808 Iteration 0 (0/3)	Loss: 13.9942 / Acc: 2737.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 808	>	Loss: 10.4400 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 809	>	Loss: 46.7059 / Acc: 0.9988 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 809 Iteration 0 (0/3)	Loss: 13.7903 / Acc: 2787.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 809	>	Loss: 10.4367 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 810	>	Loss: 46.4236 / Acc: 0.9987 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 810 Iteration 0 (0/3)	Loss: 13.9146 / Acc: 2750.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 810	>	Loss: 10.4171 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 811	>	Loss: 46.0513 / Acc: 0.9987 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 811 Iteration 0 (0/3)	Loss: 14.0403 / Acc: 2712.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 811	>	Loss: 10.3965 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 812	>	Loss: 45.6933 / Acc: 0.9987 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 812 Iteration 0 (0/3)	Loss: 14.1201 / Acc: 2687.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 812	>	Loss: 10.3782 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 813	>	Loss: 45.3560 / Acc: 0.9987 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 813 Iteration 0 (0/3)	Loss: 13.9988 / Acc: 2712.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 813	>	Loss: 10.3628 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 814	>	Loss: 45.0423 / Acc: 0.9986 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 814 Iteration 0 (0/3)	Loss: 13.5693 / Acc: 2812.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 814	>	Loss: 10.3506 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 815	>	Loss: 44.7531 / Acc: 0.9986 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 815 Iteration 0 (0/3)	Loss: 13.9726 / Acc: 2712.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 815	>	Loss: 10.3416 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 816	>	Loss: 44.4866 / Acc: 0.9986 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 816 Iteration 0 (0/3)	Loss: 13.6522 / Acc: 2787.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 816	>	Loss: 10.3354 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 817	>	Loss: 44.2391 / Acc: 0.9986 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 817 Iteration 0 (0/3)	Loss: 13.4381 / Acc: 2837.5000 / Precison:0.0000 / Recall:0.0000
+ 17%|█▋        | 17/99 [08:57<43:09, 31.58s/it] 18%|█▊        | 18/99 [09:30<42:59, 31.84s/it] 19%|█▉        | 19/99 [10:00<41:44, 31.30s/it] 20%|██        | 20/99 [10:33<41:47, 31.74s/it] 21%|██        | 21/99 [11:03<40:43, 31.33s/it] 22%|██▏       | 22/99 [11:36<40:44, 31.75s/it] 23%|██▎       | 23/99 [12:06<39:37, 31.28s/it] 24%|██▍       | 24/99 [12:38<39:26, 31.55s/it] 25%|██▌       | 25/99 [13:10<39:01, 31.64s/it] 26%|██▋       | 26/99 [13:40<37:59, 31.23s/it] 27%|██▋       | 27/99 [14:12<37:47, 31.49s/it] 28%|██▊       | 28/99 [14:43<36:56, 31.21s/it] 29%|██▉       | 29/99 [15:15<36:42, 31.47s/it] 30%|███       | 30/99 [15:45<35:45, 31.10s/it] 31%|███▏      | 31/99 [16:18<35:39, 31.47s/it] 32%|███▏      | 32/99 [16:50<35:23, 31.70s/it] 33%|███▎      | 33/99 [17:20<34:26, 31.31s/it]Val dataset: Epoch: 817	>	Loss: 10.3315 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 818	>	Loss: 44.0049 / Acc: 0.9985 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 818 Iteration 0 (0/3)	Loss: 13.4346 / Acc: 2837.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 818	>	Loss: 10.3291 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 819	>	Loss: 43.7624 / Acc: 0.9985 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 819 Iteration 0 (0/3)	Loss: 13.5772 / Acc: 2800.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 819	>	Loss: 10.3189 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 820	>	Loss: 43.4186 / Acc: 0.9985 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 820 Iteration 0 (0/3)	Loss: 13.6564 / Acc: 2775.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 820	>	Loss: 10.2997 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 821	>	Loss: 43.0600 / Acc: 0.9985 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 821 Iteration 0 (0/3)	Loss: 13.6318 / Acc: 2775.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 821	>	Loss: 10.2813 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 822	>	Loss: 42.7079 / Acc: 0.9984 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 822 Iteration 0 (0/3)	Loss: 13.7696 / Acc: 2737.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 822	>	Loss: 10.2639 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 823	>	Loss: 42.3634 / Acc: 0.9984 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 823 Iteration 0 (0/3)	Loss: 13.6408 / Acc: 2762.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 823	>	Loss: 10.2477 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 824	>	Loss: 42.0275 / Acc: 0.9984 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 824 Iteration 0 (0/3)	Loss: 13.8386 / Acc: 2712.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 824	>	Loss: 10.2327 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 825	>	Loss: 41.7006 / Acc: 0.9984 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 825 Iteration 0 (0/3)	Loss: 13.7672 / Acc: 2725.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 825	>	Loss: 10.2191 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 826	>	Loss: 41.3833 / Acc: 0.9983 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 826 Iteration 0 (0/3)	Loss: 13.6969 / Acc: 2737.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 826	>	Loss: 10.2068 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 827	>	Loss: 41.0756 / Acc: 0.9983 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 827 Iteration 0 (0/3)	Loss: 13.6279 / Acc: 2750.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 827	>	Loss: 10.1960 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 828	>	Loss: 40.7775 / Acc: 0.9983 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 828 Iteration 0 (0/3)	Loss: 13.5048 / Acc: 2775.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 828	>	Loss: 10.1866 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 829	>	Loss: 40.4887 / Acc: 0.9983 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 829 Iteration 0 (0/3)	Loss: 13.5497 / Acc: 2762.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 829	>	Loss: 10.1786 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 830	>	Loss: 40.2087 / Acc: 0.9982 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 830 Iteration 0 (0/3)	Loss: 13.5966 / Acc: 2750.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 830	>	Loss: 10.1719 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 831	>	Loss: 39.9368 / Acc: 0.9982 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 831 Iteration 0 (0/3)	Loss: 13.2542 / Acc: 2825.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 831	>	Loss: 10.1664 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 832	>	Loss: 39.6723 / Acc: 0.9982 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 832 Iteration 0 (0/3)	Loss: 13.4160 / Acc: 2787.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 832	>	Loss: 10.1621 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 833	>	Loss: 39.4141 / Acc: 0.9981 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 833 Iteration 0 (0/3)	Loss: 13.9721 / Acc: 2662.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 833	>	Loss: 10.1588 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+ 34%|███▍      | 34/99 [17:54<34:34, 31.92s/it] 35%|███▌      | 35/99 [18:24<33:30, 31.42s/it] 36%|███▋      | 36/99 [18:56<33:12, 31.63s/it] 37%|███▋      | 37/99 [19:26<32:15, 31.22s/it] 38%|███▊      | 38/99 [19:58<32:01, 31.50s/it] 39%|███▉      | 39/99 [20:31<31:51, 31.85s/it] 40%|████      | 40/99 [21:01<30:52, 31.40s/it] 41%|████▏     | 41/99 [21:33<30:33, 31.61s/it] 42%|████▏     | 42/99 [22:04<29:35, 31.15s/it] 43%|████▎     | 43/99 [22:36<29:21, 31.46s/it] 44%|████▍     | 44/99 [23:06<28:35, 31.18s/it] 45%|████▌     | 45/99 [23:38<28:19, 31.48s/it] 46%|████▋     | 46/99 [24:08<27:25, 31.04s/it] 47%|████▋     | 47/99 [24:40<27:06, 31.28s/it] 48%|████▊     | 48/99 [25:13<26:50, 31.58s/it] 49%|████▉     | 49/99 [25:43<25:58, 31.17s/it]Train dataset: Epoch : 834	>	Loss: 39.1612 / Acc: 0.9981 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 834 Iteration 0 (0/3)	Loss: 13.5203 / Acc: 2762.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 834	>	Loss: 10.1563 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 835	>	Loss: 38.9123 / Acc: 0.9981 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 835 Iteration 0 (0/3)	Loss: 13.3495 / Acc: 2800.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 835	>	Loss: 10.1545 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 836	>	Loss: 38.6662 / Acc: 0.9981 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 836 Iteration 0 (0/3)	Loss: 13.5163 / Acc: 2762.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 836	>	Loss: 10.1533 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 837	>	Loss: 38.4215 / Acc: 0.9980 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 837 Iteration 0 (0/3)	Loss: 13.7962 / Acc: 2700.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 837	>	Loss: 10.1524 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 838	>	Loss: 38.1556 / Acc: 0.9980 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 838 Iteration 0 (0/3)	Loss: 13.7273 / Acc: 2712.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 838	>	Loss: 10.1421 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 839	>	Loss: 37.8152 / Acc: 0.9980 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 839 Iteration 0 (0/3)	Loss: 13.0274 / Acc: 2862.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 839	>	Loss: 10.1270 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 840	>	Loss: 37.4710 / Acc: 0.9979 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 840 Iteration 0 (0/3)	Loss: 13.0056 / Acc: 2862.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 840	>	Loss: 10.1125 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 841	>	Loss: 37.1298 / Acc: 0.9979 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 841 Iteration 0 (0/3)	Loss: 13.0420 / Acc: 2850.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 841	>	Loss: 10.0985 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 842	>	Loss: 36.7916 / Acc: 0.9979 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 842 Iteration 0 (0/3)	Loss: 13.4841 / Acc: 2750.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 842	>	Loss: 10.0850 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 843	>	Loss: 36.4566 / Acc: 0.9979 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 843 Iteration 0 (0/3)	Loss: 13.5254 / Acc: 2737.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 843	>	Loss: 10.0721 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 844	>	Loss: 36.1248 / Acc: 0.9978 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 844 Iteration 0 (0/3)	Loss: 12.9846 / Acc: 2850.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 844	>	Loss: 10.0597 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 845	>	Loss: 35.7961 / Acc: 0.9978 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 845 Iteration 0 (0/3)	Loss: 13.0844 / Acc: 2825.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 845	>	Loss: 10.0479 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 846	>	Loss: 35.4705 / Acc: 0.9978 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 846 Iteration 0 (0/3)	Loss: 13.5393 / Acc: 2725.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 846	>	Loss: 10.0367 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 847	>	Loss: 35.1481 / Acc: 0.9977 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 847 Iteration 0 (0/3)	Loss: 13.9990 / Acc: 2625.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 847	>	Loss: 10.0261 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 848	>	Loss: 34.8288 / Acc: 0.9977 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 848 Iteration 0 (0/3)	Loss: 13.2760 / Acc: 2775.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 848	>	Loss: 10.0160 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 849	>	Loss: 34.5125 / Acc: 0.9977 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 849 Iteration 0 (0/3)	Loss: 13.6208 / Acc: 2700.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 849	>	Loss: 10.0066 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 850	>	Loss: 34.1992 / Acc: 0.9976 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 850 Iteration 0 (0/3)	Loss: 13.1916 / Acc: 2787.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 850	>	Loss: 9.9977 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+ 51%|█████     | 50/99 [26:15<25:46, 31.56s/it] 52%|█████▏    | 51/99 [26:46<24:58, 31.23s/it] 53%|█████▎    | 52/99 [27:18<24:45, 31.61s/it] 54%|█████▎    | 53/99 [27:48<23:53, 31.16s/it] 55%|█████▍    | 54/99 [28:21<23:37, 31.49s/it] 56%|█████▌    | 55/99 [28:53<23:16, 31.73s/it] 57%|█████▋    | 56/99 [29:24<22:31, 31.44s/it] 58%|█████▊    | 57/99 [29:56<22:14, 31.78s/it] 59%|█████▊    | 58/99 [30:27<21:26, 31.37s/it] 60%|█████▉    | 59/99 [30:59<21:04, 31.60s/it] 61%|██████    | 60/99 [31:30<20:22, 31.35s/it] 62%|██████▏   | 61/99 [32:02<19:58, 31.54s/it] 63%|██████▎   | 62/99 [32:32<19:16, 31.26s/it] 64%|██████▎   | 63/99 [33:04<18:54, 31.51s/it] 65%|██████▍   | 64/99 [33:37<18:35, 31.87s/it] 66%|██████▌   | 65/99 [34:07<17:44, 31.30s/it] 67%|██████▋   | 66/99 [34:40<17:25, 31.68s/it]TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 851	>	Loss: 33.8888 / Acc: 0.9976 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 851 Iteration 0 (0/3)	Loss: 13.0603 / Acc: 2812.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 851	>	Loss: 9.9894 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 852	>	Loss: 33.5812 / Acc: 0.9976 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 852 Iteration 0 (0/3)	Loss: 13.4104 / Acc: 2737.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 852	>	Loss: 9.9816 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 853	>	Loss: 33.2764 / Acc: 0.9975 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 853 Iteration 0 (0/3)	Loss: 12.8583 / Acc: 2850.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 853	>	Loss: 9.9745 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 854	>	Loss: 32.9742 / Acc: 0.9975 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 854 Iteration 0 (0/3)	Loss: 13.1510 / Acc: 2787.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 854	>	Loss: 9.9679 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 855	>	Loss: 32.6746 / Acc: 0.9975 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 855 Iteration 0 (0/3)	Loss: 13.2640 / Acc: 2762.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 855	>	Loss: 9.9619 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 856	>	Loss: 32.3774 / Acc: 0.9974 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 856 Iteration 0 (0/3)	Loss: 13.1961 / Acc: 2775.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 856	>	Loss: 9.9564 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 857	>	Loss: 32.0825 / Acc: 0.9974 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 857 Iteration 0 (0/3)	Loss: 13.4330 / Acc: 2725.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 857	>	Loss: 9.9515 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 858	>	Loss: 31.7898 / Acc: 0.9974 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 858 Iteration 0 (0/3)	Loss: 13.1226 / Acc: 2787.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 858	>	Loss: 9.9471 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 859	>	Loss: 31.4992 / Acc: 0.9973 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 859 Iteration 0 (0/3)	Loss: 12.9952 / Acc: 2812.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 859	>	Loss: 9.9433 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 860	>	Loss: 31.2105 / Acc: 0.9973 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 860 Iteration 0 (0/3)	Loss: 13.0517 / Acc: 2800.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 860	>	Loss: 9.9400 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 861	>	Loss: 30.9236 / Acc: 0.9973 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 861 Iteration 0 (0/3)	Loss: 12.9253 / Acc: 2825.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 861	>	Loss: 9.9372 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 862	>	Loss: 30.6384 / Acc: 0.9972 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 862 Iteration 0 (0/3)	Loss: 13.1059 / Acc: 2787.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 862	>	Loss: 9.9349 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 863	>	Loss: 30.3547 / Acc: 0.9972 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 863 Iteration 0 (0/3)	Loss: 12.8581 / Acc: 2837.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 863	>	Loss: 9.9331 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 864	>	Loss: 30.0724 / Acc: 0.9972 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 864 Iteration 0 (0/3)	Loss: 12.9789 / Acc: 2812.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 864	>	Loss: 9.9318 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 865	>	Loss: 29.7912 / Acc: 0.9971 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 865 Iteration 0 (0/3)	Loss: 13.5915 / Acc: 2687.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 865	>	Loss: 9.9309 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 866	>	Loss: 29.5112 / Acc: 0.9971 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 866 Iteration 0 (0/3)	Loss: 13.0384 / Acc: 2800.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 866	>	Loss: 9.9305 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 867	>	Loss: 29.2319 / Acc: 0.9971 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 867 Iteration 0 (0/3)	Loss: 13.0385 / Acc: 2800.0000 / Precison:0.0000 / Recall:0.0000
+ 68%|██████▊   | 67/99 [35:10<16:39, 31.24s/it] 69%|██████▊   | 68/99 [35:42<16:16, 31.50s/it] 70%|██████▉   | 69/99 [36:12<15:33, 31.11s/it] 71%|███████   | 70/99 [36:45<15:14, 31.53s/it] 72%|███████▏  | 71/99 [37:17<14:47, 31.70s/it] 73%|███████▎  | 72/99 [37:47<14:03, 31.23s/it] 74%|███████▎  | 73/99 [38:19<13:39, 31.52s/it] 75%|███████▍  | 74/99 [38:50<13:01, 31.26s/it] 76%|███████▌  | 75/99 [39:22<12:35, 31.49s/it] 77%|███████▋  | 76/99 [39:52<11:56, 31.14s/it] 78%|███████▊  | 77/99 [40:25<11:35, 31.60s/it] 79%|███████▉  | 78/99 [40:57<11:09, 31.86s/it] 80%|███████▉  | 79/99 [41:27<10:27, 31.36s/it] 81%|████████  | 80/99 [41:59<09:59, 31.54s/it] 82%|████████▏ | 81/99 [42:29<09:20, 31.15s/it] 83%|████████▎ | 82/99 [43:02<08:57, 31.64s/it] 84%|████████▍ | 83/99 [43:33<08:20, 31.25s/it]Val dataset: Epoch: 867	>	Loss: 9.9305 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 868	>	Loss: 28.9534 / Acc: 0.9970 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 868 Iteration 0 (0/3)	Loss: 13.1004 / Acc: 2787.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 868	>	Loss: 9.9309 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 869	>	Loss: 28.6754 / Acc: 0.9970 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 869 Iteration 0 (0/3)	Loss: 13.2856 / Acc: 2750.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 869	>	Loss: 9.9317 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 870	>	Loss: 28.3977 / Acc: 0.9969 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 870 Iteration 0 (0/3)	Loss: 12.7964 / Acc: 2850.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 870	>	Loss: 9.9328 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 871	>	Loss: 28.1200 / Acc: 0.9969 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 871 Iteration 0 (0/3)	Loss: 12.9825 / Acc: 2812.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 871	>	Loss: 9.9343 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 872	>	Loss: 27.8423 / Acc: 0.9969 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 872 Iteration 0 (0/3)	Loss: 13.1075 / Acc: 2787.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 872	>	Loss: 9.9361 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 873	>	Loss: 27.5642 / Acc: 0.9968 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 873 Iteration 0 (0/3)	Loss: 13.2939 / Acc: 2750.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 873	>	Loss: 9.9381 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 874	>	Loss: 27.2855 / Acc: 0.9968 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 874 Iteration 0 (0/3)	Loss: 13.4192 / Acc: 2725.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 874	>	Loss: 9.9404 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 875	>	Loss: 27.0060 / Acc: 0.9968 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 875 Iteration 0 (0/3)	Loss: 13.1168 / Acc: 2787.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 875	>	Loss: 9.9429 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 876	>	Loss: 26.6960 / Acc: 0.9967 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 876 Iteration 0 (0/3)	Loss: 13.1661 / Acc: 2775.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 876	>	Loss: 9.9341 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 877	>	Loss: 26.3559 / Acc: 0.9967 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 877 Iteration 0 (0/3)	Loss: 13.1547 / Acc: 2775.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 877	>	Loss: 9.9256 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 878	>	Loss: 26.0170 / Acc: 0.9967 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 878 Iteration 0 (0/3)	Loss: 13.4524 / Acc: 2712.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 878	>	Loss: 9.9175 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 879	>	Loss: 25.6791 / Acc: 0.9966 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 879 Iteration 0 (0/3)	Loss: 13.4429 / Acc: 2712.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 879	>	Loss: 9.9097 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 880	>	Loss: 25.3421 / Acc: 0.9966 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 880 Iteration 0 (0/3)	Loss: 12.8752 / Acc: 2825.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 880	>	Loss: 9.9023 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 881	>	Loss: 25.0059 / Acc: 0.9965 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 881 Iteration 0 (0/3)	Loss: 12.6160 / Acc: 2875.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 881	>	Loss: 9.8952 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 882	>	Loss: 24.6705 / Acc: 0.9965 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 882 Iteration 0 (0/3)	Loss: 13.2297 / Acc: 2750.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 882	>	Loss: 9.8885 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 883	>	Loss: 24.3357 / Acc: 0.9965 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 883 Iteration 0 (0/3)	Loss: 13.3465 / Acc: 2725.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 883	>	Loss: 9.8820 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 884	>	Loss: 24.0015 / Acc: 0.9964 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+ 85%|████████▍ | 84/99 [44:05<07:52, 31.51s/it] 86%|████████▌ | 85/99 [44:35<07:16, 31.18s/it] 87%|████████▋ | 86/99 [45:07<06:48, 31.46s/it] 88%|████████▊ | 87/99 [45:40<06:21, 31.77s/it] 89%|████████▉ | 88/99 [46:10<05:44, 31.31s/it] 90%|████████▉ | 89/99 [46:42<05:14, 31.48s/it] 91%|█████████ | 90/99 [47:12<04:40, 31.20s/it] 92%|█████████▏| 91/99 [47:45<04:12, 31.51s/it] 93%|█████████▎| 92/99 [48:15<03:38, 31.17s/it] 94%|█████████▍| 93/99 [48:48<03:10, 31.67s/it] 95%|█████████▍| 94/99 [49:20<02:39, 31.90s/it] 96%|█████████▌| 95/99 [49:51<02:06, 31.53s/it] 97%|█████████▋| 96/99 [50:24<01:36, 32.03s/it] 98%|█████████▊| 97/99 [50:55<01:03, 31.64s/it] 99%|█████████▉| 98/99 [51:28<00:31, 31.94s/it]100%|██████████| 99/99 [51:58<00:00, 31.45s/it]100%|██████████| 99/99 [51:58<00:00, 31.50s/it]
+/home/teamcommon/pjy/Bipedal_walker/criticality/stage2/my_test.py:67: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  labels_cls = torch.tensor(labels[:, 0], dtype=torch.int64)
+Val Epoch 884 Iteration 0 (0/3)	Loss: 12.9626 / Acc: 2800.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 884	>	Loss: 9.8759 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 885	>	Loss: 23.6679 / Acc: 0.9964 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 885 Iteration 0 (0/3)	Loss: 12.7031 / Acc: 2850.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 885	>	Loss: 9.8701 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 886	>	Loss: 23.3347 / Acc: 0.9963 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 886 Iteration 0 (0/3)	Loss: 12.9468 / Acc: 2800.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 886	>	Loss: 9.8645 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 887	>	Loss: 23.0020 / Acc: 0.9963 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 887 Iteration 0 (0/3)	Loss: 13.0027 / Acc: 2787.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 887	>	Loss: 9.8593 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 888	>	Loss: 22.6695 / Acc: 0.9963 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 888 Iteration 0 (0/3)	Loss: 13.0592 / Acc: 2775.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 888	>	Loss: 9.8544 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 889	>	Loss: 22.3374 / Acc: 0.9962 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 889 Iteration 0 (0/3)	Loss: 12.9263 / Acc: 2800.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 889	>	Loss: 9.8498 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 890	>	Loss: 22.0054 / Acc: 0.9962 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 890 Iteration 0 (0/3)	Loss: 13.1741 / Acc: 2750.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 890	>	Loss: 9.8455 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 891	>	Loss: 21.6737 / Acc: 0.9961 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 891 Iteration 0 (0/3)	Loss: 13.0418 / Acc: 2775.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 891	>	Loss: 9.8415 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 892	>	Loss: 21.3420 / Acc: 0.9961 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 892 Iteration 0 (0/3)	Loss: 13.2277 / Acc: 2737.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 892	>	Loss: 9.8377 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 893	>	Loss: 21.0104 / Acc: 0.9961 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 893 Iteration 0 (0/3)	Loss: 13.0959 / Acc: 2762.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 893	>	Loss: 9.8343 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 894	>	Loss: 20.6787 / Acc: 0.9960 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 894 Iteration 0 (0/3)	Loss: 13.2193 / Acc: 2737.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 894	>	Loss: 9.8311 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 895	>	Loss: 20.3470 / Acc: 0.9960 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 895 Iteration 0 (0/3)	Loss: 12.5769 / Acc: 2862.5000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 895	>	Loss: 9.8282 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 896	>	Loss: 20.0151 / Acc: 0.9959 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 896 Iteration 0 (0/3)	Loss: 13.1485 / Acc: 2750.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 896	>	Loss: 9.8256 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 897	>	Loss: 19.6830 / Acc: 0.9959 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 897 Iteration 0 (0/3)	Loss: 13.1455 / Acc: 2750.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 897	>	Loss: 9.8233 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 898	>	Loss: 19.3506 / Acc: 0.9958 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 898 Iteration 0 (0/3)	Loss: 13.5271 / Acc: 2675.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 898	>	Loss: 9.8213 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+length of train_pos_loader: 68, length of train_neg_loader1: 58, length of train_neg_loader2: 58
+Train dataset: Epoch : 899	>	Loss: 19.0180 / Acc: 0.9958 / F1:0.0000 / Precison: 0.0000 / Recall:0.0000
+Val Epoch 899 Iteration 0 (0/3)	Loss: 12.8842 / Acc: 2800.0000 / Precison:0.0000 / Recall:0.0000
+Val dataset: Epoch: 899	>	Loss: 9.8195 / Acc: 86.5052% /F1:0.0000/ Precison: 0.0000 / Recall:0.0000
+TP:0,FP:0,pred_pos:0,label_pos:78,label_neg:500,pred_pos:0,pred_neg:578,TPR:0.0,FPR:0.0
+
+Test
+Test dataset >	Loss: 0.4204 / Acc: 99.6123% / F1: 0.0000 / Precison: 0.0000 / Recall:0.0000 
+TP:0,FP:0,pred_pos:0,label_pos:156,label_neg:40078,TPR:0.0,FPR:0.0
+figure generated

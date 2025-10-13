@@ -1,0 +1,975 @@
+nohup: 忽略输入
+Namespace(batch_size=1024, output_model_prefix='mlp', start_epoch=101, epochs=150, lr=0.0001, no_cuda=False, final_ratio=0, start_ratio=0, warm_up_epochs=20, threshold=0.5, input_dim=25, embed_dim=256, embed_dim_1=256, embed_dim_2=1024, n_layers=6, n_heads=8, dropout=0.1, ffn_dim=1024, num_classes=2, max_seq_len=11, dataset_dir='/home/teamcommon/pjy/Bipedal_walker/criticality/data/collect_data_new', log_dir='/home/teamcommon/pjy/Bipedal_walker/criticality/log/log', is_resume=0, is_train=0, model_path='/home/teamcommon/pjy/Bipedal_walker/criticality/stage1/storage/rw_149.pt', best_model_path='/home/teamcommon/pjy/Bipedal_walker/criticality/log/model/mlp.ep95', first_model_path='/home/teamcommon/pjy/Bipedal_walker/criticality/log/model/mlp.ep95', two_model=0)
+Divide data
+pos data is being loaded...
+neg data is being loaded...
+  0%|          | 0/21 [00:00<?, ?it/s]  5%|▍         | 1/21 [00:00<00:05,  3.67it/s] 10%|▉         | 2/21 [00:00<00:04,  4.41it/s] 14%|█▍        | 3/21 [00:00<00:04,  4.31it/s] 19%|█▉        | 4/21 [00:01<00:04,  3.86it/s] 24%|██▍       | 5/21 [00:01<00:04,  3.27it/s] 29%|██▊       | 6/21 [00:01<00:03,  4.22it/s] 33%|███▎      | 7/21 [00:01<00:04,  3.34it/s] 38%|███▊      | 8/21 [00:02<00:03,  4.21it/s] 43%|████▎     | 9/21 [00:02<00:04,  2.94it/s] 48%|████▊     | 10/21 [00:02<00:02,  3.75it/s] 52%|█████▏    | 11/21 [00:03<00:03,  2.63it/s] 57%|█████▋    | 12/21 [00:03<00:02,  3.37it/s] 62%|██████▏   | 13/21 [00:03<00:01,  4.15it/s] 67%|██████▋   | 14/21 [00:04<00:03,  2.32it/s] 71%|███████▏  | 15/21 [00:04<00:01,  3.01it/s] 76%|███████▌  | 16/21 [00:04<00:01,  3.78it/s] 81%|████████  | 17/21 [00:04<00:00,  4.57it/s] 86%|████████▌ | 18/21 [00:05<00:01,  2.21it/s] 90%|█████████ | 19/21 [00:05<00:00,  2.88it/s]100%|██████████| 21/21 [00:06<00:00,  4.31it/s]100%|██████████| 21/21 [00:06<00:00,  3.48it/s]
+train_pos_size is 546, val_pos_size is 78, test_pos_size is 156
+train_neg_size is 106749, val_neg_size is 15250, test_neg_size is 30500
+Build dataset
+num of pos is 546
+num of pos is 78
+num of neg is 106749
+num of neg is 15250
+num of pos is 156
+num of neg is 30500
+Build DataLoader
+Train & Validate
+  0%|          | 0/49 [00:00<?, ?it/s]/home/teamcommon/pjy/Bipedal_walker/criticality/stage1/reward_model.py:112: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  labels_cls = torch.tensor(labels[:,0],dtype=torch.int64)
+/home/teamcommon/pjy/Bipedal_walker/criticality/stage1/reward_model.py:178: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  labels_cls = torch.tensor(labels[:,0],dtype=torch.int64)
+  2%|▏         | 1/49 [00:01<01:11,  1.49s/it]  4%|▍         | 2/49 [00:02<00:48,  1.04s/it]  6%|▌         | 3/49 [00:02<00:40,  1.13it/s]  8%|▊         | 4/49 [00:03<00:36,  1.23it/s] 10%|█         | 5/49 [00:04<00:34,  1.27it/s] 12%|█▏        | 6/49 [00:05<00:32,  1.32it/s] 14%|█▍        | 7/49 [00:05<00:31,  1.33it/s] 16%|█▋        | 8/49 [00:06<00:29,  1.37it/s] 18%|█▊        | 9/49 [00:07<00:28,  1.40it/s] 20%|██        | 10/49 [00:07<00:27,  1.41it/s] 22%|██▏       | 11/49 [00:08<00:27,  1.40it/s] 24%|██▍       | 12/49 [00:09<00:26,  1.40it/s] 27%|██▋       | 13/49 [00:09<00:25,  1.42it/s] 29%|██▊       | 14/49 [00:10<00:24,  1.42it/s] 31%|███       | 15/49 [00:11<00:24,  1.41it/s] 33%|███▎      | 16/49 [00:12<00:23,  1.42it/s] 35%|███▍      | 17/49 [00:12<00:22,  1.41it/s] 37%|███▋      | 18/49 [00:13<00:22,  1.39it/s] 39%|███▉      | 19/49 [00:14<00:21,  1.41it/s] 41%|████      | 20/49 [00:14<00:20,  1.42it/s] 43%|████▎     | 21/49 [00:15<00:19,  1.40it/s] 45%|████▍     | 22/49 [00:16<00:19,  1.37it/s] 47%|████▋     | 23/49 [00:17<00:19,  1.34it/s] 49%|████▉     | 24/49 [00:17<00:18,  1.34it/s] 51%|█████     | 25/49 [00:18<00:19,  1.24it/s]Train Epoch: 101
+training, n_batches is 34, n_samples is 1092
+Train Epoch 101 Iteration 0 (0/34)	Loss: 5.1004 / Acc: 0.6250
+Train dataset: Epoch : 101	>	Loss: 2.1376 / Acc: 0.8713 / Scores:4.1319
+Val Epoch 101 Iteration 0 (0/4)	Loss: 1.4549 / Acc: 0.8125
+Val dataset: Epoch : 101	>	Loss: 1.1259 / Acc: 0.8750 / Scores:5.7138
+Train Epoch: 102
+training, n_batches is 34, n_samples is 1092
+Train Epoch 102 Iteration 0 (0/34)	Loss: 0.2346 / Acc: 1.0000
+Train dataset: Epoch : 102	>	Loss: 0.6986 / Acc: 0.9596 / Scores:7.2638
+Val Epoch 102 Iteration 0 (0/4)	Loss: 0.0762 / Acc: 1.0000
+Val dataset: Epoch : 102	>	Loss: 0.8860 / Acc: 0.8906 / Scores:9.3979
+Train Epoch: 103
+training, n_batches is 34, n_samples is 1092
+Train Epoch 103 Iteration 0 (0/34)	Loss: 0.6289 / Acc: 1.0000
+Train dataset: Epoch : 103	>	Loss: 0.6814 / Acc: 0.9540 / Scores:7.7559
+Val Epoch 103 Iteration 0 (0/4)	Loss: 0.2094 / Acc: 1.0000
+Val dataset: Epoch : 103	>	Loss: 0.8701 / Acc: 0.9375 / Scores:7.6090
+Train Epoch: 104
+training, n_batches is 34, n_samples is 1092
+Train Epoch 104 Iteration 0 (0/34)	Loss: 1.8865 / Acc: 0.8750
+Train dataset: Epoch : 104	>	Loss: 0.6446 / Acc: 0.9504 / Scores:7.2192
+Val Epoch 104 Iteration 0 (0/4)	Loss: 2.4371 / Acc: 0.8125
+Val dataset: Epoch : 104	>	Loss: 0.9489 / Acc: 0.9062 / Scores:9.1929
+Train Epoch: 105
+training, n_batches is 34, n_samples is 1092
+Train Epoch 105 Iteration 0 (0/34)	Loss: 1.6329 / Acc: 0.8125
+Train dataset: Epoch : 105	>	Loss: 0.7052 / Acc: 0.9449 / Scores:8.2414
+Val Epoch 105 Iteration 0 (0/4)	Loss: 0.8384 / Acc: 0.8750
+Val dataset: Epoch : 105	>	Loss: 1.1501 / Acc: 0.9062 / Scores:13.1358
+Train Epoch: 106
+training, n_batches is 34, n_samples is 1092
+Train Epoch 106 Iteration 0 (0/34)	Loss: 1.1763 / Acc: 0.9375
+Train dataset: Epoch : 106	>	Loss: 0.7392 / Acc: 0.9540 / Scores:7.2525
+Val Epoch 106 Iteration 0 (0/4)	Loss: 0.3348 / Acc: 0.9375
+Val dataset: Epoch : 106	>	Loss: 0.6651 / Acc: 0.9219 / Scores:6.7502
+Train Epoch: 107
+training, n_batches is 34, n_samples is 1092
+Train Epoch 107 Iteration 0 (0/34)	Loss: 0.5023 / Acc: 0.9375
+Train dataset: Epoch : 107	>	Loss: 0.3689 / Acc: 0.9724 / Scores:8.4537
+Val Epoch 107 Iteration 0 (0/4)	Loss: 1.1567 / Acc: 0.8750
+Val dataset: Epoch : 107	>	Loss: 0.7043 / Acc: 0.9219 / Scores:5.5769
+Train Epoch: 108
+training, n_batches is 34, n_samples is 1092
+Train Epoch 108 Iteration 0 (0/34)	Loss: 0.4334 / Acc: 0.9375
+Train dataset: Epoch : 108	>	Loss: 0.5147 / Acc: 0.9632 / Scores:8.9635
+Val Epoch 108 Iteration 0 (0/4)	Loss: 0.3112 / Acc: 0.9375
+Val dataset: Epoch : 108	>	Loss: 0.5715 / Acc: 0.9531 / Scores:9.2641
+Train Epoch: 109
+training, n_batches is 34, n_samples is 1092
+Train Epoch 109 Iteration 0 (0/34)	Loss: 0.0008 / Acc: 1.0000
+Train dataset: Epoch : 109	>	Loss: 0.4791 / Acc: 0.9669 / Scores:7.7943
+Val Epoch 109 Iteration 0 (0/4)	Loss: 0.2355 / Acc: 0.9375
+Val dataset: Epoch : 109	>	Loss: 0.6264 / Acc: 0.9219 / Scores:8.8319
+Train Epoch: 110
+training, n_batches is 34, n_samples is 1092
+Train Epoch 110 Iteration 0 (0/34)	Loss: 0.7709 / Acc: 0.9375
+Train dataset: Epoch : 110	>	Loss: 0.2675 / Acc: 0.9835 / Scores:8.0175
+Val Epoch 110 Iteration 0 (0/4)	Loss: 0.0000 / Acc: 1.0000
+Val dataset: Epoch : 110	>	Loss: 0.8721 / Acc: 0.9688 / Scores:13.0995
+Train Epoch: 111
+training, n_batches is 34, n_samples is 1092
+Train Epoch 111 Iteration 0 (0/34)	Loss: 0.0266 / Acc: 1.0000
+Train dataset: Epoch : 111	>	Loss: 0.3642 / Acc: 0.9779 / Scores:9.2215
+Val Epoch 111 Iteration 0 (0/4)	Loss: 0.3012 / Acc: 1.0000
+Val dataset: Epoch : 111	>	Loss: 0.5728 / Acc: 0.9375 / Scores:13.5208
+Train Epoch: 112
+training, n_batches is 34, n_samples is 1092
+Train Epoch 112 Iteration 0 (0/34)	Loss: 0.6433 / Acc: 1.0000
+Train dataset: Epoch : 112	>	Loss: 0.4500 / Acc: 0.9724 / Scores:9.1454
+Val Epoch 112 Iteration 0 (0/4)	Loss: 0.1081 / Acc: 1.0000
+Val dataset: Epoch : 112	>	Loss: 0.5422 / Acc: 0.9219 / Scores:14.2272
+Train Epoch: 113
+training, n_batches is 34, n_samples is 1092
+Train Epoch 113 Iteration 0 (0/34)	Loss: 0.1317 / Acc: 1.0000
+Train dataset: Epoch : 113	>	Loss: 0.3526 / Acc: 0.9761 / Scores:7.1534
+Val Epoch 113 Iteration 0 (0/4)	Loss: 0.0132 / Acc: 1.0000
+Val dataset: Epoch : 113	>	Loss: 0.1702 / Acc: 0.9844 / Scores:14.0992
+Train Epoch: 114
+training, n_batches is 34, n_samples is 1092
+Train Epoch 114 Iteration 0 (0/34)	Loss: 0.0012 / Acc: 1.0000
+Train dataset: Epoch : 114	>	Loss: 0.4046 / Acc: 0.9761 / Scores:9.7187
+Val Epoch 114 Iteration 0 (0/4)	Loss: 0.6780 / Acc: 0.8750
+Val dataset: Epoch : 114	>	Loss: 0.2192 / Acc: 0.9688 / Scores:12.5286
+Train Epoch: 115
+training, n_batches is 34, n_samples is 1092
+Train Epoch 115 Iteration 0 (0/34)	Loss: 0.2367 / Acc: 1.0000
+Train dataset: Epoch : 115	>	Loss: 0.3374 / Acc: 0.9779 / Scores:8.6157
+Val Epoch 115 Iteration 0 (0/4)	Loss: 0.0020 / Acc: 1.0000
+Val dataset: Epoch : 115	>	Loss: 0.2906 / Acc: 0.9688 / Scores:14.2176
+Train Epoch: 116
+training, n_batches is 34, n_samples is 1092
+Train Epoch 116 Iteration 0 (0/34)	Loss: 1.3556 / Acc: 0.9375
+Train dataset: Epoch : 116	>	Loss: 0.4121 / Acc: 0.9596 / Scores:8.8523
+Val Epoch 116 Iteration 0 (0/4)	Loss: 0.1876 / Acc: 1.0000
+Val dataset: Epoch : 116	>	Loss: 0.5425 / Acc: 0.9375 / Scores:5.6099
+Train Epoch: 117
+training, n_batches is 34, n_samples is 1092
+Train Epoch 117 Iteration 0 (0/34)	Loss: 0.1357 / Acc: 1.0000
+Train dataset: Epoch : 117	>	Loss: 0.2474 / Acc: 0.9853 / Scores:8.6455
+Val Epoch 117 Iteration 0 (0/4)	Loss: 0.0000 / Acc: 1.0000
+Val dataset: Epoch : 117	>	Loss: 0.5574 / Acc: 0.9688 / Scores:8.8734
+Train Epoch: 118
+training, n_batches is 34, n_samples is 1092
+Train Epoch 118 Iteration 0 (0/34)	Loss: 0.2958 / Acc: 1.0000
+Train dataset: Epoch : 118	>	Loss: 0.2600 / Acc: 0.9798 / Scores:10.2907
+Val Epoch 118 Iteration 0 (0/4)	Loss: 0.3035 / Acc: 1.0000
+Val dataset: Epoch : 118	>	Loss: 0.0787 / Acc: 1.0000 / Scores:12.8352
+Train Epoch: 119
+training, n_batches is 34, n_samples is 1092
+Train Epoch 119 Iteration 0 (0/34)	Loss: 0.6365 / Acc: 0.9375
+Train dataset: Epoch : 119	>	Loss: 0.2854 / Acc: 0.9816 / Scores:9.2698
+Val Epoch 119 Iteration 0 (0/4)	Loss: 0.2280 / Acc: 0.9375
+Val dataset: Epoch : 119	>	Loss: 0.1598 / Acc: 0.9844 / Scores:8.3004
+Train Epoch: 120
+training, n_batches is 34, n_samples is 1092
+Train Epoch 120 Iteration 0 (0/34)	Loss: 0.3402 / Acc: 1.0000
+Train dataset: Epoch : 120	>	Loss: 0.3805 / Acc: 0.9724 / Scores:8.2987
+Val Epoch 120 Iteration 0 (0/4)	Loss: 1.1496 / Acc: 0.8125
+Val dataset: Epoch : 120	>	Loss: 0.7211 / Acc: 0.8906 / Scores:17.3067
+Train Epoch: 121
+training, n_batches is 34, n_samples is 1092
+Train Epoch 121 Iteration 0 (0/34)	Loss: 0.1231 / Acc: 1.0000
+Train dataset: Epoch : 121	>	Loss: 0.3988 / Acc: 0.9724 / Scores:10.3688
+Val Epoch 121 Iteration 0 (0/4)	Loss: 0.0072 / Acc: 1.0000
+Val dataset: Epoch : 121	>	Loss: 0.3122 / Acc: 0.9688 / Scores:4.8152
+Train Epoch: 122
+training, n_batches is 34, n_samples is 1092
+Train Epoch 122 Iteration 0 (0/34)	Loss: 0.6962 / Acc: 0.9375
+Train dataset: Epoch : 122	>	Loss: 0.5652 / Acc: 0.9596 / Scores:9.3046
+Val Epoch 122 Iteration 0 (0/4)	Loss: 0.3117 / Acc: 1.0000
+Val dataset: Epoch : 122	>	Loss: 0.8209 / Acc: 0.9531 / Scores:9.4873
+Train Epoch: 123
+training, n_batches is 34, n_samples is 1092
+Train Epoch 123 Iteration 0 (0/34)	Loss: 0.2726 / Acc: 0.9375
+Train dataset: Epoch : 123	>	Loss: 0.3803 / Acc: 0.9706 / Scores:8.2015
+Val Epoch 123 Iteration 0 (0/4)	Loss: 0.9258 / Acc: 0.9375
+Val dataset: Epoch : 123	>	Loss: 0.3059 / Acc: 0.9688 / Scores:12.5034
+Train Epoch: 124
+training, n_batches is 34, n_samples is 1092
+Train Epoch 124 Iteration 0 (0/34)	Loss: 0.1075 / Acc: 1.0000
+Train dataset: Epoch : 124	>	Loss: 0.2918 / Acc: 0.9816 / Scores:8.8543
+Val Epoch 124 Iteration 0 (0/4)	Loss: 0.0003 / Acc: 1.0000
+Val dataset: Epoch : 124	>	Loss: 0.2818 / Acc: 0.9844 / Scores:13.4206
+Train Epoch: 125
+training, n_batches is 34, n_samples is 1092
+Train Epoch 125 Iteration 0 (0/34)	Loss: 0.0704 / Acc: 1.0000
+Train dataset: Epoch : 125	>	Loss: 0.4106 / Acc: 0.9779 / Scores:9.8888
+Val Epoch 125 Iteration 0 (0/4)	Loss: 0.4953 / Acc: 0.9375
+Val dataset: Epoch : 125	>	Loss: 0.6382 / Acc: 0.9375 / Scores:3.6994
+Train Epoch: 126
+ 53%|█████▎    | 26/49 [00:19<00:17,  1.29it/s] 55%|█████▌    | 27/49 [00:20<00:16,  1.32it/s] 57%|█████▋    | 28/49 [00:21<00:15,  1.36it/s] 59%|█████▉    | 29/49 [00:21<00:14,  1.36it/s] 61%|██████    | 30/49 [00:22<00:13,  1.38it/s] 63%|██████▎   | 31/49 [00:23<00:12,  1.41it/s] 65%|██████▌   | 32/49 [00:23<00:11,  1.42it/s] 67%|██████▋   | 33/49 [00:24<00:11,  1.43it/s] 69%|██████▉   | 34/49 [00:25<00:10,  1.37it/s] 71%|███████▏  | 35/49 [00:25<00:10,  1.40it/s] 73%|███████▎  | 36/49 [00:26<00:09,  1.39it/s] 76%|███████▌  | 37/49 [00:27<00:08,  1.39it/s] 78%|███████▊  | 38/49 [00:28<00:08,  1.37it/s] 80%|███████▉  | 39/49 [00:28<00:07,  1.38it/s] 82%|████████▏ | 40/49 [00:29<00:06,  1.40it/s] 84%|████████▎ | 41/49 [00:30<00:05,  1.41it/s] 86%|████████▌ | 42/49 [00:31<00:04,  1.40it/s] 88%|████████▊ | 43/49 [00:31<00:04,  1.41it/s] 90%|████████▉ | 44/49 [00:32<00:03,  1.42it/s] 92%|█████████▏| 45/49 [00:33<00:02,  1.42it/s] 94%|█████████▍| 46/49 [00:33<00:02,  1.42it/s] 96%|█████████▌| 47/49 [00:34<00:01,  1.40it/s] 98%|█████████▊| 48/49 [00:35<00:00,  1.42it/s]100%|██████████| 49/49 [00:35<00:00,  1.43it/s]100%|██████████| 49/49 [00:35<00:00,  1.36it/s]
+training, n_batches is 34, n_samples is 1092
+Train Epoch 126 Iteration 0 (0/34)	Loss: 0.2463 / Acc: 1.0000
+Train dataset: Epoch : 126	>	Loss: 0.3979 / Acc: 0.9724 / Scores:8.0397
+Val Epoch 126 Iteration 0 (0/4)	Loss: 0.2349 / Acc: 0.9375
+Val dataset: Epoch : 126	>	Loss: 0.4756 / Acc: 0.9531 / Scores:16.3417
+Train Epoch: 127
+training, n_batches is 34, n_samples is 1092
+Train Epoch 127 Iteration 0 (0/34)	Loss: 0.0868 / Acc: 1.0000
+Train dataset: Epoch : 127	>	Loss: 0.3677 / Acc: 0.9779 / Scores:11.8298
+Val Epoch 127 Iteration 0 (0/4)	Loss: 0.4262 / Acc: 1.0000
+Val dataset: Epoch : 127	>	Loss: 0.5237 / Acc: 0.9688 / Scores:1.2821
+Train Epoch: 128
+training, n_batches is 34, n_samples is 1092
+Train Epoch 128 Iteration 0 (0/34)	Loss: 0.0140 / Acc: 1.0000
+Train dataset: Epoch : 128	>	Loss: 0.4408 / Acc: 0.9706 / Scores:6.6983
+Val Epoch 128 Iteration 0 (0/4)	Loss: 0.3393 / Acc: 0.9375
+Val dataset: Epoch : 128	>	Loss: 0.5445 / Acc: 0.9375 / Scores:15.1123
+Train Epoch: 129
+training, n_batches is 34, n_samples is 1092
+Train Epoch 129 Iteration 0 (0/34)	Loss: 0.0141 / Acc: 1.0000
+Train dataset: Epoch : 129	>	Loss: 0.3100 / Acc: 0.9779 / Scores:13.5407
+Val Epoch 129 Iteration 0 (0/4)	Loss: 0.7871 / Acc: 0.8750
+Val dataset: Epoch : 129	>	Loss: 0.3455 / Acc: 0.9531 / Scores:16.4539
+Train Epoch: 130
+training, n_batches is 34, n_samples is 1092
+Train Epoch 130 Iteration 0 (0/34)	Loss: 0.7155 / Acc: 0.9375
+Train dataset: Epoch : 130	>	Loss: 0.3607 / Acc: 0.9724 / Scores:11.7199
+Val Epoch 130 Iteration 0 (0/4)	Loss: 0.0450 / Acc: 1.0000
+Val dataset: Epoch : 130	>	Loss: 0.2095 / Acc: 0.9844 / Scores:4.7796
+Train Epoch: 131
+training, n_batches is 34, n_samples is 1092
+Train Epoch 131 Iteration 0 (0/34)	Loss: 0.1576 / Acc: 1.0000
+Train dataset: Epoch : 131	>	Loss: 0.2854 / Acc: 0.9779 / Scores:8.8778
+Val Epoch 131 Iteration 0 (0/4)	Loss: 0.1212 / Acc: 1.0000
+Val dataset: Epoch : 131	>	Loss: 0.3112 / Acc: 0.9844 / Scores:8.4417
+Train Epoch: 132
+training, n_batches is 34, n_samples is 1092
+Train Epoch 132 Iteration 0 (0/34)	Loss: 0.5711 / Acc: 0.9375
+Train dataset: Epoch : 132	>	Loss: 0.2891 / Acc: 0.9724 / Scores:9.5453
+Val Epoch 132 Iteration 0 (0/4)	Loss: 0.0282 / Acc: 1.0000
+Val dataset: Epoch : 132	>	Loss: 0.1375 / Acc: 0.9844 / Scores:8.4424
+Train Epoch: 133
+training, n_batches is 34, n_samples is 1092
+Train Epoch 133 Iteration 0 (0/34)	Loss: 0.0001 / Acc: 1.0000
+Train dataset: Epoch : 133	>	Loss: 0.2895 / Acc: 0.9761 / Scores:9.7681
+Val Epoch 133 Iteration 0 (0/4)	Loss: 0.2295 / Acc: 0.9375
+Val dataset: Epoch : 133	>	Loss: 0.0592 / Acc: 0.9844 / Scores:11.6425
+Train Epoch: 134
+training, n_batches is 34, n_samples is 1092
+Train Epoch 134 Iteration 0 (0/34)	Loss: 0.0998 / Acc: 1.0000
+Train dataset: Epoch : 134	>	Loss: 0.2251 / Acc: 0.9835 / Scores:12.1474
+Val Epoch 134 Iteration 0 (0/4)	Loss: 0.0059 / Acc: 1.0000
+Val dataset: Epoch : 134	>	Loss: 0.2924 / Acc: 0.9531 / Scores:12.7062
+Train Epoch: 135
+training, n_batches is 34, n_samples is 1092
+Train Epoch 135 Iteration 0 (0/34)	Loss: 0.0337 / Acc: 1.0000
+Train dataset: Epoch : 135	>	Loss: 0.3102 / Acc: 0.9688 / Scores:11.4156
+Val Epoch 135 Iteration 0 (0/4)	Loss: 0.2318 / Acc: 1.0000
+Val dataset: Epoch : 135	>	Loss: 0.3328 / Acc: 0.9688 / Scores:12.8030
+Train Epoch: 136
+training, n_batches is 34, n_samples is 1092
+Train Epoch 136 Iteration 0 (0/34)	Loss: 0.3147 / Acc: 1.0000
+Train dataset: Epoch : 136	>	Loss: 0.2858 / Acc: 0.9798 / Scores:10.2252
+Val Epoch 136 Iteration 0 (0/4)	Loss: 1.2447 / Acc: 0.8750
+Val dataset: Epoch : 136	>	Loss: 0.3618 / Acc: 0.9688 / Scores:7.9979
+Train Epoch: 137
+training, n_batches is 34, n_samples is 1092
+Train Epoch 137 Iteration 0 (0/34)	Loss: 0.4997 / Acc: 0.9375
+Train dataset: Epoch : 137	>	Loss: 0.2714 / Acc: 0.9779 / Scores:9.2293
+Val Epoch 137 Iteration 0 (0/4)	Loss: 0.5188 / Acc: 0.9375
+Val dataset: Epoch : 137	>	Loss: 0.1298 / Acc: 0.9844 / Scores:6.4322
+Train Epoch: 138
+training, n_batches is 34, n_samples is 1092
+Train Epoch 138 Iteration 0 (0/34)	Loss: 0.0033 / Acc: 1.0000
+Train dataset: Epoch : 138	>	Loss: 0.2773 / Acc: 0.9798 / Scores:9.3785
+Val Epoch 138 Iteration 0 (0/4)	Loss: 0.0065 / Acc: 1.0000
+Val dataset: Epoch : 138	>	Loss: 0.4187 / Acc: 0.9688 / Scores:3.5137
+Train Epoch: 139
+training, n_batches is 34, n_samples is 1092
+Train Epoch 139 Iteration 0 (0/34)	Loss: 0.0000 / Acc: 1.0000
+Train dataset: Epoch : 139	>	Loss: 0.3025 / Acc: 0.9798 / Scores:10.7188
+Val Epoch 139 Iteration 0 (0/4)	Loss: 0.4019 / Acc: 0.9375
+Val dataset: Epoch : 139	>	Loss: 0.2736 / Acc: 0.9688 / Scores:15.3603
+Train Epoch: 140
+training, n_batches is 34, n_samples is 1092
+Train Epoch 140 Iteration 0 (0/34)	Loss: 0.0663 / Acc: 1.0000
+Train dataset: Epoch : 140	>	Loss: 0.4510 / Acc: 0.9614 / Scores:9.0878
+Val Epoch 140 Iteration 0 (0/4)	Loss: 0.5601 / Acc: 0.9375
+Val dataset: Epoch : 140	>	Loss: 0.6111 / Acc: 0.9219 / Scores:11.5232
+Train Epoch: 141
+training, n_batches is 34, n_samples is 1092
+Train Epoch 141 Iteration 0 (0/34)	Loss: 0.5081 / Acc: 1.0000
+Train dataset: Epoch : 141	>	Loss: 0.4921 / Acc: 0.9743 / Scores:7.5194
+Val Epoch 141 Iteration 0 (0/4)	Loss: 0.2937 / Acc: 0.9375
+Val dataset: Epoch : 141	>	Loss: 0.5036 / Acc: 0.9375 / Scores:13.5745
+Train Epoch: 142
+training, n_batches is 34, n_samples is 1092
+Train Epoch 142 Iteration 0 (0/34)	Loss: 1.8288 / Acc: 0.8750
+Train dataset: Epoch : 142	>	Loss: 0.4283 / Acc: 0.9724 / Scores:13.0391
+Val Epoch 142 Iteration 0 (0/4)	Loss: 0.1400 / Acc: 1.0000
+Val dataset: Epoch : 142	>	Loss: 0.2018 / Acc: 0.9844 / Scores:16.1119
+Train Epoch: 143
+training, n_batches is 34, n_samples is 1092
+Train Epoch 143 Iteration 0 (0/34)	Loss: 0.3549 / Acc: 0.9375
+Train dataset: Epoch : 143	>	Loss: 0.3068 / Acc: 0.9835 / Scores:10.6475
+Val Epoch 143 Iteration 0 (0/4)	Loss: 0.0024 / Acc: 1.0000
+Val dataset: Epoch : 143	>	Loss: 0.3220 / Acc: 0.9688 / Scores:5.4158
+Train Epoch: 144
+training, n_batches is 34, n_samples is 1092
+Train Epoch 144 Iteration 0 (0/34)	Loss: 0.0000 / Acc: 1.0000
+Train dataset: Epoch : 144	>	Loss: 0.2238 / Acc: 0.9835 / Scores:10.8109
+Val Epoch 144 Iteration 0 (0/4)	Loss: 0.2050 / Acc: 1.0000
+Val dataset: Epoch : 144	>	Loss: 0.5952 / Acc: 0.9531 / Scores:10.8626
+Train Epoch: 145
+training, n_batches is 34, n_samples is 1092
+Train Epoch 145 Iteration 0 (0/34)	Loss: 0.4476 / Acc: 0.9375
+Train dataset: Epoch : 145	>	Loss: 0.2734 / Acc: 0.9761 / Scores:7.3962
+Val Epoch 145 Iteration 0 (0/4)	Loss: 0.0835 / Acc: 1.0000
+Val dataset: Epoch : 145	>	Loss: 0.4129 / Acc: 0.9688 / Scores:16.6492
+Train Epoch: 146
+training, n_batches is 34, n_samples is 1092
+Train Epoch 146 Iteration 0 (0/34)	Loss: 0.0097 / Acc: 1.0000
+Train dataset: Epoch : 146	>	Loss: 0.2364 / Acc: 0.9816 / Scores:11.8932
+Val Epoch 146 Iteration 0 (0/4)	Loss: 0.0068 / Acc: 1.0000
+Val dataset: Epoch : 146	>	Loss: 0.0977 / Acc: 0.9844 / Scores:9.1425
+Train Epoch: 147
+training, n_batches is 34, n_samples is 1092
+Train Epoch 147 Iteration 0 (0/34)	Loss: 0.6595 / Acc: 0.9375
+Train dataset: Epoch : 147	>	Loss: 0.4401 / Acc: 0.9688 / Scores:14.1730
+Val Epoch 147 Iteration 0 (0/4)	Loss: 0.6915 / Acc: 0.9375
+Val dataset: Epoch : 147	>	Loss: 0.4912 / Acc: 0.9688 / Scores:6.5767
+Train Epoch: 148
+training, n_batches is 34, n_samples is 1092
+Train Epoch 148 Iteration 0 (0/34)	Loss: 0.1515 / Acc: 1.0000
+Train dataset: Epoch : 148	>	Loss: 0.3044 / Acc: 0.9779 / Scores:9.0602
+Val Epoch 148 Iteration 0 (0/4)	Loss: 1.2147 / Acc: 0.9375
+Val dataset: Epoch : 148	>	Loss: 0.6399 / Acc: 0.9688 / Scores:0.1681
+Train Epoch: 149
+training, n_batches is 34, n_samples is 1092
+Train Epoch 149 Iteration 0 (0/34)	Loss: 0.7179 / Acc: 1.0000
+Train dataset: Epoch : 149	>	Loss: 0.4306 / Acc: 0.9688 / Scores:10.2235
+Val Epoch 149 Iteration 0 (0/4)	Loss: 0.2782 / Acc: 0.9375
+Val dataset: Epoch : 149	>	Loss: 0.6350 / Acc: 0.9375 / Scores:11.3346
+Test
+loading model...
+  0%|          | 0/19 [00:00<?, ?it/s]
+0it [00:00, ?it/s][A/home/teamcommon/pjy/Bipedal_walker/criticality/stage1/reward_model.py:260: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  labels_cls = torch.tensor(labels[:,0],dtype=torch.int64).clone().detach()
+
+1it [00:00,  1.83it/s][A
+2it [00:01,  1.84it/s][A
+3it [00:01,  1.68it/s][A
+4it [00:02,  1.43it/s][A
+5it [00:03,  1.23it/s][A
+6it [00:04,  1.20it/s][A
+7it [00:05,  1.17it/s][A
+8it [00:06,  1.13it/s][A
+9it [00:07,  1.10it/s][A
+10it [00:08,  1.04it/s][A
+11it [00:09,  1.08it/s][A
+12it [00:09,  1.15it/s][A
+13it [00:10,  1.21it/s][A
+14it [00:11,  1.31it/s][A
+15it [00:12,  1.28it/s][A
+16it [00:13,  1.09it/s][A
+17it [00:14,  1.10it/s][A
+18it [00:15,  1.07it/s][A
+19it [00:16,  1.06it/s][A
+20it [00:17,  1.09it/s][A
+21it [00:17,  1.09it/s][A
+22it [00:18,  1.06it/s][A
+23it [00:19,  1.11it/s][A
+24it [00:20,  1.16it/s][A
+25it [00:21,  1.25it/s][A
+26it [00:21,  1.37it/s][A
+27it [00:22,  1.34it/s][A
+28it [00:23,  1.29it/s][A
+29it [00:23,  1.39it/s][A29it [00:23,  1.21it/s]
+  5%|▌         | 1/19 [00:23<07:11, 24.00s/it]reward_threshold is:-0.999
+TP is 153, FP is 28981, TN is 562, FN is 0
+TPR is 1.0, FPR is 0.9809768811562807, precison is 0.0052515960733164
+
+0it [00:00, ?it/s][A
+1it [00:00,  1.06it/s][A
+2it [00:01,  1.20it/s][A
+3it [00:02,  1.24it/s][A
+4it [00:03,  1.20it/s][A
+5it [00:04,  1.30it/s][A
+6it [00:04,  1.46it/s][A
+7it [00:05,  1.29it/s][A
+8it [00:06,  1.16it/s][A
+9it [00:07,  1.11it/s][A
+10it [00:08,  1.07it/s][A
+11it [00:09,  1.17it/s][A
+12it [00:09,  1.22it/s][A
+13it [00:10,  1.13it/s][A
+14it [00:11,  1.18it/s][A
+15it [00:12,  1.21it/s][A
+16it [00:13,  1.16it/s][A
+17it [00:14,  1.15it/s][A
+18it [00:15,  1.21it/s][A
+19it [00:16,  1.16it/s][A
+20it [00:16,  1.15it/s][A
+21it [00:17,  1.14it/s][A
+22it [00:18,  1.19it/s][A
+23it [00:19,  1.19it/s][A
+24it [00:20,  1.19it/s][A
+25it [00:21,  1.20it/s][A
+26it [00:21,  1.18it/s][A
+27it [00:22,  1.20it/s][A
+28it [00:23,  1.14it/s][A
+29it [00:24,  1.13it/s][A29it [00:24,  1.18it/s]
+ 11%|█         | 2/19 [00:48<06:54, 24.36s/it]reward_threshold is:-0.888
+TP is 152, FP is 16902, TN is 12642, FN is 0
+TPR is 1.0, FPR is 0.5720958570268074, precison is 0.008912865017004808
+
+0it [00:00, ?it/s][A
+1it [00:00,  1.15it/s][A
+2it [00:01,  1.23it/s][A
+3it [00:02,  1.14it/s][A
+4it [00:03,  1.08it/s][A
+5it [00:04,  1.17it/s][A
+6it [00:05,  1.17it/s][A
+7it [00:06,  1.18it/s][A
+8it [00:06,  1.17it/s][A
+9it [00:07,  1.25it/s][A
+10it [00:08,  1.20it/s][A
+11it [00:09,  1.18it/s][A
+12it [00:10,  1.18it/s][A
+13it [00:11,  1.17it/s][A
+14it [00:11,  1.17it/s][A
+15it [00:12,  1.26it/s][A
+16it [00:13,  1.16it/s][A
+17it [00:14,  1.13it/s][A
+18it [00:15,  1.20it/s][A
+19it [00:15,  1.24it/s][A
+20it [00:16,  1.28it/s][A
+21it [00:17,  1.36it/s][A
+22it [00:18,  1.20it/s][A
+23it [00:19,  1.13it/s][A
+24it [00:20,  1.18it/s][A
+25it [00:20,  1.19it/s][A
+26it [00:21,  1.25it/s][A
+27it [00:22,  1.23it/s][A
+28it [00:23,  1.26it/s][A
+29it [00:24,  1.22it/s][A29it [00:24,  1.20it/s]
+ 16%|█▌        | 3/19 [01:12<06:28, 24.27s/it]reward_threshold is:-0.777
+TP is 149, FP is 12891, TN is 16656, FN is 0
+TPR is 1.0, FPR is 0.4362879480150269, precison is 0.01142638036809816
+
+0it [00:00, ?it/s][A
+1it [00:00,  1.01it/s][A
+2it [00:01,  1.14it/s][A
+3it [00:02,  1.22it/s][A
+4it [00:03,  1.25it/s][A
+5it [00:03,  1.34it/s][A
+6it [00:04,  1.26it/s][A
+7it [00:05,  1.23it/s][A
+8it [00:06,  1.19it/s][A
+9it [00:07,  1.15it/s][A
+10it [00:08,  1.24it/s][A
+11it [00:08,  1.36it/s][A
+12it [00:09,  1.36it/s][A
+13it [00:10,  1.25it/s][A
+14it [00:11,  1.15it/s][A
+15it [00:12,  1.21it/s][A
+16it [00:13,  1.19it/s][A
+17it [00:13,  1.18it/s][A
+18it [00:14,  1.19it/s][A
+19it [00:15,  1.09it/s][A
+20it [00:16,  1.03it/s][A
+21it [00:17,  1.12it/s][A
+22it [00:18,  1.13it/s][A
+23it [00:19,  1.13it/s][A
+24it [00:20,  1.08it/s][A
+25it [00:21,  1.03it/s][A
+26it [00:22,  1.12it/s][A
+27it [00:23,  1.13it/s][A
+28it [00:23,  1.24it/s][A
+29it [00:24,  1.28it/s][A29it [00:24,  1.19it/s]
+ 21%|██        | 4/19 [01:37<06:05, 24.35s/it]reward_threshold is:-0.6659999999999999
+TP is 150, FP is 9328, TN is 20218, FN is 0
+TPR is 1.0, FPR is 0.31571109456440805, precison is 0.01582612365477949
+
+0it [00:00, ?it/s][A
+1it [00:00,  1.45it/s][A
+2it [00:01,  1.31it/s][A
+3it [00:02,  1.39it/s][A
+4it [00:03,  1.23it/s][A
+5it [00:04,  1.03it/s][A
+6it [00:05,  1.07it/s][A
+7it [00:06,  1.09it/s][A
+8it [00:07,  1.04it/s][A
+9it [00:07,  1.11it/s][A
+10it [00:08,  1.06it/s][A
+11it [00:09,  1.12it/s][A
+12it [00:10,  1.16it/s][A
+13it [00:11,  1.15it/s][A
+14it [00:12,  1.13it/s][A
+15it [00:13,  1.04it/s][A
+16it [00:14,  1.15it/s][A
+17it [00:15,  1.13it/s][A
+18it [00:15,  1.18it/s][A
+19it [00:16,  1.21it/s][A
+20it [00:17,  1.19it/s][A
+21it [00:18,  1.27it/s][A
+22it [00:19,  1.23it/s][A
+23it [00:19,  1.31it/s][A
+24it [00:20,  1.17it/s][A
+25it [00:21,  1.15it/s][A
+26it [00:22,  1.17it/s][A
+27it [00:23,  1.17it/s][A
+28it [00:24,  1.21it/s][A
+29it [00:25,  1.09it/s][A29it [00:25,  1.15it/s]
+ 26%|██▋       | 5/19 [02:02<05:45, 24.66s/it]reward_threshold is:-0.5549999999999999
+TP is 153, FP is 6950, TN is 22593, FN is 0
+TPR is 1.0, FPR is 0.2352503131029347, precison is 0.021540194284105307
+
+0it [00:00, ?it/s][A
+1it [00:00,  1.07it/s][A
+2it [00:01,  1.10it/s][A
+3it [00:02,  1.14it/s][A
+4it [00:03,  1.33it/s][A
+5it [00:03,  1.33it/s][A
+6it [00:04,  1.20it/s][A
+7it [00:05,  1.14it/s][A
+8it [00:06,  1.12it/s][A
+9it [00:07,  1.18it/s][A
+10it [00:08,  1.28it/s][A
+11it [00:08,  1.36it/s][A
+12it [00:09,  1.28it/s][A
+13it [00:10,  1.19it/s][A
+14it [00:11,  1.17it/s][A
+15it [00:12,  1.20it/s][A
+16it [00:13,  1.18it/s][A
+17it [00:13,  1.27it/s][A
+18it [00:14,  1.30it/s][A
+19it [00:15,  1.25it/s][A
+20it [00:16,  1.36it/s][A
+21it [00:17,  1.23it/s][A
+22it [00:17,  1.30it/s][A
+23it [00:18,  1.36it/s][A
+24it [00:19,  1.38it/s][A
+25it [00:19,  1.46it/s][A
+26it [00:20,  1.45it/s][A
+27it [00:21,  1.42it/s][A
+28it [00:21,  1.54it/s][A
+29it [00:22,  1.47it/s][A29it [00:22,  1.29it/s]
+ 32%|███▏      | 6/19 [02:24<05:10, 23.90s/it]reward_threshold is:-0.44399999999999995
+TP is 151, FP is 5706, TN is 23839, FN is 0
+TPR is 1.0, FPR is 0.19312912506346253, precison is 0.025781116612600307
+
+0it [00:00, ?it/s][A
+1it [00:00,  1.03it/s][A
+2it [00:01,  1.17it/s][A
+3it [00:02,  1.16it/s][A
+4it [00:03,  1.11it/s][A
+5it [00:04,  1.05it/s][A
+6it [00:05,  1.15it/s][A
+7it [00:06,  1.15it/s][A
+8it [00:07,  1.17it/s][A
+9it [00:07,  1.22it/s][A
+10it [00:08,  1.25it/s][A
+11it [00:09,  1.32it/s][A
+12it [00:09,  1.33it/s][A
+13it [00:10,  1.30it/s][A
+14it [00:11,  1.24it/s][A
+15it [00:12,  1.29it/s][A
+16it [00:13,  1.28it/s][A
+17it [00:13,  1.24it/s][A
+18it [00:14,  1.32it/s][A
+19it [00:15,  1.51it/s][A
+20it [00:15,  1.40it/s][A
+21it [00:16,  1.41it/s][A
+22it [00:17,  1.31it/s][A
+23it [00:18,  1.27it/s][A
+24it [00:19,  1.26it/s][A
+25it [00:19,  1.31it/s][A
+26it [00:20,  1.40it/s][A
+27it [00:21,  1.47it/s][A
+28it [00:21,  1.58it/s][A
+29it [00:22,  1.45it/s][A29it [00:22,  1.30it/s]
+ 37%|███▋      | 7/19 [02:47<04:40, 23.40s/it]reward_threshold is:-0.33299999999999996
+TP is 146, FP is 4823, TN is 24725, FN is 2
+TPR is 0.9864864864864865, FPR is 0.16322593745769595, precison is 0.02938216945059368
+
+0it [00:00, ?it/s][A
+1it [00:00,  1.23it/s][A
+2it [00:01,  1.25it/s][A
+3it [00:02,  1.24it/s][A
+4it [00:03,  1.28it/s][A
+5it [00:03,  1.28it/s][A
+6it [00:04,  1.21it/s][A
+7it [00:06,  1.00it/s][A
+8it [00:07,  1.04it/s][A
+9it [00:07,  1.09it/s][A
+10it [00:08,  1.11it/s][A
+11it [00:09,  1.12it/s][A
+12it [00:10,  1.20it/s][A
+13it [00:11,  1.20it/s][A
+14it [00:12,  1.15it/s][A
+15it [00:13,  1.15it/s][A
+16it [00:13,  1.20it/s][A
+17it [00:14,  1.20it/s][A
+18it [00:15,  1.20it/s][A
+19it [00:16,  1.22it/s][A
+20it [00:17,  1.19it/s][A
+21it [00:17,  1.27it/s][A
+22it [00:18,  1.33it/s][A
+23it [00:19,  1.21it/s][A
+24it [00:20,  1.29it/s][A
+25it [00:20,  1.28it/s][A
+26it [00:21,  1.23it/s][A
+27it [00:22,  1.25it/s][A
+28it [00:23,  1.21it/s][A
+29it [00:24,  1.29it/s][A29it [00:24,  1.20it/s]
+ 42%|████▏     | 8/19 [03:11<04:19, 23.62s/it]reward_threshold is:-0.22199999999999998
+TP is 149, FP is 4279, TN is 25265, FN is 3
+TPR is 0.9802631578947368, FPR is 0.14483482263742214, precison is 0.033649503161698284
+
+0it [00:00, ?it/s][A
+1it [00:00,  1.70it/s][A
+2it [00:01,  1.59it/s][A
+3it [00:02,  1.30it/s][A
+4it [00:02,  1.36it/s][A
+5it [00:03,  1.43it/s][A
+6it [00:04,  1.50it/s][A
+7it [00:04,  1.58it/s][A
+8it [00:05,  1.36it/s][A
+9it [00:06,  1.31it/s][A
+10it [00:07,  1.25it/s][A
+11it [00:08,  1.22it/s][A
+12it [00:08,  1.24it/s][A
+13it [00:09,  1.30it/s][A
+14it [00:10,  1.33it/s][A
+15it [00:11,  1.26it/s][A
+16it [00:12,  1.26it/s][A
+17it [00:12,  1.23it/s][A
+18it [00:13,  1.23it/s][A
+19it [00:14,  1.13it/s][A
+20it [00:15,  1.15it/s][A
+21it [00:16,  1.15it/s][A
+22it [00:17,  1.24it/s][A
+23it [00:18,  1.21it/s][A
+24it [00:18,  1.38it/s][A
+25it [00:19,  1.43it/s][A
+26it [00:20,  1.18it/s][A
+27it [00:21,  1.10it/s][A
+28it [00:22,  1.07it/s][A
+29it [00:22,  1.20it/s][A29it [00:22,  1.26it/s]
+ 47%|████▋     | 9/19 [03:34<03:54, 23.42s/it]reward_threshold is:-0.11099999999999999
+TP is 150, FP is 3743, TN is 25799, FN is 4
+TPR is 0.974025974025974, FPR is 0.12670096811319478, precison is 0.038530696121243255
+
+0it [00:00, ?it/s][A
+1it [00:00,  1.04it/s][A
+2it [00:01,  1.02it/s][A
+3it [00:03,  1.02s/it][A
+4it [00:03,  1.09it/s][A
+5it [00:04,  1.15it/s][A
+6it [00:05,  1.02it/s][A
+7it [00:06,  1.14it/s][A
+8it [00:07,  1.23it/s][A
+9it [00:07,  1.29it/s][A
+10it [00:08,  1.29it/s][A
+11it [00:09,  1.43it/s][A
+12it [00:09,  1.34it/s][A
+13it [00:10,  1.24it/s][A
+14it [00:11,  1.14it/s][A
+15it [00:12,  1.24it/s][A
+16it [00:13,  1.34it/s][A
+17it [00:13,  1.33it/s][A
+18it [00:14,  1.24it/s][A
+19it [00:15,  1.21it/s][A
+20it [00:16,  1.31it/s][A
+21it [00:17,  1.29it/s][A
+22it [00:17,  1.28it/s][A
+23it [00:18,  1.29it/s][A
+24it [00:19,  1.32it/s][A
+25it [00:20,  1.19it/s][A
+26it [00:20,  1.35it/s][A
+27it [00:21,  1.23it/s][A
+28it [00:22,  1.23it/s][A
+29it [00:23,  1.23it/s][A29it [00:23,  1.23it/s]
+ 53%|█████▎    | 10/19 [03:57<03:31, 23.47s/it]reward_threshold is:0.0
+TP is 142, FP is 3134, TN is 26416, FN is 4
+TPR is 0.9726027397260274, FPR is 0.10605752961082911, precison is 0.043345543345543344
+
+0it [00:00, ?it/s][A
+1it [00:00,  1.45it/s][A
+2it [00:01,  1.25it/s][A
+3it [00:02,  1.15it/s][A
+4it [00:03,  1.06it/s][A
+5it [00:04,  1.09it/s][A
+6it [00:05,  1.16it/s][A
+7it [00:06,  1.18it/s][A
+8it [00:06,  1.18it/s][A
+9it [00:07,  1.15it/s][A
+10it [00:08,  1.19it/s][A
+11it [00:09,  1.24it/s][A
+12it [00:09,  1.29it/s][A
+13it [00:10,  1.26it/s][A
+14it [00:11,  1.17it/s][A
+15it [00:12,  1.07it/s][A
+16it [00:13,  1.18it/s][A
+17it [00:14,  1.26it/s][A
+18it [00:14,  1.34it/s][A
+19it [00:15,  1.32it/s][A
+20it [00:16,  1.14it/s][A
+21it [00:18,  1.02s/it][A
+22it [00:18,  1.06it/s][A
+23it [00:19,  1.10it/s][A
+24it [00:20,  1.26it/s][A
+25it [00:20,  1.42it/s][A
+26it [00:21,  1.31it/s][A
+27it [00:22,  1.44it/s][A
+28it [00:23,  1.25it/s][A
+29it [00:24,  1.19it/s][A29it [00:24,  1.20it/s]
+ 58%|█████▊    | 11/19 [04:22<03:09, 23.70s/it]reward_threshold is:0.1110000000000001
+TP is 144, FP is 2300, TN is 27243, FN is 9
+TPR is 0.9411764705882353, FPR is 0.07785262160241005, precison is 0.058919803600654665
+
+0it [00:00, ?it/s][A
+1it [00:00,  1.21it/s][A
+2it [00:01,  1.41it/s][A
+3it [00:02,  1.25it/s][A
+4it [00:03,  1.09it/s][A
+5it [00:04,  1.06it/s][A
+6it [00:05,  1.03it/s][A
+7it [00:06,  1.05it/s][A
+8it [00:07,  1.05it/s][A
+9it [00:08,  1.12it/s][A
+10it [00:08,  1.15it/s][A
+11it [00:09,  1.22it/s][A
+12it [00:10,  1.23it/s][A
+13it [00:11,  1.10it/s][A
+14it [00:12,  1.05it/s][A
+15it [00:13,  1.11it/s][A
+16it [00:14,  1.12it/s][A
+17it [00:15,  1.15it/s][A
+18it [00:15,  1.22it/s][A
+19it [00:16,  1.23it/s][A
+20it [00:17,  1.20it/s][A
+21it [00:18,  1.09it/s][A
+22it [00:19,  1.07it/s][A
+23it [00:20,  1.10it/s][A
+24it [00:21,  1.10it/s][A
+25it [00:22,  1.06it/s][A
+26it [00:23,  1.04it/s][A
+27it [00:24,  1.11it/s][A
+28it [00:25,  1.10it/s][A
+29it [00:25,  1.12it/s][A29it [00:25,  1.12it/s]
+ 63%|██████▎   | 12/19 [04:47<02:50, 24.36s/it]reward_threshold is:0.2220000000000001
+TP is 134, FP is 1599, TN is 27945, FN is 18
+TPR is 0.881578947368421, FPR is 0.054122664500406176, precison is 0.07732256203115984
+
+0it [00:00, ?it/s][A
+1it [00:00,  2.16it/s][A
+2it [00:01,  1.50it/s][A
+3it [00:02,  1.24it/s][A
+4it [00:03,  1.13it/s][A
+5it [00:04,  1.12it/s][A
+6it [00:04,  1.18it/s][A
+7it [00:05,  1.15it/s][A
+8it [00:06,  1.17it/s][A
+9it [00:07,  1.17it/s][A
+10it [00:08,  1.19it/s][A
+11it [00:08,  1.36it/s][A
+12it [00:11,  1.40s/it][A
+13it [00:12,  1.25s/it][A
+14it [00:13,  1.16s/it][A
+15it [00:14,  1.06s/it][A
+16it [00:15,  1.01s/it][A
+17it [00:16,  1.00it/s][A
+18it [00:16,  1.10it/s][A
+19it [00:17,  1.21it/s][A
+20it [00:18,  1.23it/s][A
+21it [00:19,  1.21it/s][A
+22it [00:20,  1.23it/s][A
+23it [00:20,  1.17it/s][A
+24it [00:21,  1.20it/s][A
+25it [00:22,  1.18it/s][A
+26it [00:23,  1.17it/s][A
+27it [00:24,  1.19it/s][A
+28it [00:25,  1.18it/s][A
+29it [00:25,  1.25it/s][A29it [00:25,  1.12it/s]
+ 68%|██████▊   | 13/19 [05:13<02:28, 24.82s/it]reward_threshold is:0.3330000000000001
+TP is 131, FP is 1108, TN is 28436, FN is 21
+TPR is 0.8618421052631579, FPR is 0.03750338478202004, precison is 0.10573042776432606
+
+0it [00:00, ?it/s][A
+1it [00:00,  1.34it/s][A
+2it [00:01,  1.69it/s][A
+3it [00:01,  1.53it/s][A
+4it [00:02,  1.55it/s][A
+5it [00:03,  1.76it/s][A
+6it [00:03,  1.55it/s][A
+7it [00:04,  1.29it/s][A
+8it [00:05,  1.32it/s][A
+9it [00:06,  1.28it/s][A
+10it [00:07,  1.24it/s][A
+11it [00:08,  1.23it/s][A
+12it [00:09,  1.17it/s][A
+13it [00:09,  1.20it/s][A
+14it [00:10,  1.18it/s][A
+15it [00:11,  1.22it/s][A
+16it [00:12,  1.21it/s][A
+17it [00:13,  1.19it/s][A
+18it [00:14,  1.12it/s][A
+19it [00:15,  1.14it/s][A
+20it [00:15,  1.15it/s][A
+21it [00:16,  1.06it/s][A
+22it [00:17,  1.17it/s][A
+23it [00:18,  1.26it/s][A
+24it [00:19,  1.15it/s][A
+25it [00:20,  1.14it/s][A
+26it [00:21,  1.13it/s][A
+27it [00:22,  1.13it/s][A
+28it [00:22,  1.13it/s][A
+29it [00:23,  1.14it/s][A29it [00:23,  1.22it/s]
+ 74%|███████▎  | 14/19 [05:37<02:02, 24.51s/it]reward_threshold is:0.44400000000000006
+TP is 121, FP is 654, TN is 28892, FN is 29
+TPR is 0.8066666666666666, FPR is 0.022134975969674404, precison is 0.15612903225806452
+
+0it [00:00, ?it/s][A
+1it [00:00,  1.51it/s][A
+2it [00:01,  1.67it/s][A
+3it [00:02,  1.40it/s][A
+4it [00:02,  1.26it/s][A
+5it [00:03,  1.33it/s][A
+6it [00:04,  1.19it/s][A
+7it [00:05,  1.27it/s][A
+8it [00:06,  1.28it/s][A
+9it [00:07,  1.21it/s][A
+10it [00:07,  1.25it/s][A
+11it [00:08,  1.25it/s][A
+12it [00:09,  1.20it/s][A
+13it [00:10,  1.22it/s][A
+14it [00:11,  1.24it/s][A
+15it [00:11,  1.24it/s][A
+16it [00:13,  1.08it/s][A
+17it [00:13,  1.14it/s][A
+18it [00:14,  1.19it/s][A
+19it [00:15,  1.25it/s][A
+20it [00:16,  1.18it/s][A
+21it [00:16,  1.33it/s][A
+22it [00:17,  1.36it/s][A
+23it [00:18,  1.31it/s][A
+24it [00:19,  1.30it/s][A
+25it [00:19,  1.36it/s][A
+26it [00:20,  1.32it/s][A
+27it [00:21,  1.38it/s][A
+28it [00:22,  1.27it/s][A
+29it [00:23,  1.24it/s][A29it [00:23,  1.26it/s]
+ 79%|███████▉  | 15/19 [06:00<01:36, 24.05s/it]reward_threshold is:0.555
+TP is 110, FP is 432, TN is 29114, FN is 40
+TPR is 0.7333333333333333, FPR is 0.01462126853042713, precison is 0.2029520295202952
+
+0it [00:00, ?it/s][A
+1it [00:00,  1.17it/s][A
+2it [00:01,  1.13it/s][A
+3it [00:02,  1.11it/s][A
+4it [00:03,  1.13it/s][A
+5it [00:04,  1.11it/s][A
+6it [00:05,  1.10it/s][A
+7it [00:06,  1.15it/s][A
+8it [00:06,  1.21it/s][A
+9it [00:08,  1.07it/s][A
+10it [00:08,  1.15it/s][A
+11it [00:09,  1.13it/s][A
+12it [00:10,  1.17it/s][A
+13it [00:10,  1.41it/s][A
+14it [00:11,  1.41it/s][A
+15it [00:12,  1.34it/s][A
+16it [00:13,  1.22it/s][A
+17it [00:14,  1.14it/s][A
+18it [00:15,  1.15it/s][A
+19it [00:16,  1.15it/s][A
+20it [00:17,  1.08it/s][A
+21it [00:18,  1.10it/s][A
+22it [00:18,  1.10it/s][A
+23it [00:19,  1.15it/s][A
+24it [00:20,  1.23it/s][A
+25it [00:21,  1.19it/s][A
+26it [00:22,  1.27it/s][A
+27it [00:22,  1.30it/s][A
+28it [00:23,  1.22it/s][A
+29it [00:24,  1.26it/s][A29it [00:24,  1.19it/s]
+ 84%|████████▍ | 16/19 [06:25<01:12, 24.17s/it]reward_threshold is:0.666
+TP is 100, FP is 290, TN is 29256, FN is 50
+TPR is 0.6666666666666666, FPR is 0.009815203411629324, precison is 0.2564102564102564
+
+0it [00:00, ?it/s][A
+1it [00:00,  1.59it/s][A
+2it [00:01,  1.68it/s][A
+3it [00:02,  1.39it/s][A
+4it [00:03,  1.10it/s][A
+5it [00:04,  1.14it/s][A
+6it [00:04,  1.17it/s][A
+7it [00:05,  1.19it/s][A
+8it [00:06,  1.27it/s][A
+9it [00:07,  1.17it/s][A
+10it [00:08,  1.05it/s][A
+11it [00:09,  1.15it/s][A
+12it [00:10,  1.14it/s][A
+13it [00:10,  1.16it/s][A
+14it [00:11,  1.30it/s][A
+15it [00:12,  1.25it/s][A
+16it [00:13,  1.17it/s][A
+17it [00:14,  1.16it/s][A
+18it [00:15,  1.16it/s][A
+19it [00:16,  1.14it/s][A
+20it [00:16,  1.30it/s][A
+21it [00:17,  1.18it/s][A
+22it [00:18,  1.16it/s][A
+23it [00:19,  1.17it/s][A
+24it [00:20,  1.19it/s][A
+25it [00:20,  1.33it/s][A
+26it [00:21,  1.20it/s][A
+27it [00:22,  1.09it/s][A
+28it [00:23,  1.12it/s][A
+29it [00:24,  1.15it/s][A29it [00:24,  1.19it/s]
+ 89%|████████▉ | 17/19 [06:49<00:48, 24.25s/it]reward_threshold is:0.777
+TP is 78, FP is 180, TN is 29361, FN is 77
+TPR is 0.5032258064516129, FPR is 0.006093226363359399, precison is 0.3023255813953488
+
+0it [00:00, ?it/s][A
+1it [00:00,  1.65it/s][A
+2it [00:01,  1.31it/s][A
+3it [00:02,  1.39it/s][A
+4it [00:03,  1.16it/s][A
+5it [00:04,  1.19it/s][A
+6it [00:04,  1.32it/s][A
+7it [00:05,  1.36it/s][A
+8it [00:05,  1.40it/s][A
+9it [00:07,  1.22it/s][A
+10it [00:08,  1.11it/s][A
+11it [00:08,  1.15it/s][A
+12it [00:09,  1.14it/s][A
+13it [00:10,  1.16it/s][A
+14it [00:11,  1.24it/s][A
+15it [00:11,  1.33it/s][A
+16it [00:12,  1.46it/s][A
+17it [00:13,  1.34it/s][A
+18it [00:14,  1.29it/s][A
+19it [00:14,  1.32it/s][A
+20it [00:15,  1.40it/s][A
+21it [00:16,  1.25it/s][A
+22it [00:17,  1.11it/s][A
+23it [00:18,  1.11it/s][A
+24it [00:19,  1.18it/s][A
+25it [00:20,  1.18it/s][A
+26it [00:21,  1.16it/s][A
+27it [00:21,  1.16it/s][A
+28it [00:22,  1.13it/s][A
+29it [00:23,  1.13it/s][A29it [00:23,  1.22it/s]
+ 95%|█████████▍| 18/19 [07:13<00:24, 24.09s/it]reward_threshold is:0.888
+TP is 64, FP is 41, TN is 29506, FN is 85
+TPR is 0.42953020134228187, FPR is 0.0013876197245067182, precison is 0.6095238095238096
+
+0it [00:00, ?it/s][A
+1it [00:00,  1.36it/s][A
+2it [00:01,  1.19it/s][A
+3it [00:02,  1.13it/s][A
+4it [00:03,  1.25it/s][A
+5it [00:04,  1.24it/s][A
+6it [00:04,  1.31it/s][A
+7it [00:05,  1.33it/s][A
+8it [00:06,  1.26it/s][A
+9it [00:07,  1.27it/s][A
+10it [00:07,  1.37it/s][A
+11it [00:08,  1.39it/s][A
+12it [00:09,  1.39it/s][A
+13it [00:09,  1.32it/s][A
+14it [00:10,  1.26it/s][A
+15it [00:11,  1.26it/s][A
+16it [00:12,  1.30it/s][A
+17it [00:13,  1.29it/s][A
+18it [00:13,  1.27it/s][A
+19it [00:14,  1.32it/s][A
+20it [00:15,  1.27it/s][A
+21it [00:16,  1.29it/s][A
+22it [00:17,  1.23it/s][A
+23it [00:18,  1.13it/s][A
+24it [00:19,  1.07it/s][A
+25it [00:20,  1.10it/s][A
+26it [00:21,  1.10it/s][A
+27it [00:21,  1.18it/s][A
+28it [00:22,  1.24it/s][A
+29it [00:23,  1.18it/s][A29it [00:23,  1.24it/s]
+100%|██████████| 19/19 [07:36<00:00, 23.88s/it]100%|██████████| 19/19 [07:36<00:00, 24.03s/it]
+reward_threshold is:0.999
+TP is 26, FP is 3, TN is 29541, FN is 126
+TPR is 0.17105263157894737, FPR is 0.00010154346060113728, precison is 0.896551724137931
+TPR_list is [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.9864864864864865, 0.9802631578947368, 0.974025974025974, 0.9726027397260274, 0.9411764705882353, 0.881578947368421, 0.8618421052631579, 0.8066666666666666, 0.7333333333333333, 0.6666666666666666, 0.5032258064516129, 0.42953020134228187, 0.17105263157894737], FPR_list is [0.9809768811562807, 0.5720958570268074, 0.4362879480150269, 0.31571109456440805, 0.2352503131029347, 0.19312912506346253, 0.16322593745769595, 0.14483482263742214, 0.12670096811319478, 0.10605752961082911, 0.07785262160241005, 0.054122664500406176, 0.03750338478202004, 0.022134975969674404, 0.01462126853042713, 0.009815203411629324, 0.006093226363359399, 0.0013876197245067182, 0.00010154346060113728], precison_list is [0.0052515960733164, 0.008912865017004808, 0.01142638036809816, 0.01582612365477949, 0.021540194284105307, 0.025781116612600307, 0.02938216945059368, 0.033649503161698284, 0.038530696121243255, 0.043345543345543344, 0.058919803600654665, 0.07732256203115984, 0.10573042776432606, 0.15612903225806452, 0.2029520295202952, 0.2564102564102564, 0.3023255813953488, 0.6095238095238096, 0.896551724137931]
+loading model...
+neg data is being loaded...
+  0%|          | 0/211 [00:00<?, ?it/s]  1%|          | 2/211 [00:00<00:18, 11.36it/s]  2%|▏         | 4/211 [00:00<00:31,  6.48it/s]  2%|▏         | 5/211 [00:00<00:45,  4.56it/s]  3%|▎         | 7/211 [00:01<00:51,  3.95it/s]  4%|▍         | 8/211 [00:01<00:43,  4.63it/s]  4%|▍         | 9/211 [00:02<01:02,  3.23it/s]  5%|▍         | 10/211 [00:02<00:51,  3.94it/s]  5%|▌         | 11/211 [00:02<00:48,  4.14it/s]  6%|▌         | 12/211 [00:03<01:23,  2.39it/s]  6%|▌         | 13/211 [00:03<01:04,  3.05it/s]  7%|▋         | 14/211 [00:03<00:51,  3.80it/s]  8%|▊         | 16/211 [00:04<01:13,  2.64it/s]  8%|▊         | 17/211 [00:04<01:01,  3.14it/s]  9%|▊         | 18/211 [00:04<00:51,  3.72it/s]  9%|▉         | 20/211 [00:06<01:17,  2.45it/s] 10%|█         | 22/211 [00:06<00:54,  3.44it/s] 11%|█         | 23/211 [00:06<00:47,  3.97it/s] 12%|█▏        | 25/211 [00:07<01:25,  2.19it/s] 12%|█▏        | 26/211 [00:08<01:13,  2.50it/s] 13%|█▎        | 28/211 [00:08<00:53,  3.42it/s] 14%|█▍        | 30/211 [00:08<00:40,  4.46it/s] 15%|█▌        | 32/211 [00:10<01:20,  2.23it/s] 16%|█▌        | 33/211 [00:10<01:07,  2.62it/s] 17%|█▋        | 35/211 [00:10<00:49,  3.56it/s] 18%|█▊        | 37/211 [00:10<00:38,  4.56it/s] 18%|█▊        | 38/211 [00:10<00:34,  5.04it/s] 18%|█▊        | 39/211 [00:11<00:30,  5.56it/s] 19%|█▉        | 40/211 [00:11<00:27,  6.19it/s] 19%|█▉        | 41/211 [00:13<02:09,  1.31it/s] 20%|██        | 43/211 [00:13<01:17,  2.15it/s] 21%|██▏       | 45/211 [00:14<00:54,  3.05it/s] 22%|██▏       | 47/211 [00:14<00:41,  3.97it/s] 23%|██▎       | 48/211 [00:14<00:36,  4.50it/s] 23%|██▎       | 49/211 [00:14<00:31,  5.12it/s] 24%|██▍       | 51/211 [00:14<00:25,  6.32it/s] 25%|██▍       | 52/211 [00:17<01:47,  1.47it/s] 25%|██▌       | 53/211 [00:17<01:25,  1.84it/s] 26%|██▌       | 54/211 [00:17<01:07,  2.31it/s] 27%|██▋       | 56/211 [00:17<00:45,  3.42it/s] 27%|██▋       | 57/211 [00:17<00:38,  4.03it/s] 28%|██▊       | 59/211 [00:17<00:28,  5.28it/s] 28%|██▊       | 60/211 [00:18<00:25,  5.90it/s] 29%|██▉       | 62/211 [00:18<00:21,  7.02it/s] 30%|██▉       | 63/211 [00:18<00:19,  7.49it/s] 30%|███       | 64/211 [00:18<00:18,  7.93it/s] 31%|███       | 65/211 [00:18<00:17,  8.35it/s] 31%|███▏      | 66/211 [00:22<02:35,  1.07s/it] 32%|███▏      | 67/211 [00:22<01:56,  1.23it/s] 33%|███▎      | 69/211 [00:22<01:10,  2.01it/s] 34%|███▍      | 72/211 [00:22<00:40,  3.46it/s] 35%|███▌      | 74/211 [00:22<00:31,  4.37it/s] 36%|███▌      | 76/211 [00:23<00:25,  5.28it/s] 37%|███▋      | 78/211 [00:23<00:21,  6.18it/s] 38%|███▊      | 80/211 [00:23<00:18,  6.98it/s] 39%|███▉      | 82/211 [00:23<00:16,  7.70it/s] 40%|███▉      | 84/211 [00:28<01:46,  1.20it/s] 40%|████      | 85/211 [00:28<01:28,  1.42it/s] 41%|████      | 86/211 [00:28<01:14,  1.67it/s] 42%|████▏     | 88/211 [00:29<00:51,  2.41it/s] 42%|████▏     | 89/211 [00:29<00:42,  2.86it/s] 43%|████▎     | 90/211 [00:29<00:35,  3.41it/s] 43%|████▎     | 91/211 [00:29<00:29,  4.07it/s] 44%|████▎     | 92/211 [00:29<00:24,  4.80it/s] 44%|████▍     | 93/211 [00:29<00:21,  5.55it/s] 45%|████▍     | 94/211 [00:29<00:18,  6.32it/s] 45%|████▌     | 95/211 [00:29<00:16,  7.06it/s] 45%|████▌     | 96/211 [00:30<00:15,  7.66it/s] 46%|████▌     | 97/211 [00:30<00:13,  8.17it/s] 46%|████▋     | 98/211 [00:30<00:13,  8.60it/s] 47%|████▋     | 99/211 [00:30<00:12,  8.84it/s] 47%|████▋     | 100/211 [00:30<00:12,  9.09it/s] 48%|████▊     | 101/211 [00:30<00:11,  9.28it/s] 48%|████▊     | 102/211 [00:30<00:11,  9.44it/s] 49%|████▉     | 103/211 [00:30<00:11,  9.51it/s] 49%|████▉     | 104/211 [00:36<03:09,  1.77s/it] 50%|████▉     | 105/211 [00:36<02:15,  1.27s/it] 50%|█████     | 106/211 [00:36<01:36,  1.08it/s] 51%|█████     | 108/211 [00:36<00:55,  1.84it/s] 52%|█████▏    | 110/211 [00:37<00:37,  2.73it/s] 53%|█████▎    | 112/211 [00:37<00:26,  3.69it/s] 54%|█████▎    | 113/211 [00:37<00:23,  4.24it/s] 55%|█████▍    | 115/211 [00:37<00:17,  5.40it/s] 55%|█████▍    | 116/211 [00:37<00:15,  5.97it/s] 55%|█████▌    | 117/211 [00:37<00:14,  6.56it/s] 56%|█████▌    | 118/211 [00:37<00:12,  7.16it/s] 56%|█████▋    | 119/211 [00:37<00:12,  7.62it/s] 57%|█████▋    | 121/211 [00:38<00:10,  8.51it/s] 58%|█████▊    | 122/211 [00:38<00:10,  8.79it/s] 58%|█████▊    | 123/211 [00:38<00:09,  9.04it/s] 59%|█████▉    | 125/211 [00:38<00:09,  9.45it/s] 60%|██████    | 127/211 [00:38<00:08,  9.70it/s] 61%|██████    | 129/211 [00:38<00:08,  9.82it/s] 62%|██████▏   | 131/211 [00:46<01:52,  1.41s/it] 63%|██████▎   | 132/211 [00:47<01:31,  1.16s/it] 63%|██████▎   | 133/211 [00:47<01:12,  1.07it/s] 64%|██████▍   | 135/211 [00:47<00:46,  1.63it/s] 65%|██████▍   | 137/211 [00:47<00:32,  2.31it/s] 65%|██████▌   | 138/211 [00:47<00:26,  2.73it/s] 66%|██████▋   | 140/211 [00:47<00:19,  3.72it/s] 67%|██████▋   | 141/211 [00:47<00:16,  4.26it/s] 67%|██████▋   | 142/211 [00:48<00:14,  4.90it/s] 68%|██████▊   | 143/211 [00:48<00:12,  5.60it/s] 69%|██████▊   | 145/211 [00:48<00:09,  6.84it/s] 69%|██████▉   | 146/211 [00:48<00:08,  7.34it/s] 70%|██████▉   | 147/211 [00:48<00:08,  7.84it/s] 71%|███████   | 149/211 [00:48<00:07,  8.63it/s] 72%|███████▏  | 151/211 [00:48<00:06,  9.14it/s] 73%|███████▎  | 153/211 [00:49<00:06,  9.43it/s] 73%|███████▎  | 155/211 [00:49<00:05,  9.59it/s] 74%|███████▍  | 156/211 [00:49<00:05,  9.63it/s] 74%|███████▍  | 157/211 [00:49<00:05,  9.66it/s] 75%|███████▍  | 158/211 [00:49<00:05,  9.69it/s] 75%|███████▌  | 159/211 [00:49<00:05,  9.70it/s] 76%|███████▋  | 161/211 [00:50<00:05,  9.43it/s] 77%|███████▋  | 162/211 [00:59<01:52,  2.30s/it] 78%|███████▊  | 164/211 [00:59<01:06,  1.41s/it] 79%|███████▊  | 166/211 [00:59<00:42,  1.07it/s] 80%|███████▉  | 168/211 [01:00<00:28,  1.54it/s] 81%|████████  | 170/211 [01:00<00:19,  2.12it/s] 82%|████████▏ | 172/211 [01:00<00:13,  2.83it/s] 82%|████████▏ | 174/211 [01:00<00:10,  3.64it/s] 83%|████████▎ | 176/211 [01:00<00:07,  4.53it/s] 84%|████████▍ | 178/211 [01:01<00:06,  5.43it/s] 85%|████████▌ | 180/211 [01:01<00:04,  6.34it/s] 86%|████████▋ | 182/211 [01:01<00:04,  7.11it/s] 87%|████████▋ | 184/211 [01:01<00:03,  7.79it/s] 88%|████████▊ | 186/211 [01:01<00:03,  8.32it/s] 89%|████████▉ | 188/211 [01:02<00:02,  9.96it/s] 90%|█████████ | 190/211 [01:02<00:02,  9.94it/s] 91%|█████████ | 192/211 [01:02<00:01, 10.00it/s] 92%|█████████▏| 194/211 [01:02<00:01,  9.61it/s] 93%|█████████▎| 196/211 [01:02<00:01,  9.30it/s] 93%|█████████▎| 197/211 [01:03<00:01,  8.57it/s] 94%|█████████▍| 198/211 [01:03<00:01,  8.73it/s] 94%|█████████▍| 199/211 [01:03<00:01,  8.88it/s] 95%|█████████▍| 200/211 [01:03<00:01,  9.07it/s] 95%|█████████▌| 201/211 [01:03<00:01,  9.28it/s] 96%|█████████▌| 202/211 [01:03<00:00,  9.42it/s] 96%|█████████▌| 203/211 [01:03<00:00,  9.54it/s] 97%|█████████▋| 204/211 [01:16<00:26,  3.73s/it] 97%|█████████▋| 205/211 [01:16<00:16,  2.68s/it] 98%|█████████▊| 206/211 [01:16<00:09,  1.93s/it] 99%|█████████▊| 208/211 [01:17<00:03,  1.10s/it] 99%|█████████▉| 209/211 [01:17<00:01,  1.17it/s]100%|██████████| 211/211 [01:17<00:00,  1.84it/s]100%|██████████| 211/211 [01:17<00:00,  2.73it/s]
+num of neg is 1504396
+0it [00:00, ?it/s]/home/teamcommon/pjy/Bipedal_walker/criticality/stage1/reward_model.py:724: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  labels_cls = torch.tensor(labels[:,0],dtype=torch.int64).clone().detach()
+1it [00:01,  1.22s/it]2it [00:01,  1.15it/s]3it [00:02,  1.17it/s]4it [00:03,  1.30it/s]5it [00:03,  1.51it/s]6it [00:04,  1.51it/s]7it [00:05,  1.42it/s]8it [00:06,  1.38it/s]9it [00:06,  1.27it/s]10it [00:07,  1.26it/s]11it [00:08,  1.29it/s]12it [00:09,  1.27it/s]13it [00:10,  1.17it/s]14it [00:11,  1.17it/s]15it [00:12,  1.15it/s]16it [00:12,  1.18it/s]17it [00:13,  1.22it/s]18it [00:14,  1.19it/s]19it [00:15,  1.33it/s]20it [00:15,  1.33it/s]21it [00:16,  1.32it/s]22it [00:17,  1.26it/s]23it [00:18,  1.34it/s]24it [00:18,  1.38it/s]25it [00:19,  1.46it/s]26it [00:20,  1.40it/s]27it [00:20,  1.50it/s]28it [00:21,  1.52it/s]29it [00:22,  1.40it/s]30it [00:23,  1.33it/s]31it [00:23,  1.32it/s]32it [00:24,  1.32it/s]33it [00:25,  1.32it/s]34it [00:25,  1.46it/s]35it [00:26,  1.62it/s]36it [00:26,  1.65it/s]37it [00:27,  1.51it/s]38it [00:28,  1.43it/s]39it [00:29,  1.43it/s]40it [00:29,  1.42it/s]41it [00:30,  1.36it/s]42it [00:31,  1.32it/s]43it [00:32,  1.27it/s]44it [00:33,  1.20it/s]45it [00:34,  1.24it/s]46it [00:34,  1.25it/s]47it [00:35,  1.38it/s]48it [00:36,  1.31it/s]49it [00:36,  1.46it/s]50it [00:37,  1.40it/s]51it [00:38,  1.36it/s]52it [00:39,  1.32it/s]53it [00:39,  1.34it/s]54it [00:40,  1.34it/s]55it [00:41,  1.32it/s]56it [00:42,  1.36it/s]57it [00:42,  1.32it/s]58it [00:43,  1.27it/s]59it [00:44,  1.32it/s]60it [00:44,  1.39it/s]61it [00:45,  1.38it/s]62it [00:46,  1.32it/s]63it [00:47,  1.26it/s]64it [00:48,  1.37it/s]65it [00:49,  1.22it/s]66it [00:49,  1.24it/s]67it [00:50,  1.33it/s]68it [00:50,  1.45it/s]69it [00:51,  1.44it/s]70it [00:52,  1.43it/s]71it [00:52,  1.55it/s]72it [00:54,  1.28it/s]73it [00:54,  1.38it/s]74it [00:55,  1.44it/s]75it [00:56,  1.39it/s]76it [00:56,  1.42it/s]77it [00:57,  1.45it/s]78it [00:58,  1.47it/s]79it [00:58,  1.35it/s]80it [00:59,  1.29it/s]81it [01:00,  1.36it/s]82it [01:01,  1.42it/s]83it [01:01,  1.42it/s]84it [01:02,  1.37it/s]85it [01:03,  1.35it/s]86it [01:04,  1.30it/s]87it [01:04,  1.26it/s]88it [01:05,  1.29it/s]89it [01:06,  1.27it/s]90it [01:07,  1.32it/s]91it [01:07,  1.41it/s]92it [01:08,  1.55it/s]93it [01:09,  1.30it/s]94it [01:10,  1.15it/s]95it [01:11,  1.18it/s]96it [01:11,  1.25it/s]97it [01:12,  1.25it/s]98it [01:13,  1.36it/s]99it [01:14,  1.36it/s]100it [01:14,  1.28it/s]101it [01:15,  1.23it/s]102it [01:16,  1.32it/s]103it [01:17,  1.36it/s]104it [01:17,  1.42it/s]105it [01:18,  1.39it/s]106it [01:19,  1.31it/s]107it [01:20,  1.10it/s]108it [01:21,  1.19it/s]109it [01:22,  1.21it/s]110it [01:22,  1.27it/s]111it [01:23,  1.39it/s]112it [01:23,  1.54it/s]113it [01:24,  1.67it/s]114it [01:24,  1.70it/s]115it [01:25,  1.57it/s]116it [01:26,  1.40it/s]117it [01:27,  1.43it/s]118it [01:28,  1.38it/s]119it [01:28,  1.38it/s]120it [01:29,  1.43it/s]121it [01:30,  1.34it/s]122it [01:30,  1.49it/s]123it [01:31,  1.48it/s]124it [01:32,  1.33it/s]125it [01:33,  1.31it/s]126it [01:33,  1.31it/s]127it [01:34,  1.36it/s]128it [01:35,  1.38it/s]129it [01:35,  1.45it/s]130it [01:36,  1.64it/s]131it [01:37,  1.49it/s]132it [01:38,  1.27it/s]133it [01:38,  1.30it/s]134it [01:39,  1.35it/s]135it [01:40,  1.48it/s]136it [01:40,  1.67it/s]137it [01:41,  1.48it/s]138it [01:42,  1.37it/s]139it [01:43,  1.29it/s]140it [01:43,  1.33it/s]141it [01:44,  1.31it/s]142it [01:45,  1.39it/s]143it [01:45,  1.50it/s]144it [01:46,  1.36it/s]145it [01:47,  1.28it/s]146it [01:48,  1.18it/s]147it [01:49,  1.17it/s]148it [01:50,  1.21it/s]149it [01:50,  1.25it/s]150it [01:51,  1.33it/s]151it [01:52,  1.30it/s]152it [01:53,  1.22it/s]153it [01:54,  1.23it/s]154it [01:54,  1.33it/s]155it [01:55,  1.34it/s]156it [01:56,  1.33it/s]157it [01:57,  1.28it/s]158it [01:57,  1.33it/s]159it [01:58,  1.39it/s]160it [01:59,  1.35it/s]161it [01:59,  1.34it/s]162it [02:00,  1.33it/s]163it [02:01,  1.31it/s]164it [02:02,  1.25it/s]165it [02:03,  1.34it/s]166it [02:03,  1.24it/s]167it [02:04,  1.30it/s]168it [02:05,  1.36it/s]169it [02:05,  1.40it/s]170it [02:06,  1.35it/s]171it [02:07,  1.23it/s]172it [02:08,  1.37it/s]173it [02:08,  1.39it/s]174it [02:09,  1.29it/s]175it [02:10,  1.32it/s]176it [02:11,  1.34it/s]177it [02:11,  1.37it/s]178it [02:12,  1.39it/s]179it [02:13,  1.41it/s]180it [02:14,  1.33it/s]181it [02:15,  1.26it/s]182it [02:15,  1.27it/s]183it [02:16,  1.24it/s]184it [02:17,  1.31it/s]185it [02:18,  1.37it/s]186it [02:18,  1.51it/s]187it [02:19,  1.43it/s]188it [02:19,  1.48it/s]189it [02:20,  1.35it/s]190it [02:21,  1.39it/s]191it [02:22,  1.35it/s]192it [02:23,  1.34it/s]193it [02:23,  1.33it/s]194it [02:24,  1.26it/s]195it [02:25,  1.20it/s]196it [02:26,  1.21it/s]197it [02:27,  1.20it/s]198it [02:28,  1.21it/s]199it [02:28,  1.32it/s]200it [02:29,  1.45it/s]201it [02:29,  1.48it/s]202it [02:30,  1.41it/s]203it [02:31,  1.43it/s]204it [02:31,  1.48it/s]205it [02:32,  1.49it/s]206it [02:33,  1.52it/s]207it [02:33,  1.57it/s]208it [02:34,  1.44it/s]209it [02:35,  1.39it/s]210it [02:36,  1.33it/s]211it [02:36,  1.49it/s]212it [02:37,  1.53it/s]213it [02:38,  1.51it/s]214it [02:38,  1.44it/s]215it [02:39,  1.32it/s]216it [02:40,  1.37it/s]217it [02:41,  1.31it/s]218it [02:42,  1.31it/s]219it [02:42,  1.32it/s]220it [02:43,  1.37it/s]221it [02:43,  1.53it/s]222it [02:44,  1.50it/s]223it [02:45,  1.58it/s]224it [02:45,  1.51it/s]225it [02:46,  1.43it/s]226it [02:47,  1.43it/s]227it [02:48,  1.41it/s]228it [02:48,  1.39it/s]229it [02:49,  1.44it/s]230it [02:50,  1.31it/s]231it [02:51,  1.27it/s]232it [02:52,  1.28it/s]233it [02:52,  1.29it/s]234it [02:53,  1.28it/s]235it [02:54,  1.41it/s]236it [02:54,  1.36it/s]237it [02:55,  1.20it/s]238it [02:57,  1.11it/s]239it [02:57,  1.23it/s]240it [02:58,  1.35it/s]241it [02:58,  1.49it/s]242it [02:59,  1.61it/s]243it [02:59,  1.58it/s]244it [03:00,  1.54it/s]245it [03:01,  1.41it/s]246it [03:02,  1.37it/s]247it [03:02,  1.39it/s]248it [03:03,  1.43it/s]249it [03:04,  1.49it/s]250it [03:04,  1.66it/s]251it [03:05,  1.66it/s]252it [03:06,  1.42it/s]253it [03:07,  1.32it/s]254it [03:07,  1.36it/s]255it [03:08,  1.42it/s]256it [03:09,  1.46it/s]257it [03:09,  1.51it/s]258it [03:10,  1.47it/s]259it [03:11,  1.23it/s]260it [03:12,  1.21it/s]261it [03:13,  1.21it/s]262it [03:13,  1.23it/s]263it [03:14,  1.31it/s]264it [03:15,  1.33it/s]265it [03:16,  1.33it/s]266it [03:16,  1.39it/s]267it [03:17,  1.54it/s]268it [03:18,  1.40it/s]269it [03:18,  1.43it/s]270it [03:19,  1.40it/s]271it [03:20,  1.35it/s]272it [03:21,  1.33it/s]273it [03:21,  1.32it/s]274it [03:22,  1.35it/s]275it [03:23,  1.22it/s]276it [03:24,  1.31it/s]277it [03:24,  1.42it/s]278it [03:25,  1.46it/s]279it [03:26,  1.39it/s]280it [03:27,  1.25it/s]281it [03:27,  1.34it/s]282it [03:28,  1.36it/s]283it [03:29,  1.23it/s]284it [03:30,  1.31it/s]285it [03:30,  1.29it/s]286it [03:31,  1.38it/s]287it [03:32,  1.53it/s]288it [03:32,  1.52it/s]289it [03:33,  1.47it/s]290it [03:34,  1.50it/s]291it [03:34,  1.36it/s]292it [03:35,  1.41it/s]293it [03:36,  1.42it/s]294it [03:36,  1.51it/s]295it [03:37,  1.55it/s]296it [03:38,  1.37it/s]297it [03:39,  1.35it/s]298it [03:40,  1.25it/s]299it [03:40,  1.30it/s]300it [03:41,  1.30it/s]301it [03:42,  1.33it/s]302it [03:43,  1.30it/s]303it [03:43,  1.38it/s]304it [03:44,  1.36it/s]305it [03:45,  1.23it/s]306it [03:46,  1.29it/s]307it [03:46,  1.30it/s]308it [03:47,  1.29it/s]309it [03:48,  1.37it/s]310it [03:49,  1.36it/s]311it [03:49,  1.39it/s]312it [03:50,  1.37it/s]313it [03:51,  1.31it/s]314it [03:52,  1.30it/s]315it [03:52,  1.38it/s]316it [03:53,  1.41it/s]317it [03:54,  1.36it/s]318it [03:55,  1.29it/s]319it [03:55,  1.23it/s]320it [03:56,  1.28it/s]321it [03:57,  1.35it/s]322it [03:58,  1.38it/s]323it [03:58,  1.54it/s]324it [03:59,  1.37it/s]325it [04:00,  1.35it/s]326it [04:01,  1.26it/s]327it [04:01,  1.31it/s]328it [04:02,  1.38it/s]329it [04:03,  1.34it/s]330it [04:04,  1.29it/s]331it [04:04,  1.38it/s]332it [04:05,  1.39it/s]333it [04:06,  1.35it/s]334it [04:06,  1.36it/s]335it [04:07,  1.33it/s]336it [04:08,  1.35it/s]337it [04:09,  1.32it/s]338it [04:09,  1.41it/s]339it [04:10,  1.35it/s]340it [04:11,  1.34it/s]341it [04:11,  1.39it/s]342it [04:12,  1.35it/s]343it [04:13,  1.34it/s]344it [04:14,  1.36it/s]345it [04:14,  1.52it/s]346it [04:15,  1.29it/s]347it [04:16,  1.26it/s]348it [04:17,  1.26it/s]349it [04:18,  1.31it/s]350it [04:18,  1.28it/s]351it [04:19,  1.34it/s]352it [04:20,  1.36it/s]353it [04:20,  1.41it/s]354it [04:21,  1.40it/s]355it [04:22,  1.47it/s]356it [04:22,  1.51it/s]357it [04:23,  1.44it/s]358it [04:24,  1.44it/s]359it [04:25,  1.37it/s]360it [04:25,  1.47it/s]361it [04:26,  1.37it/s]362it [04:27,  1.27it/s]363it [04:28,  1.28it/s]364it [04:28,  1.32it/s]365it [04:29,  1.25it/s]366it [04:30,  1.16it/s]367it [04:31,  1.10it/s]368it [04:32,  1.10it/s]369it [04:33,  1.09it/s]370it [04:34,  1.19it/s]371it [04:35,  1.28it/s]372it [04:35,  1.52it/s]373it [04:36,  1.38it/s]374it [04:36,  1.42it/s]375it [04:38,  1.24it/s]376it [04:38,  1.25it/s]377it [04:39,  1.36it/s]378it [04:40,  1.35it/s]379it [04:40,  1.44it/s]380it [04:41,  1.32it/s]381it [04:42,  1.26it/s]382it [04:43,  1.28it/s]383it [04:43,  1.34it/s]384it [04:44,  1.30it/s]385it [04:45,  1.40it/s]386it [04:45,  1.45it/s]387it [04:46,  1.33it/s]388it [04:47,  1.29it/s]389it [04:48,  1.18it/s]390it [04:49,  1.20it/s]391it [04:50,  1.23it/s]392it [04:51,  1.26it/s]393it [04:51,  1.33it/s]394it [04:52,  1.22it/s]395it [04:53,  1.15it/s]396it [04:54,  1.18it/s]397it [04:55,  1.20it/s]398it [04:55,  1.24it/s]399it [04:56,  1.19it/s]400it [04:57,  1.35it/s]401it [04:58,  1.42it/s]402it [04:58,  1.33it/s]403it [04:59,  1.32it/s]404it [05:00,  1.33it/s]405it [05:00,  1.43it/s]406it [05:01,  1.44it/s]407it [05:02,  1.39it/s]408it [05:03,  1.46it/s]409it [05:03,  1.34it/s]410it [05:04,  1.33it/s]411it [05:05,  1.37it/s]412it [05:06,  1.42it/s]413it [05:06,  1.48it/s]414it [05:07,  1.44it/s]415it [05:08,  1.30it/s]416it [05:09,  1.24it/s]417it [05:09,  1.28it/s]418it [05:10,  1.29it/s]419it [05:11,  1.34it/s]420it [05:11,  1.42it/s]421it [05:12,  1.34it/s]422it [05:13,  1.30it/s]423it [05:14,  1.41it/s]424it [05:15,  1.35it/s]425it [05:15,  1.28it/s]426it [05:16,  1.28it/s]427it [05:17,  1.37it/s]428it [05:18,  1.34it/s]429it [05:18,  1.31it/s]430it [05:19,  1.41it/s]431it [05:20,  1.37it/s]432it [05:21,  1.30it/s]433it [05:21,  1.31it/s]434it [05:22,  1.35it/s]435it [05:23,  1.39it/s]436it [05:23,  1.47it/s]437it [05:24,  1.39it/s]438it [05:25,  1.48it/s]439it [05:25,  1.48it/s]440it [05:26,  1.36it/s]441it [05:27,  1.32it/s]442it [05:28,  1.34it/s]443it [05:28,  1.41it/s]444it [05:29,  1.36it/s]445it [05:30,  1.33it/s]446it [05:30,  1.46it/s]447it [05:31,  1.32it/s]448it [05:32,  1.39it/s]449it [05:33,  1.35it/s]450it [05:33,  1.42it/s]451it [05:34,  1.33it/s]452it [05:35,  1.33it/s]453it [05:36,  1.34it/s]454it [05:37,  1.33it/s]455it [05:37,  1.30it/s]456it [05:38,  1.31it/s]457it [05:39,  1.31it/s]458it [05:40,  1.18it/s]459it [05:41,  1.25it/s]460it [05:41,  1.23it/s]461it [05:42,  1.31it/s]462it [05:43,  1.35it/s]463it [05:44,  1.33it/s]464it [05:44,  1.31it/s]465it [05:45,  1.42it/s]466it [05:45,  1.57it/s]467it [05:46,  1.57it/s]468it [05:47,  1.49it/s]469it [05:48,  1.45it/s]470it [05:48,  1.37it/s]471it [05:49,  1.37it/s]472it [05:50,  1.32it/s]473it [05:51,  1.15it/s]474it [05:52,  1.06it/s]475it [05:53,  1.17it/s]476it [05:54,  1.21it/s]477it [05:54,  1.30it/s]478it [05:55,  1.44it/s]479it [05:55,  1.45it/s]480it [05:56,  1.62it/s]481it [05:57,  1.60it/s]482it [05:57,  1.38it/s]483it [05:58,  1.37it/s]484it [05:59,  1.38it/s]485it [06:00,  1.36it/s]486it [06:00,  1.37it/s]487it [06:01,  1.20it/s]488it [06:02,  1.14it/s]489it [06:03,  1.20it/s]490it [06:04,  1.29it/s]491it [06:05,  1.29it/s]492it [06:05,  1.29it/s]493it [06:06,  1.25it/s]494it [06:07,  1.43it/s]495it [06:07,  1.39it/s]496it [06:08,  1.31it/s]497it [06:09,  1.30it/s]498it [06:10,  1.24it/s]499it [06:11,  1.20it/s]500it [06:12,  1.15it/s]501it [06:13,  1.11it/s]502it [06:14,  1.02it/s]503it [06:15,  1.09it/s]504it [06:16,  1.15it/s]505it [06:16,  1.24it/s]506it [06:17,  1.27it/s]507it [06:18,  1.27it/s]508it [06:19,  1.20it/s]509it [06:20,  1.16it/s]510it [06:20,  1.22it/s]511it [06:21,  1.22it/s]512it [06:22,  1.29it/s]513it [06:23,  1.29it/s]514it [06:23,  1.37it/s]515it [06:24,  1.45it/s]516it [06:25,  1.37it/s]517it [06:25,  1.42it/s]518it [06:26,  1.35it/s]519it [06:27,  1.33it/s]520it [06:28,  1.23it/s]521it [06:29,  1.26it/s]522it [06:29,  1.21it/s]523it [06:30,  1.30it/s]524it [06:31,  1.35it/s]525it [06:32,  1.35it/s]526it [06:32,  1.50it/s]527it [06:32,  1.64it/s]528it [06:33,  1.69it/s]529it [06:34,  1.61it/s]530it [06:35,  1.44it/s]531it [06:36,  1.27it/s]532it [06:36,  1.27it/s]533it [06:37,  1.27it/s]534it [06:38,  1.27it/s]535it [06:39,  1.25it/s]536it [06:40,  1.25it/s]537it [06:40,  1.41it/s]538it [06:41,  1.44it/s]539it [06:41,  1.46it/s]540it [06:42,  1.49it/s]541it [06:43,  1.49it/s]542it [06:44,  1.39it/s]543it [06:45,  1.25it/s]544it [06:46,  1.18it/s]545it [06:46,  1.15it/s]546it [06:47,  1.23it/s]547it [06:48,  1.27it/s]548it [06:49,  1.26it/s]549it [06:49,  1.43it/s]550it [06:50,  1.34it/s]551it [06:51,  1.43it/s]552it [06:51,  1.40it/s]553it [06:52,  1.36it/s]554it [06:53,  1.45it/s]555it [06:53,  1.48it/s]556it [06:54,  1.49it/s]557it [06:55,  1.41it/s]558it [06:56,  1.20it/s]559it [06:56,  1.34it/s]560it [06:57,  1.44it/s]561it [06:58,  1.54it/s]562it [06:58,  1.53it/s]563it [06:59,  1.43it/s]564it [07:00,  1.43it/s]565it [07:00,  1.39it/s]566it [07:02,  1.20it/s]567it [07:03,  1.13it/s]568it [07:03,  1.16it/s]569it [07:04,  1.22it/s]570it [07:05,  1.32it/s]571it [07:05,  1.34it/s]572it [07:06,  1.42it/s]573it [07:07,  1.37it/s]574it [07:08,  1.24it/s]575it [07:09,  1.28it/s]576it [07:09,  1.33it/s]577it [07:10,  1.39it/s]578it [07:11,  1.34it/s]579it [07:11,  1.35it/s]580it [07:12,  1.41it/s]581it [07:13,  1.32it/s]582it [07:14,  1.28it/s]583it [07:15,  1.29it/s]584it [07:15,  1.30it/s]585it [07:16,  1.36it/s]586it [07:17,  1.42it/s]587it [07:17,  1.35it/s]588it [07:18,  1.19it/s]589it [07:19,  1.39it/s]590it [07:20,  1.29it/s]591it [07:21,  1.28it/s]592it [07:21,  1.28it/s]593it [07:22,  1.36it/s]594it [07:23,  1.33it/s]595it [07:24,  1.34it/s]596it [07:24,  1.29it/s]597it [07:25,  1.40it/s]598it [07:26,  1.45it/s]599it [07:26,  1.40it/s]600it [07:27,  1.37it/s]601it [07:28,  1.46it/s]602it [07:28,  1.54it/s]603it [07:29,  1.51it/s]604it [07:30,  1.38it/s]605it [07:31,  1.36it/s]606it [07:31,  1.31it/s]607it [07:32,  1.34it/s]608it [07:33,  1.30it/s]609it [07:34,  1.35it/s]610it [07:35,  1.27it/s]611it [07:35,  1.30it/s]612it [07:36,  1.34it/s]613it [07:37,  1.30it/s]614it [07:37,  1.37it/s]615it [07:38,  1.20it/s]616it [07:39,  1.17it/s]617it [07:40,  1.20it/s]618it [07:41,  1.23it/s]619it [07:41,  1.35it/s]620it [07:42,  1.33it/s]621it [07:43,  1.43it/s]622it [07:44,  1.44it/s]623it [07:45,  1.28it/s]624it [07:45,  1.28it/s]625it [07:46,  1.26it/s]626it [07:47,  1.27it/s]627it [07:48,  1.22it/s]628it [07:49,  1.22it/s]629it [07:50,  1.17it/s]630it [07:50,  1.17it/s]631it [07:51,  1.25it/s]632it [07:52,  1.30it/s]633it [07:53,  1.31it/s]634it [07:53,  1.32it/s]635it [07:54,  1.31it/s]636it [07:55,  1.31it/s]637it [07:56,  1.23it/s]638it [07:56,  1.31it/s]639it [07:57,  1.37it/s]640it [07:58,  1.32it/s]641it [07:59,  1.32it/s]642it [07:59,  1.37it/s]643it [08:00,  1.31it/s]644it [08:01,  1.39it/s]645it [08:01,  1.38it/s]646it [08:02,  1.33it/s]647it [08:03,  1.32it/s]648it [08:04,  1.31it/s]649it [08:05,  1.32it/s]650it [08:05,  1.45it/s]651it [08:06,  1.32it/s]652it [08:07,  1.25it/s]653it [08:08,  1.26it/s]654it [08:08,  1.26it/s]655it [08:09,  1.28it/s]656it [08:10,  1.37it/s]657it [08:10,  1.55it/s]658it [08:11,  1.41it/s]659it [08:12,  1.22it/s]660it [08:13,  1.15it/s]661it [08:14,  1.17it/s]662it [08:15,  1.21it/s]663it [08:15,  1.34it/s]664it [08:16,  1.21it/s]665it [08:17,  1.27it/s]666it [08:18,  1.26it/s]667it [08:19,  1.24it/s]668it [08:19,  1.31it/s]669it [08:20,  1.47it/s]670it [08:21,  1.33it/s]671it [08:22,  1.34it/s]672it [08:23,  1.16it/s]673it [08:23,  1.20it/s]674it [08:24,  1.21it/s]675it [08:25,  1.26it/s]676it [08:25,  1.42it/s]677it [08:26,  1.42it/s]678it [08:27,  1.36it/s]679it [08:28,  1.24it/s]680it [08:29,  1.31it/s]681it [08:29,  1.36it/s]682it [08:30,  1.34it/s]683it [08:31,  1.41it/s]684it [08:31,  1.39it/s]685it [08:32,  1.27it/s]686it [08:33,  1.27it/s]687it [08:34,  1.23it/s]688it [08:35,  1.31it/s]689it [08:35,  1.31it/s]690it [08:36,  1.37it/s]691it [08:37,  1.39it/s]692it [08:38,  1.30it/s]693it [08:38,  1.29it/s]694it [08:39,  1.36it/s]695it [08:40,  1.34it/s]696it [08:41,  1.32it/s]697it [08:41,  1.43it/s]698it [08:42,  1.31it/s]699it [08:43,  1.45it/s]700it [08:44,  1.33it/s]701it [08:44,  1.23it/s]702it [08:45,  1.24it/s]703it [08:46,  1.29it/s]704it [08:46,  1.42it/s]705it [08:47,  1.34it/s]706it [08:48,  1.34it/s]707it [08:49,  1.26it/s]708it [08:50,  1.17it/s]709it [08:51,  1.13it/s]710it [08:52,  1.14it/s]711it [08:53,  1.21it/s]712it [08:53,  1.25it/s]713it [08:54,  1.29it/s]714it [08:55,  1.19it/s]715it [08:56,  1.16it/s]716it [08:56,  1.38it/s]717it [08:57,  1.33it/s]718it [08:58,  1.35it/s]719it [08:59,  1.30it/s]720it [08:59,  1.28it/s]721it [09:00,  1.25it/s]722it [09:01,  1.33it/s]723it [09:02,  1.41it/s]724it [09:02,  1.47it/s]725it [09:03,  1.46it/s]726it [09:03,  1.54it/s]727it [09:04,  1.31it/s]728it [09:06,  1.17it/s]729it [09:06,  1.14it/s]730it [09:07,  1.16it/s]731it [09:08,  1.13it/s]732it [09:09,  1.18it/s]733it [09:10,  1.31it/s]734it [09:10,  1.31it/s]735it [09:11,  1.34it/s]736it [09:12,  1.36it/s]737it [09:12,  1.45it/s]738it [09:13,  1.49it/s]739it [09:14,  1.47it/s]740it [09:14,  1.59it/s]741it [09:15,  1.69it/s]742it [09:15,  1.71it/s]743it [09:16,  1.48it/s]744it [09:17,  1.41it/s]745it [09:18,  1.42it/s]746it [09:18,  1.42it/s]747it [09:19,  1.51it/s]748it [09:20,  1.41it/s]749it [09:21,  1.22it/s]750it [09:22,  1.12it/s]751it [09:22,  1.20it/s]752it [09:23,  1.21it/s]753it [09:24,  1.34it/s]754it [09:25,  1.36it/s]755it [09:25,  1.29it/s]756it [09:26,  1.33it/s]757it [09:27,  1.25it/s]758it [09:28,  1.27it/s]759it [09:29,  1.28it/s]760it [09:29,  1.33it/s]761it [09:30,  1.25it/s]762it [09:31,  1.37it/s]763it [09:32,  1.15it/s]764it [09:33,  1.19it/s]765it [09:33,  1.31it/s]766it [09:34,  1.45it/s]767it [09:34,  1.48it/s]768it [09:35,  1.37it/s]769it [09:36,  1.49it/s]770it [09:37,  1.41it/s]771it [09:38,  1.30it/s]772it [09:38,  1.27it/s]773it [09:39,  1.25it/s]774it [09:40,  1.18it/s]775it [09:41,  1.21it/s]776it [09:41,  1.40it/s]777it [09:42,  1.31it/s]778it [09:43,  1.20it/s]779it [09:44,  1.20it/s]780it [09:45,  1.28it/s]781it [09:46,  1.27it/s]782it [09:46,  1.31it/s]783it [09:47,  1.14it/s]784it [09:48,  1.15it/s]785it [09:49,  1.22it/s]786it [09:50,  1.33it/s]787it [09:50,  1.41it/s]788it [09:51,  1.58it/s]789it [09:51,  1.63it/s]790it [09:52,  1.55it/s]791it [09:52,  1.60it/s]792it [09:53,  1.55it/s]793it [09:54,  1.48it/s]794it [09:55,  1.47it/s]795it [09:55,  1.50it/s]796it [09:56,  1.52it/s]797it [09:57,  1.43it/s]798it [09:57,  1.42it/s]799it [09:58,  1.28it/s]800it [09:59,  1.19it/s]801it [10:00,  1.26it/s]802it [10:01,  1.27it/s]803it [10:02,  1.31it/s]804it [10:03,  1.19it/s]805it [10:03,  1.21it/s]806it [10:04,  1.14it/s]807it [10:05,  1.18it/s]808it [10:06,  1.20it/s]809it [10:07,  1.28it/s]810it [10:07,  1.29it/s]811it [10:08,  1.26it/s]812it [10:09,  1.34it/s]813it [10:09,  1.46it/s]814it [10:10,  1.26it/s]815it [10:11,  1.51it/s]816it [10:11,  1.50it/s]817it [10:12,  1.45it/s]818it [10:13,  1.24it/s]819it [10:14,  1.12it/s]820it [10:15,  1.08it/s]821it [10:16,  1.16it/s]822it [10:17,  1.23it/s]823it [10:17,  1.32it/s]824it [10:18,  1.35it/s]825it [10:19,  1.35it/s]826it [10:19,  1.46it/s]827it [10:20,  1.39it/s]828it [10:21,  1.26it/s]829it [10:22,  1.24it/s]830it [10:23,  1.18it/s]831it [10:24,  1.23it/s]832it [10:25,  1.19it/s]833it [10:25,  1.37it/s]834it [10:26,  1.28it/s]835it [10:27,  1.27it/s]836it [10:28,  1.26it/s]837it [10:28,  1.32it/s]838it [10:29,  1.25it/s]839it [10:30,  1.23it/s]840it [10:31,  1.18it/s]841it [10:32,  1.28it/s]842it [10:32,  1.33it/s]843it [10:33,  1.32it/s]844it [10:34,  1.31it/s]845it [10:34,  1.40it/s]846it [10:35,  1.35it/s]847it [10:36,  1.24it/s]848it [10:37,  1.31it/s]849it [10:37,  1.36it/s]850it [10:38,  1.45it/s]851it [10:39,  1.42it/s]852it [10:40,  1.32it/s]853it [10:40,  1.45it/s]854it [10:41,  1.28it/s]855it [10:42,  1.29it/s]856it [10:43,  1.36it/s]857it [10:43,  1.40it/s]858it [10:44,  1.45it/s]859it [10:45,  1.30it/s]860it [10:46,  1.33it/s]861it [10:47,  1.18it/s]862it [10:47,  1.23it/s]863it [10:48,  1.29it/s]864it [10:49,  1.27it/s]865it [10:49,  1.34it/s]866it [10:50,  1.29it/s]867it [10:51,  1.39it/s]868it [10:52,  1.38it/s]869it [10:53,  1.26it/s]870it [10:53,  1.32it/s]871it [10:54,  1.41it/s]872it [10:55,  1.37it/s]873it [10:55,  1.43it/s]874it [10:56,  1.35it/s]875it [10:57,  1.27it/s]876it [10:58,  1.18it/s]877it [10:59,  1.21it/s]878it [11:00,  1.25it/s]879it [11:00,  1.25it/s]880it [11:01,  1.37it/s]881it [11:02,  1.36it/s]882it [11:02,  1.32it/s]883it [11:03,  1.27it/s]884it [11:04,  1.34it/s]885it [11:05,  1.34it/s]886it [11:05,  1.32it/s]887it [11:06,  1.32it/s]888it [11:07,  1.25it/s]889it [11:08,  1.14it/s]890it [11:09,  1.17it/s]891it [11:10,  1.20it/s]892it [11:11,  1.21it/s]893it [11:11,  1.37it/s]894it [11:12,  1.20it/s]895it [11:13,  1.16it/s]896it [11:14,  1.18it/s]897it [11:15,  1.27it/s]898it [11:15,  1.30it/s]899it [11:16,  1.42it/s]900it [11:17,  1.41it/s]901it [11:17,  1.32it/s]902it [11:18,  1.19it/s]903it [11:19,  1.27it/s]904it [11:20,  1.34it/s]905it [11:20,  1.36it/s]906it [11:21,  1.34it/s]907it [11:22,  1.34it/s]908it [11:23,  1.49it/s]909it [11:23,  1.45it/s]910it [11:24,  1.46it/s]911it [11:25,  1.32it/s]912it [11:26,  1.36it/s]913it [11:26,  1.34it/s]914it [11:27,  1.29it/s]915it [11:28,  1.35it/s]916it [11:28,  1.42it/s]917it [11:29,  1.57it/s]918it [11:30,  1.40it/s]919it [11:31,  1.29it/s]920it [11:31,  1.30it/s]921it [11:32,  1.34it/s]922it [11:33,  1.36it/s]923it [11:34,  1.33it/s]924it [11:35,  1.24it/s]925it [11:36,  1.14it/s]926it [11:36,  1.21it/s]927it [11:37,  1.26it/s]928it [11:38,  1.24it/s]929it [11:39,  1.28it/s]930it [11:39,  1.34it/s]931it [11:40,  1.26it/s]932it [11:41,  1.17it/s]933it [11:42,  1.41it/s]934it [11:42,  1.36it/s]935it [11:43,  1.38it/s]936it [11:44,  1.47it/s]937it [11:44,  1.59it/s]938it [11:45,  1.69it/s]939it [11:45,  1.74it/s]940it [11:46,  1.67it/s]941it [11:47,  1.41it/s]942it [11:48,  1.36it/s]943it [11:48,  1.41it/s]944it [11:49,  1.28it/s]945it [11:50,  1.30it/s]946it [11:51,  1.15it/s]947it [11:52,  1.14it/s]948it [11:53,  1.22it/s]949it [11:53,  1.25it/s]950it [11:54,  1.26it/s]951it [11:55,  1.18it/s]952it [11:56,  1.30it/s]953it [11:57,  1.16it/s]954it [11:58,  1.13it/s]955it [11:58,  1.19it/s]956it [11:59,  1.32it/s]957it [12:00,  1.27it/s]958it [12:01,  1.33it/s]959it [12:02,  1.20it/s]960it [12:02,  1.24it/s]961it [12:03,  1.27it/s]962it [12:04,  1.26it/s]963it [12:05,  1.27it/s]964it [12:06,  1.15it/s]965it [12:07,  1.11it/s]966it [12:07,  1.15it/s]967it [12:08,  1.17it/s]968it [12:09,  1.23it/s]969it [12:10,  1.23it/s]970it [12:10,  1.44it/s]971it [12:11,  1.29it/s]972it [12:12,  1.30it/s]973it [12:13,  1.23it/s]974it [12:14,  1.24it/s]975it [12:15,  1.21it/s]976it [12:15,  1.22it/s]977it [12:16,  1.21it/s]978it [12:17,  1.22it/s]979it [12:18,  1.21it/s]980it [12:18,  1.30it/s]981it [12:19,  1.28it/s]982it [12:20,  1.34it/s]983it [12:21,  1.41it/s]984it [12:21,  1.35it/s]985it [12:22,  1.42it/s]986it [12:23,  1.47it/s]987it [12:23,  1.59it/s]988it [12:24,  1.72it/s]989it [12:24,  1.54it/s]990it [12:25,  1.53it/s]991it [12:26,  1.52it/s]992it [12:27,  1.43it/s]993it [12:28,  1.26it/s]994it [12:28,  1.24it/s]995it [12:29,  1.33it/s]996it [12:30,  1.26it/s]997it [12:30,  1.36it/s]998it [12:31,  1.33it/s]999it [12:32,  1.32it/s]1000it [12:33,  1.49it/s]1001it [12:33,  1.58it/s]1002it [12:34,  1.63it/s]1003it [12:34,  1.70it/s]1004it [12:35,  1.54it/s]1005it [12:36,  1.53it/s]1006it [12:36,  1.43it/s]1007it [12:37,  1.47it/s]1008it [12:38,  1.43it/s]1009it [12:39,  1.38it/s]1010it [12:39,  1.52it/s]1011it [12:40,  1.62it/s]1012it [12:40,  1.59it/s]1013it [12:41,  1.46it/s]1014it [12:42,  1.40it/s]1015it [12:42,  1.46it/s]1016it [12:43,  1.37it/s]1017it [12:44,  1.34it/s]1018it [12:45,  1.28it/s]1019it [12:46,  1.22it/s]1020it [12:47,  1.15it/s]1021it [12:48,  1.17it/s]1022it [12:48,  1.25it/s]1023it [12:49,  1.27it/s]1024it [12:50,  1.28it/s]1025it [12:50,  1.42it/s]1026it [12:51,  1.35it/s]1027it [12:52,  1.50it/s]1028it [12:53,  1.37it/s]1029it [12:53,  1.39it/s]1030it [12:54,  1.40it/s]1031it [12:55,  1.48it/s]1032it [12:55,  1.51it/s]1033it [12:56,  1.44it/s]1034it [12:57,  1.32it/s]1035it [12:58,  1.26it/s]1036it [12:58,  1.33it/s]1037it [12:59,  1.36it/s]1038it [13:00,  1.38it/s]1039it [13:00,  1.53it/s]1040it [13:01,  1.33it/s]1041it [13:02,  1.25it/s]1042it [13:03,  1.25it/s]1043it [13:04,  1.28it/s]1044it [13:04,  1.35it/s]1045it [13:05,  1.41it/s]1046it [13:06,  1.34it/s]1047it [13:06,  1.55it/s]1048it [13:07,  1.42it/s]1049it [13:08,  1.29it/s]1050it [13:09,  1.26it/s]1051it [13:10,  1.25it/s]1052it [13:11,  1.18it/s]1053it [13:11,  1.28it/s]1054it [13:12,  1.48it/s]1055it [13:12,  1.52it/s]1056it [13:13,  1.34it/s]1057it [13:14,  1.37it/s]1058it [13:15,  1.43it/s]1059it [13:15,  1.41it/s]1060it [13:16,  1.55it/s]1061it [13:16,  1.68it/s]1062it [13:17,  1.81it/s]1063it [13:17,  1.81it/s]1064it [13:18,  1.61it/s]1065it [13:19,  1.49it/s]1066it [13:20,  1.41it/s]1067it [13:21,  1.35it/s]1068it [13:21,  1.42it/s]1069it [13:22,  1.31it/s]1070it [13:23,  1.30it/s]1071it [13:24,  1.20it/s]1072it [13:25,  1.14it/s]1073it [13:25,  1.23it/s]1074it [13:26,  1.34it/s]1075it [13:27,  1.35it/s]1076it [13:27,  1.45it/s]1077it [13:28,  1.60it/s]1078it [13:29,  1.36it/s]1079it [13:29,  1.38it/s]1080it [13:30,  1.41it/s]1081it [13:31,  1.41it/s]1082it [13:32,  1.35it/s]1083it [13:32,  1.40it/s]1084it [13:33,  1.29it/s]1085it [13:34,  1.20it/s]1086it [13:35,  1.29it/s]1087it [13:36,  1.31it/s]1088it [13:36,  1.50it/s]1089it [13:37,  1.41it/s]1090it [13:37,  1.53it/s]1091it [13:38,  1.49it/s]1092it [13:39,  1.43it/s]1093it [13:40,  1.31it/s]1094it [13:41,  1.30it/s]1095it [13:41,  1.28it/s]1096it [13:42,  1.33it/s]1097it [13:43,  1.50it/s]1098it [13:43,  1.35it/s]1099it [13:44,  1.31it/s]1100it [13:45,  1.25it/s]1101it [13:46,  1.29it/s]1102it [13:47,  1.29it/s]1103it [13:47,  1.37it/s]1104it [13:48,  1.38it/s]1105it [13:49,  1.29it/s]1106it [13:49,  1.44it/s]1107it [13:50,  1.33it/s]1108it [13:51,  1.40it/s]1109it [13:52,  1.44it/s]1110it [13:52,  1.44it/s]1111it [13:53,  1.24it/s]1112it [13:54,  1.31it/s]1113it [13:55,  1.32it/s]1114it [13:56,  1.27it/s]1115it [13:56,  1.32it/s]1116it [13:57,  1.36it/s]1117it [13:58,  1.35it/s]1118it [13:58,  1.39it/s]1119it [13:59,  1.45it/s]1120it [13:59,  1.55it/s]1121it [14:00,  1.59it/s]1122it [14:01,  1.30it/s]1123it [14:02,  1.28it/s]1124it [14:03,  1.25it/s]1125it [14:04,  1.24it/s]1126it [14:04,  1.24it/s]1127it [14:05,  1.31it/s]1128it [14:06,  1.43it/s]1129it [14:07,  1.33it/s]1130it [14:07,  1.31it/s]1131it [14:08,  1.41it/s]1132it [14:09,  1.43it/s]1133it [14:09,  1.60it/s]1134it [14:10,  1.41it/s]1135it [14:11,  1.20it/s]1136it [14:12,  1.17it/s]1137it [14:13,  1.23it/s]1138it [14:13,  1.30it/s]1139it [14:14,  1.40it/s]1140it [14:15,  1.43it/s]1141it [14:15,  1.40it/s]1142it [14:16,  1.43it/s]1143it [14:17,  1.39it/s]1144it [14:17,  1.45it/s]1145it [14:18,  1.44it/s]1146it [14:19,  1.51it/s]1147it [14:19,  1.44it/s]1148it [14:20,  1.30it/s]1149it [14:21,  1.23it/s]1150it [14:22,  1.22it/s]1151it [14:23,  1.23it/s]1152it [14:24,  1.30it/s]1153it [14:24,  1.35it/s]1154it [14:25,  1.33it/s]1155it [14:26,  1.42it/s]1156it [14:26,  1.47it/s]1157it [14:27,  1.50it/s]1158it [14:27,  1.59it/s]1159it [14:28,  1.66it/s]1160it [14:29,  1.40it/s]1161it [14:30,  1.35it/s]1162it [14:31,  1.32it/s]1163it [14:31,  1.35it/s]1164it [14:32,  1.34it/s]1165it [14:33,  1.29it/s]1166it [14:33,  1.40it/s]1167it [14:34,  1.30it/s]1168it [14:35,  1.35it/s]1169it [14:36,  1.37it/s]1170it [14:37,  1.33it/s]1171it [14:37,  1.34it/s]1172it [14:38,  1.25it/s]1173it [14:39,  1.27it/s]1174it [14:40,  1.16it/s]1175it [14:41,  1.28it/s]1176it [14:41,  1.33it/s]1177it [14:42,  1.40it/s]1178it [14:43,  1.40it/s]1179it [14:44,  1.28it/s]1180it [14:44,  1.38it/s]1181it [14:45,  1.36it/s]1182it [14:46,  1.29it/s]1183it [14:47,  1.32it/s]1184it [14:47,  1.37it/s]1185it [14:48,  1.45it/s]1186it [14:48,  1.47it/s]1187it [14:49,  1.41it/s]1188it [14:50,  1.45it/s]1189it [14:51,  1.26it/s]1190it [14:52,  1.25it/s]1191it [14:53,  1.24it/s]1192it [14:53,  1.26it/s]1193it [14:54,  1.34it/s]1194it [14:55,  1.31it/s]1195it [14:56,  1.29it/s]1196it [14:57,  1.17it/s]1197it [14:57,  1.16it/s]1198it [14:58,  1.13it/s]1199it [14:59,  1.20it/s]1200it [15:00,  1.26it/s]1201it [15:01,  1.21it/s]1202it [15:02,  1.16it/s]1203it [15:02,  1.24it/s]1204it [15:03,  1.28it/s]1205it [15:04,  1.28it/s]1206it [15:04,  1.52it/s]1207it [15:05,  1.44it/s]1208it [15:05,  1.59it/s]1209it [15:06,  1.32it/s]1210it [15:07,  1.24it/s]1211it [15:08,  1.36it/s]1212it [15:09,  1.44it/s]1213it [15:09,  1.38it/s]1214it [15:10,  1.36it/s]1215it [15:11,  1.47it/s]1216it [15:12,  1.27it/s]1217it [15:13,  1.27it/s]1218it [15:13,  1.31it/s]1219it [15:14,  1.28it/s]1220it [15:15,  1.32it/s]1221it [15:16,  1.24it/s]1222it [15:17,  1.21it/s]1223it [15:17,  1.18it/s]1224it [15:18,  1.36it/s]1225it [15:19,  1.41it/s]1226it [15:19,  1.46it/s]1227it [15:20,  1.64it/s]1228it [15:20,  1.53it/s]1229it [15:21,  1.51it/s]1230it [15:22,  1.40it/s]1231it [15:23,  1.30it/s]1232it [15:24,  1.31it/s]1233it [15:24,  1.39it/s]1234it [15:25,  1.39it/s]1235it [15:26,  1.34it/s]1236it [15:27,  1.30it/s]1237it [15:27,  1.39it/s]1238it [15:28,  1.31it/s]1239it [15:29,  1.29it/s]1240it [15:30,  1.32it/s]1241it [15:30,  1.30it/s]1242it [15:31,  1.36it/s]1243it [15:32,  1.33it/s]1244it [15:33,  1.23it/s]1245it [15:34,  1.18it/s]1246it [15:34,  1.42it/s]1247it [15:35,  1.35it/s]1248it [15:36,  1.37it/s]1249it [15:36,  1.46it/s]1250it [15:37,  1.40it/s]1251it [15:37,  1.49it/s]1252it [15:38,  1.36it/s]1253it [15:39,  1.25it/s]1254it [15:40,  1.25it/s]1255it [15:41,  1.22it/s]1256it [15:42,  1.21it/s]1257it [15:43,  1.26it/s]1258it [15:43,  1.23it/s]1259it [15:44,  1.21it/s]1260it [15:45,  1.30it/s]1261it [15:46,  1.31it/s]1262it [15:46,  1.31it/s]1263it [15:47,  1.20it/s]1264it [15:48,  1.25it/s]1265it [15:49,  1.16it/s]1266it [15:50,  1.21it/s]1267it [15:51,  1.27it/s]1268it [15:51,  1.35it/s]1269it [15:52,  1.36it/s]1270it [15:53,  1.40it/s]1271it [15:53,  1.47it/s]1272it [15:54,  1.28it/s]1273it [15:55,  1.26it/s]1274it [15:56,  1.35it/s]1275it [15:56,  1.39it/s]1276it [15:57,  1.46it/s]1277it [15:58,  1.42it/s]1278it [15:59,  1.28it/s]1279it [15:59,  1.45it/s]1280it [16:00,  1.31it/s]1281it [16:00,  1.56it/s]1282it [16:01,  1.52it/s]1283it [16:02,  1.52it/s]1284it [16:03,  1.44it/s]1285it [16:03,  1.37it/s]1286it [16:04,  1.38it/s]1287it [16:05,  1.39it/s]1288it [16:06,  1.30it/s]1289it [16:06,  1.32it/s]1290it [16:07,  1.34it/s]1291it [16:08,  1.34it/s]1292it [16:08,  1.40it/s]1293it [16:09,  1.48it/s]1294it [16:10,  1.39it/s]1295it [16:11,  1.36it/s]1296it [16:11,  1.31it/s]1297it [16:12,  1.39it/s]1298it [16:13,  1.45it/s]1299it [16:13,  1.45it/s]1300it [16:14,  1.43it/s]1301it [16:15,  1.43it/s]1302it [16:16,  1.29it/s]1303it [16:17,  1.30it/s]1304it [16:17,  1.31it/s]1305it [16:18,  1.36it/s]1306it [16:19,  1.33it/s]1307it [16:19,  1.45it/s]1308it [16:20,  1.51it/s]1309it [16:20,  1.57it/s]1310it [16:21,  1.46it/s]1311it [16:22,  1.32it/s]1312it [16:23,  1.30it/s]1313it [16:24,  1.34it/s]1314it [16:24,  1.33it/s]1315it [16:25,  1.20it/s]1316it [16:26,  1.30it/s]1317it [16:27,  1.29it/s]1318it [16:28,  1.35it/s]1319it [16:28,  1.50it/s]1320it [16:29,  1.55it/s]1321it [16:29,  1.54it/s]1322it [16:30,  1.62it/s]1323it [16:31,  1.48it/s]1324it [16:31,  1.57it/s]1325it [16:32,  1.46it/s]1326it [16:33,  1.40it/s]1327it [16:34,  1.37it/s]1328it [16:34,  1.33it/s]1329it [16:35,  1.34it/s]1330it [16:36,  1.27it/s]1331it [16:37,  1.22it/s]1332it [16:38,  1.25it/s]1333it [16:38,  1.22it/s]1334it [16:39,  1.28it/s]1335it [16:40,  1.33it/s]1336it [16:40,  1.41it/s]1337it [16:41,  1.43it/s]1338it [16:42,  1.53it/s]1339it [16:42,  1.43it/s]1340it [16:43,  1.34it/s]1341it [16:44,  1.28it/s]1342it [16:45,  1.31it/s]1343it [16:46,  1.31it/s]1344it [16:46,  1.40it/s]1345it [16:47,  1.41it/s]1346it [16:47,  1.57it/s]1347it [16:48,  1.74it/s]1348it [16:48,  1.81it/s]1349it [16:49,  1.51it/s]1350it [16:50,  1.48it/s]1351it [16:51,  1.48it/s]1352it [16:51,  1.43it/s]1353it [16:52,  1.37it/s]1354it [16:53,  1.40it/s]1355it [16:54,  1.41it/s]1356it [16:55,  1.25it/s]1357it [16:56,  1.21it/s]1358it [16:56,  1.22it/s]1359it [16:57,  1.24it/s]1360it [16:58,  1.30it/s]1361it [16:58,  1.37it/s]1362it [16:59,  1.45it/s]1363it [17:00,  1.30it/s]1364it [17:01,  1.22it/s]1365it [17:02,  1.29it/s]1366it [17:02,  1.28it/s]1367it [17:03,  1.28it/s]1368it [17:04,  1.31it/s]1369it [17:05,  1.23it/s]1370it [17:05,  1.29it/s]1371it [17:07,  1.12it/s]1372it [17:07,  1.20it/s]1373it [17:08,  1.32it/s]1374it [17:09,  1.36it/s]1375it [17:09,  1.33it/s]1376it [17:10,  1.30it/s]1377it [17:11,  1.27it/s]1378it [17:12,  1.25it/s]1379it [17:13,  1.20it/s]1380it [17:13,  1.28it/s]1381it [17:14,  1.28it/s]1382it [17:15,  1.26it/s]1383it [17:16,  1.37it/s]1384it [17:16,  1.34it/s]1385it [17:17,  1.51it/s]1386it [17:17,  1.63it/s]1387it [17:18,  1.49it/s]1388it [17:19,  1.52it/s]1389it [17:19,  1.52it/s]1390it [17:20,  1.42it/s]1391it [17:21,  1.38it/s]1392it [17:22,  1.35it/s]1393it [17:23,  1.34it/s]1394it [17:23,  1.30it/s]1395it [17:24,  1.32it/s]1396it [17:25,  1.38it/s]1397it [17:26,  1.35it/s]1398it [17:26,  1.49it/s]1399it [17:27,  1.43it/s]1400it [17:28,  1.32it/s]1401it [17:29,  1.27it/s]1402it [17:29,  1.23it/s]1403it [17:30,  1.41it/s]1404it [17:31,  1.36it/s]1405it [17:32,  1.32it/s]1406it [17:32,  1.27it/s]1407it [17:33,  1.37it/s]1408it [17:34,  1.42it/s]1409it [17:34,  1.43it/s]1410it [17:35,  1.28it/s]1411it [17:36,  1.26it/s]1412it [17:37,  1.26it/s]1413it [17:38,  1.25it/s]1414it [17:39,  1.16it/s]1415it [17:40,  1.09it/s]1416it [17:41,  1.07it/s]1417it [17:42,  1.11it/s]1418it [17:42,  1.24it/s]1419it [17:43,  1.31it/s]1420it [17:44,  1.27it/s]1421it [17:45,  1.18it/s]1422it [17:45,  1.21it/s]1423it [17:46,  1.22it/s]1424it [17:47,  1.29it/s]1425it [17:48,  1.28it/s]1426it [17:49,  1.28it/s]1427it [17:49,  1.46it/s]1428it [17:50,  1.53it/s]1429it [17:51,  1.26it/s]1430it [17:52,  1.13it/s]1431it [17:52,  1.21it/s]1432it [17:53,  1.23it/s]1433it [17:54,  1.27it/s]1434it [17:54,  1.41it/s]1435it [17:55,  1.30it/s]1436it [17:56,  1.22it/s]1437it [17:57,  1.27it/s]1438it [17:58,  1.28it/s]1439it [17:58,  1.34it/s]1440it [17:59,  1.33it/s]1441it [18:00,  1.33it/s]1442it [18:01,  1.45it/s]1443it [18:02,  1.29it/s]1444it [18:02,  1.30it/s]1445it [18:03,  1.37it/s]1446it [18:04,  1.34it/s]1447it [18:04,  1.33it/s]1448it [18:05,  1.52it/s]1449it [18:05,  1.58it/s]1450it [18:06,  1.39it/s]1451it [18:07,  1.39it/s]1452it [18:08,  1.35it/s]1453it [18:09,  1.35it/s]1454it [18:09,  1.39it/s]1455it [18:10,  1.33it/s]1456it [18:11,  1.25it/s]1457it [18:12,  1.21it/s]1458it [18:13,  1.14it/s]1459it [18:14,  1.19it/s]1460it [18:14,  1.20it/s]1461it [18:15,  1.17it/s]1462it [18:16,  1.22it/s]1463it [18:17,  1.21it/s]1464it [18:18,  1.24it/s]1465it [18:19,  1.16it/s]1466it [18:20,  1.17it/s]1467it [18:20,  1.27it/s]1468it [18:21,  1.29it/s]1469it [18:22,  1.34it/s]1469it [18:22,  1.33it/s]
