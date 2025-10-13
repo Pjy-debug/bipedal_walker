@@ -1,5 +1,6 @@
 2025.10.6 
 输入password怎么也进不来，删除ssh缓存，重连成功。
+
 2025.10.8
 brx前辈的代码中，正例部分混有负例。原因是，按理讲希望分类episode，而
 stage1和stage2里的input是step。所以input中的每个元素其实是episode中的step。
@@ -24,7 +25,15 @@ todo：test时不用顾虑正负例ratio=1，可以直接用所有例子计算
 10.11
 stage1基本完成。
 stage2：运行前人的遗产，模型会把所有样例都认成负例。
-        可能的问题：loss设计；val和test钟大哥weight。
+        可能的问题：loss设计；val和test中的weight。
+        发现分类结果值离得很近，而且似乎分不开。
 
 10.12
 发现事故率太大了，因为只用了一部分负例。
+
+10.13
+Failed to connect to github.com port 443: 连接超时。解决方法：
+https://cloud.tencent.com/developer/article/2527142
+
+需要跑一下test_nde。
+
