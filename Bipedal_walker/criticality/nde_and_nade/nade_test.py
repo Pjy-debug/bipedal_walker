@@ -6,6 +6,15 @@
 [changelog]               （若修改过则必需注明）
 [usage]                    
 *************************************************************************'''
+import sys
+import os
+# 获取当前文件的绝对路径
+current_path = os.path.abspath(__file__)
+# 向上一级目录
+parent_dir = os.path.dirname(os.path.dirname(current_path))
+# 将criticality目录添加到Python的模块搜索路径
+sys.path.append(parent_dir)
+
 
 import os
 import time
@@ -16,7 +25,7 @@ import tqdm
 from tta.niches.box2d.env import make_env, bipedhard_custom
 from tta.niches.box2d.bipedal_walker_custom import BipedalWalkerCustom, Env_config
 from tta.niches.box2d.bipedal_walker_test import BipedalWalkerTest
-from criticality_new import calculate_criticality,calculate_val
+from criticality_.criticality_new import calculate_criticality,calculate_val
 import matplotlib.pyplot as plt
 from matplotlib import animation
 
@@ -24,10 +33,10 @@ import torch
 # import pyglet
 # pyglet.options["headless"] = True
 
-log_dir = "logs/poet_new_test/"
+log_dir = "../logs/poet_new_test/"
 # log_dir = "logs/poet_final_test/"
-best_model_final_test = "logs/poet_final_test/poet_final_test.48542109-e29d-4fbe-8405-6618c92e990a.best.json"
-best_model_new_test = "logs/poet_new_test/poet_new_test.966593ea-181f-42ec-ad1d-2ca11487bea9.best.json"
+best_model_final_test = "../logs/poet_final_test/poet_final_test.48542109-e29d-4fbe-8405-6618c92e990a.best.json"
+best_model_new_test = "../logs/poet_new_test/poet_new_test.966593ea-181f-42ec-ad1d-2ca11487bea9.best.json"
 file_names = os.listdir(log_dir)
 best_models = [
     log_dir + file_name for file_name in file_names if file_name.endswith('.json')]
@@ -85,8 +94,9 @@ ENV_CONFIG = env_config_1
 RENDER_MODE = True
 RGB_ARRAY = False # False
 SAVE_REWARD = False
-experiment_name = "nade_test_2025-6-24"
-res_save_path = f'/mnt1/hyj/Acc_Test/tta_new/tta/data/{experiment_name}'
+experiment_name = "nade_test_2025-10-13"
+# res_save_path = f'/mnt1/hyj/Acc_Test/tta_new/tta/data/{experiment_name}'
+res_save_path = f'my_test/{experiment_name}'
 if not os.path.exists(res_save_path):
     os.makedirs(res_save_path)
 seed = 42
@@ -189,7 +199,8 @@ for epoch in tqdm.tqdm(range(0,500000)):
     
     # np.save(f'/home/ubuntu/tta_new/tta/data/render/render_{epoch}.npy',frames)
     if RGB_ARRAY: 
-        save_path = f'/mnt1/hyj/Acc_Test/tta_new/tta/data/render/{experiment_name}'
+        # save_path = f'/mnt1/hyj/Acc_Test/tta_new/tta/data/render/{experiment_name}'
+        save_path = f'my_test/render/{experiment_name}'
         if not os.path.exists(save_path):
             os.makedirs(save_path)
         np.save(save_path + f'/render_{epoch}.npy', frames)
