@@ -1,5 +1,5 @@
 nohup: 忽略输入
-Namespace(batch_size=64, output_model_prefix='mlp', start_epoch=801, epochs=900, lr=1e-05, no_cuda=False, final_ratio=0, start_ratio=0, warm_up_epochs=20, threshold=0.5, input_dim=107, embed_dim=256, embed_dim_1=256, embed_dim_2=1024, n_layers=6, n_heads=8, dropout=0.1, ffn_dim=1024, num_classes=2, max_seq_len=11, dataset_dir='/mnt1/hyj/Acc_Test/tta_new/data/test_2025-6-8/processed_data/', log_dir='../new_log/log', is_resume=0, is_chuan=0, model_path='storage/mlp.ep546', best_model_path='storage/mlp.ep680', first_model_path='storage/mlp.ep546', two_model=1)
+Namespace(batch_size=64, output_model_prefix='mlp', start_epoch=801, epochs=900, lr=0.0001, no_cuda=False, final_ratio=0, start_ratio=0, warm_up_epochs=20, threshold=0.5, input_dim=107, embed_dim=256, embed_dim_1=256, embed_dim_2=1024, n_layers=6, n_heads=8, dropout=0.1, ffn_dim=1024, num_classes=2, max_seq_len=11, dataset_dir='/mnt1/hyj/Acc_Test/tta_new/data/test_2025-6-8/processed_data/', log_dir='../new_log/log', is_resume=0, is_chuan=0, model_path='storage/mlp.ep546', best_model_path='storage/mlp.ep680', first_model_path='storage/mlp.ep546', two_model=1)
 ratio is 0,loading data...
 pos data is being loaded...
 neg data is being loaded...
@@ -11,16 +11,16 @@ num of neg is 224935
 224935 546
 num of pos is 546,num of neg is 224935,ratio is 411.96886446886447
 num of pos is {}, num of neg is {} 546 224935
-  0%|          | 0/225481 [00:00<?, ?it/s]  3%|▎         | 6360/225481 [00:00<00:03, 63442.30it/s]  6%|▋         | 14186/225481 [00:00<00:02, 72144.36it/s] 10%|▉         | 21644/225481 [00:00<00:02, 73253.74it/s] 13%|█▎        | 29423/225481 [00:00<00:02, 75039.44it/s] 17%|█▋        | 37542/225481 [00:00<00:02, 77252.73it/s] 20%|██        | 45374/225481 [00:00<00:02, 77612.28it/s] 24%|██▎       | 53136/225481 [00:00<00:02, 76516.27it/s] 27%|██▋       | 61008/225481 [00:00<00:02, 77208.01it/s] 30%|███       | 68732/225481 [00:00<00:02, 77066.55it/s] 34%|███▍      | 76945/225481 [00:01<00:01, 78617.65it/s] 38%|███▊      | 85064/225481 [00:01<00:01, 79398.27it/s] 41%|████▏     | 93366/225481 [00:01<00:01, 80494.28it/s] 45%|████▌     | 101776/225481 [00:01<00:01, 81582.54it/s] 49%|████▉     | 109984/225481 [00:01<00:01, 81730.13it/s] 52%|█████▏    | 118158/225481 [00:01<00:01, 76067.55it/s] 56%|█████▌    | 126218/225481 [00:01<00:01, 77361.03it/s] 60%|█████▉    | 134214/225481 [00:01<00:01, 78112.74it/s] 63%|██████▎   | 142470/225481 [00:01<00:01, 78411.35it/s] 67%|██████▋   | 150745/225481 [00:01<00:00, 79677.99it/s] 70%|███████   | 158876/225481 [00:02<00:00, 80157.18it/s] 74%|███████▍  | 166911/225481 [00:02<00:00, 79948.56it/s] 78%|███████▊  | 174920/225481 [00:02<00:00, 78994.14it/s] 81%|████████  | 182895/225481 [00:02<00:00, 79213.71it/s] 85%|████████▍ | 190973/225481 [00:02<00:00, 79675.42it/s] 88%|████████▊ | 198947/225481 [00:02<00:00, 77915.34it/s] 92%|█████████▏| 206751/225481 [00:02<00:00, 74632.44it/s] 95%|█████████▌| 214247/225481 [00:05<00:01, 7413.84it/s]  98%|█████████▊| 220921/225481 [00:06<00:00, 9728.73it/s]100%|██████████| 225481/225481 [00:06<00:00, 36950.99it/s]
+  0%|          | 0/225481 [00:00<?, ?it/s]  3%|▎         | 6252/225481 [00:00<00:03, 62507.69it/s]  7%|▋         | 14950/225481 [00:00<00:02, 76897.84it/s] 10%|█         | 23475/225481 [00:00<00:02, 80708.55it/s] 14%|█▍        | 32184/225481 [00:00<00:02, 83180.14it/s] 18%|█▊        | 40533/225481 [00:00<00:02, 83287.43it/s] 22%|██▏       | 48935/225481 [00:00<00:02, 83531.92it/s] 25%|██▌       | 57289/225481 [00:00<00:02, 83091.12it/s] 29%|██▉       | 66038/225481 [00:00<00:01, 83828.41it/s] 33%|███▎      | 74421/225481 [00:00<00:01, 83725.05it/s] 37%|███▋      | 82794/225481 [00:01<00:01, 82569.21it/s] 40%|████      | 91054/225481 [00:01<00:01, 80909.03it/s] 44%|████▍     | 99331/225481 [00:01<00:01, 81458.25it/s] 48%|████▊     | 107483/225481 [00:01<00:01, 79168.75it/s] 52%|█████▏    | 116294/225481 [00:01<00:01, 81193.51it/s] 55%|█████▌    | 124670/225481 [00:01<00:01, 81236.41it/s] 59%|█████▉    | 133115/225481 [00:01<00:01, 82177.89it/s] 63%|██████▎   | 141842/225481 [00:01<00:00, 83679.82it/s] 67%|██████▋   | 150496/225481 [00:01<00:00, 84497.27it/s] 71%|███████   | 159370/225481 [00:01<00:00, 85757.96it/s] 75%|███████▍  | 168083/225481 [00:02<00:00, 86164.12it/s] 79%|███████▊  | 177176/225481 [00:02<00:00, 87585.78it/s] 83%|████████▎ | 186050/225481 [00:02<00:00, 87928.29it/s] 86%|████████▋ | 194988/225481 [00:02<00:00, 88356.22it/s] 90%|█████████ | 203826/225481 [00:02<00:00, 87525.32it/s] 94%|█████████▍| 212618/225481 [00:02<00:00, 87139.20it/s] 98%|█████████▊| 221335/225481 [00:02<00:00, 86934.82it/s]100%|██████████| 225481/225481 [00:02<00:00, 83957.14it/s]
 32134 78
 sampling...
 num of pos is 78,num of neg is 500,ratio is 6.410256410256411
 num of pos is {}, num of neg is {} 78 500
-  0%|          | 0/578 [00:00<?, ?it/s]100%|██████████| 578/578 [00:00<00:00, 63286.28it/s]
+  0%|          | 0/578 [00:00<?, ?it/s]100%|██████████| 578/578 [00:00<00:00, 74115.19it/s]
 64267 156
 num of pos is 156,num of neg is 64267,ratio is 411.96794871794873
 num of pos is {}, num of neg is {} 156 64267
-  0%|          | 0/64423 [00:00<?, ?it/s]  9%|▉         | 5803/64423 [00:00<00:01, 58015.95it/s] 19%|█▉        | 12440/64423 [00:00<00:00, 62923.29it/s] 29%|██▉       | 18870/64423 [00:00<00:00, 63549.53it/s] 40%|███▉      | 25486/64423 [00:00<00:00, 64575.73it/s] 50%|████▉     | 31944/64423 [00:00<00:00, 64558.65it/s] 60%|█████▉    | 38473/64423 [00:00<00:00, 64804.38it/s] 70%|███████   | 45105/64423 [00:00<00:00, 65296.89it/s] 80%|████████  | 51635/64423 [00:00<00:00, 64205.21it/s] 91%|█████████ | 58314/64423 [00:00<00:00, 65002.21it/s]100%|██████████| 64423/64423 [00:01<00:00, 64374.18it/s]
+  0%|          | 0/64423 [00:00<?, ?it/s] 12%|█▏        | 7866/64423 [00:00<00:00, 78649.01it/s] 26%|██▌       | 16643/64423 [00:00<00:00, 84010.74it/s] 39%|███▉      | 25390/64423 [00:00<00:00, 85586.63it/s] 53%|█████▎    | 34209/64423 [00:00<00:00, 86610.39it/s] 67%|██████▋   | 42871/64423 [00:00<00:00, 84078.94it/s] 80%|████████  | 51559/64423 [00:00<00:00, 85009.40it/s] 94%|█████████▎| 60378/64423 [00:00<00:00, 86031.53it/s]100%|██████████| 64423/64423 [00:00<00:00, 85472.62it/s]
 Successfully build train datasets!
 Successfully build val datasets!
 Successfully build test datasets!
@@ -31,667 +31,667 @@ Train & Validate
   labels_cls2 = torch.tensor(labels2[:,0],dtype=torch.int64)
 /home/teamcommon/pjy/Bipedal_walker/criticality/stage2/trainer_bing.py:286: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
   labels_cls = torch.tensor(labels[:, 0],dtype=torch.int64)
-  1%|          | 1/99 [00:00<01:28,  1.11it/s]  2%|▏         | 2/99 [00:01<00:56,  1.71it/s]  3%|▎         | 3/99 [00:01<00:46,  2.06it/s]  4%|▍         | 4/99 [00:02<00:42,  2.25it/s]  5%|▌         | 5/99 [00:02<00:39,  2.39it/s]  6%|▌         | 6/99 [00:02<00:37,  2.46it/s]  7%|▋         | 7/99 [00:03<00:36,  2.50it/s]  8%|▊         | 8/99 [00:03<00:35,  2.55it/s]  9%|▉         | 9/99 [00:03<00:34,  2.59it/s] 10%|█         | 10/99 [00:04<00:34,  2.59it/s] 11%|█         | 11/99 [00:04<00:33,  2.62it/s] 12%|█▏        | 12/99 [00:05<00:33,  2.62it/s] 13%|█▎        | 13/99 [00:05<00:32,  2.62it/s] 14%|█▍        | 14/99 [00:05<00:32,  2.64it/s] 15%|█▌        | 15/99 [00:06<00:31,  2.65it/s] 16%|█▌        | 16/99 [00:06<00:31,  2.61it/s] 17%|█▋        | 17/99 [00:06<00:31,  2.59it/s] 18%|█▊        | 18/99 [00:07<00:30,  2.63it/s] 19%|█▉        | 19/99 [00:07<00:30,  2.63it/s] 20%|██        | 20/99 [00:08<00:30,  2.61it/s] 21%|██        | 21/99 [00:08<00:29,  2.64it/s] 22%|██▏       | 22/99 [00:08<00:29,  2.64it/s] 23%|██▎       | 23/99 [00:09<00:28,  2.66it/s] 24%|██▍       | 24/99 [00:09<00:28,  2.64it/s] 25%|██▌       | 25/99 [00:09<00:27,  2.65it/s] 26%|██▋       | 26/99 [00:10<00:27,  2.63it/s] 27%|██▋       | 27/99 [00:10<00:27,  2.63it/s] 28%|██▊       | 28/99 [00:11<00:26,  2.65it/s] 29%|██▉       | 29/99 [00:11<00:26,  2.63it/s] 30%|███       | 30/99 [00:11<00:26,  2.60it/s] 31%|███▏      | 31/99 [00:12<00:25,  2.62it/s]
+  1%|          | 1/99 [00:00<01:25,  1.15it/s]  2%|▏         | 2/99 [00:01<00:55,  1.76it/s]  3%|▎         | 3/99 [00:01<00:45,  2.10it/s]  4%|▍         | 4/99 [00:01<00:40,  2.32it/s]  5%|▌         | 5/99 [00:02<00:37,  2.49it/s]  6%|▌         | 6/99 [00:02<00:36,  2.56it/s]  7%|▋         | 7/99 [00:03<00:35,  2.63it/s]  8%|▊         | 8/99 [00:03<00:33,  2.68it/s]  9%|▉         | 9/99 [00:03<00:33,  2.73it/s] 10%|█         | 10/99 [00:04<00:32,  2.73it/s] 11%|█         | 11/99 [00:04<00:31,  2.76it/s] 12%|█▏        | 12/99 [00:04<00:31,  2.76it/s] 13%|█▎        | 13/99 [00:05<00:31,  2.76it/s] 14%|█▍        | 14/99 [00:05<00:30,  2.78it/s] 15%|█▌        | 15/99 [00:05<00:29,  2.81it/s] 16%|█▌        | 16/99 [00:06<00:29,  2.78it/s] 17%|█▋        | 17/99 [00:06<00:29,  2.78it/s] 18%|█▊        | 18/99 [00:06<00:29,  2.78it/s] 19%|█▉        | 19/99 [00:07<00:28,  2.76it/s] 20%|██        | 20/99 [00:07<00:28,  2.77it/s] 21%|██        | 21/99 [00:08<00:28,  2.76it/s] 22%|██▏       | 22/99 [00:08<00:28,  2.72it/s] 23%|██▎       | 23/99 [00:08<00:27,  2.74it/s] 24%|██▍       | 24/99 [00:09<00:27,  2.77it/s] 25%|██▌       | 25/99 [00:09<00:26,  2.76it/s] 26%|██▋       | 26/99 [00:09<00:26,  2.76it/s] 27%|██▋       | 27/99 [00:10<00:25,  2.77it/s] 28%|██▊       | 28/99 [00:10<00:25,  2.76it/s] 29%|██▉       | 29/99 [00:10<00:25,  2.76it/s] 30%|███       | 30/99 [00:11<00:25,  2.73it/s] 31%|███▏      | 31/99 [00:11<00:25,  2.72it/s]
 epoch: 801, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.015571911198397478
+average loss = 0.011744259856641293
 weight = 0.0
-loss_1 = 0.6931474804878235, loss_2 = 0.015571911198397478
+loss_1 = 0.6931474804878235, loss_2 = 0.011744259856641293
 
 epoch: 802, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.014812858154376348
+average loss = 0.010916410324474176
 weight = 0.0001020304050607081
-loss_1 = 0.6465227206548055, loss_2 = 0.014748398214578629
+loss_1 = 0.5446271896362305, loss_2 = 0.010861950305600962
 
 epoch: 803, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.014590555801987648
+average loss = 0.0109159459049503
 weight = 0.0004081216202428324
-loss_1 = 0.6372150381406149, loss_2 = 0.01433634509642919
+loss_1 = 0.5331935087839762, loss_2 = 0.010702705942094326
 
 epoch: 804, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.014038393273949623
+average loss = 0.010632241144776344
 weight = 0.0009182736455463729
-loss_1 = 0.6201151013374329, loss_2 = 0.01348133726666371
+loss_1 = 0.5181525349617004, loss_2 = 0.010165770538151264
 
 epoch: 805, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.014145133395989736
+average loss = 0.011770392147203287
 weight = 0.0016324864809713297
-loss_1 = 0.6119335889816284, loss_2 = 0.013167656647662321
+loss_1 = 0.5277948975563049, loss_2 = 0.010926612031956514
 
 epoch: 806, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.014220234317084154
+average loss = 0.011374379508197308
 weight = 0.002550760126517702
-loss_1 = 0.6014086008071899, loss_2 = 0.012718627539773783
+loss_1 = 0.5134608149528503, loss_2 = 0.01009040263791879
 
 epoch: 807, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.014445760287344456
+average loss = 0.012657561339437962
 weight = 0.0036730945821854917
-loss_1 = 0.5916374921798706, loss_2 = 0.01231786422431469
+loss_1 = 0.5239590803782145, loss_2 = 0.010772578418254852
 
 epoch: 808, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.014891666049758593
+average loss = 0.013025601394474506
 weight = 0.004999489847974696
-loss_1 = 0.5838470458984375, loss_2 = 0.01203288696706295
+loss_1 = 0.5186187823613485, loss_2 = 0.010485192760825157
 
 epoch: 809, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.0159272663295269
+average loss = 0.013477825870116552
 weight = 0.006529945923885319
-loss_1 = 0.583536704381307, loss_2 = 0.012196445216735205
+loss_1 = 0.5131832857926687, loss_2 = 0.010193328373134136
 
 epoch: 810, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.016214779888590176
+average loss = 0.015130531042814255
 weight = 0.008264462809917356
-loss_1 = 0.5707908272743225, loss_2 = 0.01159331388771534
+loss_1 = 0.5239212910334269, loss_2 = 0.010890608342985312
 
 epoch: 811, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.017498891179760296
+average loss = 0.015148110687732697
 weight = 0.010203040506070809
-loss_1 = 0.5713574886322021, loss_2 = 0.011789597570896149
+loss_1 = 0.5102942089239756, loss_2 = 0.01004403829574585
 
 epoch: 812, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.018404229854544003
+average loss = 0.017218435183167458
 weight = 0.012345679012345678
-loss_1 = 0.5652090112368265, loss_2 = 0.011569170281291008
+loss_1 = 0.5236284136772156, loss_2 = 0.01088831014931202
 
 epoch: 813, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.01989948811630408
+average loss = 0.01842009462416172
 weight = 0.014692378328741967
-loss_1 = 0.5659020145734152, loss_2 = 0.011757791973650455
+loss_1 = 0.5235580603281657, loss_2 = 0.010887748251358667
 
 epoch: 814, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.020524947593609493
+average loss = 0.019726600497961044
 weight = 0.017243138455259672
-loss_1 = 0.554054061571757, loss_2 = 0.011163816166420778
+loss_1 = 0.5235108931859335, loss_2 = 0.01088736237337192
 
 epoch: 815, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.022144537419080734
+average loss = 0.0207715705037117
 weight = 0.019997959391898783
-loss_1 = 0.5540932019551595, loss_2 = 0.011289571722348532
+loss_1 = 0.5189940532048544, loss_2 = 0.010604822697738806
 
 epoch: 816, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.023027514417966206
+average loss = 0.022843549648920696
 weight = 0.022956841138659322
-loss_1 = 0.5440321167310079, loss_2 = 0.010785865286986033
+loss_1 = 0.5257082978884379, loss_2 = 0.011028119052449862
 
 epoch: 817, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.024574918672442436
+average loss = 0.02329447182516257
 weight = 0.026119783695541274
-loss_1 = 0.5412466526031494, loss_2 = 0.01071761486430963
+loss_1 = 0.5122336049874624, loss_2 = 0.010180965686837832
 
 epoch: 818, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.02640052946905295
+average loss = 0.025592712685465813
 weight = 0.029486787062544637
-loss_1 = 0.5406839847564697, loss_2 = 0.01077522182216247
+loss_1 = 0.5189225474993387, loss_2 = 0.010604032936195532
 
 epoch: 819, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.02800002135336399
+average loss = 0.028037441273530323
 weight = 0.03305785123966942
-loss_1 = 0.5366161863009135, loss_2 = 0.010611435708900293
+loss_1 = 0.5255869626998901, loss_2 = 0.011027202320595583
 
 epoch: 820, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.03041699280341466
+average loss = 0.029976985106865566
 weight = 0.036832976226915615
-loss_1 = 0.540264904499054, loss_2 = 0.010919630837937197
+loss_1 = 0.5255192915598551, loss_2 = 0.011026691334942976
 
 epoch: 821, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.03202960267663002
+average loss = 0.03133914309243361
 weight = 0.040812162024283234
-loss_1 = 0.5346072912216187, loss_2 = 0.010645593206087748
+loss_1 = 0.5187166531880697, loss_2 = 0.010601880960166454
 
 epoch: 822, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.03391696885228157
+average loss = 0.03346194326877594
 weight = 0.044995408631772274
-loss_1 = 0.5310937166213989, loss_2 = 0.010492295337220034
+loss_1 = 0.5186663667360941, loss_2 = 0.010601351658503214
 
 epoch: 823, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.036963995546102524
+average loss = 0.03667105113466581
 weight = 0.04938271604938271
-loss_1 = 0.5377116401990255, loss_2 = 0.010951130340496698
+loss_1 = 0.5276230971018473, loss_2 = 0.01116704847663641
 
 epoch: 824, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.03930732732017835
+average loss = 0.03878547872106234
 weight = 0.05397408427711458
-loss_1 = 0.5367354154586792, loss_2 = 0.010927315180500349
+loss_1 = 0.5253493587176005, loss_2 = 0.011025308320919672
 
 epoch: 825, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.04087757815917333
+average loss = 0.04018950338164965
 weight = 0.05876951331496787
-loss_1 = 0.5287545919418335, loss_2 = 0.010415015121301016
+loss_1 = 0.5163456002871195, loss_2 = 0.010458781073490778
 
 epoch: 826, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.04340699687600136
+average loss = 0.04354700818657875
 weight = 0.06376900316294257
-loss_1 = 0.5295939048131307, loss_2 = 0.010291605566938719
+loss_1 = 0.5231019457181295, loss_2 = 0.010883338438967863
 
 epoch: 827, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.04806241144736608
+average loss = 0.04535567263762156
 weight = 0.06897255382103869
-loss_1 = 0.5470873316129049, loss_2 = 0.01109355284521977
+loss_1 = 0.5164122978846232, loss_2 = 0.010458767103652159
 
 epoch: 828, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.04853866125146548
+average loss = 0.047806307673454285
 weight = 0.07438016528925619
-loss_1 = 0.529159426689148, loss_2 = 0.009917348312834898
+loss_1 = 0.5143232345581055, loss_2 = 0.010318338560561338
 
 epoch: 829, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.05028320848941803
+average loss = 0.05158948401610056
 weight = 0.07999183756759513
-loss_1 = 0.5203184684117635, loss_2 = 0.009415107468763987
+loss_1 = 0.5213735898335775, loss_2 = 0.010743219094971815
 
 epoch: 830, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.052684235076109566
+average loss = 0.053359837581714
 weight = 0.0858075706560555
-loss_1 = 0.5166719754536947, loss_2 = 0.009133602182070414
+loss_1 = 0.513308048248291, loss_2 = 0.010188360077639421
 
 epoch: 831, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.054095337788263954
+average loss = 0.05789270500342051
 weight = 0.09182736455463729
-loss_1 = 0.5040934681892395, loss_2 = 0.008595022217681011
+loss_1 = 0.5240529378255209, loss_2 = 0.010758205937842527
 
 epoch: 832, start epoch: 801, L: 99
- 32%|███▏      | 32/99 [00:12<00:25,  2.64it/s] 33%|███▎      | 33/99 [00:13<00:25,  2.63it/s] 34%|███▍      | 34/99 [00:13<00:24,  2.65it/s] 35%|███▌      | 35/99 [00:13<00:23,  2.67it/s] 36%|███▋      | 36/99 [00:14<00:23,  2.64it/s] 37%|███▋      | 37/99 [00:14<00:23,  2.67it/s] 38%|███▊      | 38/99 [00:14<00:22,  2.67it/s] 39%|███▉      | 39/99 [00:15<00:22,  2.64it/s] 40%|████      | 40/99 [00:15<00:22,  2.66it/s] 41%|████▏     | 41/99 [00:16<00:21,  2.67it/s] 42%|████▏     | 42/99 [00:16<00:21,  2.64it/s] 43%|████▎     | 43/99 [00:16<00:21,  2.63it/s] 44%|████▍     | 44/99 [00:17<00:20,  2.64it/s] 45%|████▌     | 45/99 [00:17<00:20,  2.63it/s] 46%|████▋     | 46/99 [00:17<00:20,  2.63it/s] 47%|████▋     | 47/99 [00:18<00:19,  2.65it/s] 48%|████▊     | 48/99 [00:18<00:19,  2.64it/s] 49%|████▉     | 49/99 [00:19<00:18,  2.65it/s] 51%|█████     | 50/99 [00:19<00:18,  2.65it/s] 52%|█████▏    | 51/99 [00:19<00:18,  2.65it/s] 53%|█████▎    | 52/99 [00:20<00:17,  2.66it/s] 54%|█████▎    | 53/99 [00:20<00:17,  2.68it/s] 55%|█████▍    | 54/99 [00:20<00:16,  2.66it/s] 56%|█████▌    | 55/99 [00:21<00:16,  2.66it/s] 57%|█████▋    | 56/99 [00:21<00:16,  2.67it/s] 58%|█████▊    | 57/99 [00:22<00:15,  2.64it/s] 59%|█████▊    | 58/99 [00:22<00:15,  2.59it/s] 60%|█████▉    | 59/99 [00:22<00:15,  2.53it/s] 61%|██████    | 60/99 [00:23<00:15,  2.55it/s] 62%|██████▏   | 61/99 [00:23<00:14,  2.59it/s] 63%|██████▎   | 62/99 [00:24<00:14,  2.57it/s]length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.0582639624675115
+ 32%|███▏      | 32/99 [00:12<00:24,  2.74it/s] 33%|███▎      | 33/99 [00:12<00:24,  2.71it/s] 34%|███▍      | 34/99 [00:12<00:23,  2.71it/s] 35%|███▌      | 35/99 [00:13<00:23,  2.68it/s] 36%|███▋      | 36/99 [00:13<00:23,  2.70it/s] 37%|███▋      | 37/99 [00:13<00:23,  2.70it/s] 38%|███▊      | 38/99 [00:14<00:22,  2.72it/s] 39%|███▉      | 39/99 [00:14<00:21,  2.73it/s] 40%|████      | 40/99 [00:15<00:21,  2.74it/s] 41%|████▏     | 41/99 [00:15<00:21,  2.74it/s] 42%|████▏     | 42/99 [00:15<00:20,  2.77it/s] 43%|████▎     | 43/99 [00:16<00:20,  2.74it/s] 44%|████▍     | 44/99 [00:16<00:20,  2.75it/s] 45%|████▌     | 45/99 [00:16<00:19,  2.76it/s] 46%|████▋     | 46/99 [00:17<00:19,  2.74it/s] 47%|████▋     | 47/99 [00:17<00:19,  2.73it/s] 48%|████▊     | 48/99 [00:17<00:18,  2.73it/s] 49%|████▉     | 49/99 [00:18<00:18,  2.74it/s] 51%|█████     | 50/99 [00:18<00:17,  2.75it/s] 52%|█████▏    | 51/99 [00:19<00:17,  2.76it/s] 53%|█████▎    | 52/99 [00:19<00:17,  2.76it/s] 54%|█████▎    | 53/99 [00:19<00:16,  2.78it/s] 55%|█████▍    | 54/99 [00:20<00:16,  2.77it/s] 56%|█████▌    | 55/99 [00:20<00:16,  2.74it/s] 57%|█████▋    | 56/99 [00:20<00:15,  2.76it/s] 58%|█████▊    | 57/99 [00:21<00:15,  2.76it/s] 59%|█████▊    | 58/99 [00:21<00:14,  2.76it/s] 60%|█████▉    | 59/99 [00:21<00:14,  2.77it/s] 61%|██████    | 60/99 [00:22<00:14,  2.77it/s] 62%|██████▏   | 61/99 [00:22<00:14,  2.71it/s] 63%|██████▎   | 62/99 [00:23<00:13,  2.71it/s]length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
+average loss = 0.05954137692848841
 weight = 0.09805121926334048
-loss_1 = 0.5116922656695048, loss_2 = 0.00897158527125915
+loss_1 = 0.5153283874193827, loss_2 = 0.009992585517466068
 
 epoch: 833, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.061209969222545624
+average loss = 0.06476437548796336
 weight = 0.1044791347821651
-loss_1 = 0.5087632139523824, loss_2 = 0.008994576521217823
+loss_1 = 0.5293986598650614, loss_2 = 0.010556157988806566
 
 epoch: 834, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.0631580501794815
+average loss = 0.0675144890944163
 weight = 0.1111111111111111
-loss_1 = 0.49926770726839703, loss_2 = 0.008644339628517628
+loss_1 = 0.5255963802337646, loss_2 = 0.010254253633320332
 
 epoch: 835, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.06592118243376414
+average loss = 0.06863319377104442
 weight = 0.11794714825017855
-loss_1 = 0.4952765802542369, loss_2 = 0.008508247168113789
+loss_1 = 0.5119524498780569, loss_2 = 0.009353027989466986
 
 epoch: 836, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.071640911201636
+average loss = 0.07318517565727234
 weight = 0.12498724619936741
-loss_1 = 0.5086265305678049, loss_2 = 0.009221671770016352
+loss_1 = 0.5191502173741659, loss_2 = 0.009483311014870802
 
 epoch: 837, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.07145318140586217
+average loss = 0.0735003153483073
 weight = 0.1322314049586777
-loss_1 = 0.4872412383556366, loss_2 = 0.008095001801848412
+loss_1 = 0.5003428558508555, loss_2 = 0.008457644221683344
 
 epoch: 838, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.07439233114322026
+average loss = 0.07602794965108235
 weight = 0.1396796245281094
-loss_1 = 0.4835747679074605, loss_2 = 0.007958415274818739
+loss_1 = 0.49132070938746136, loss_2 = 0.008601976713786522
 
 epoch: 839, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.0794220119714737
+average loss = 0.07757585992415746
 weight = 0.14733190490766246
-loss_1 = 0.490383118391037, loss_2 = 0.008412334291885296
+loss_1 = 0.48145171999931335, loss_2 = 0.0077904413143793745
 
 epoch: 840, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.08310670405626297
+average loss = 0.08224237461884816
 weight = 0.155188246097337
-loss_1 = 0.48958579699198407, loss_2 = 0.008438258742292723
+loss_1 = 0.4851478735605876, loss_2 = 0.008230382887025675
 
 epoch: 841, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.08606081952651341
+average loss = 0.08683486531178157
 weight = 0.16324864809713294
-loss_1 = 0.4848879873752594, loss_2 = 0.00825037807226181
+loss_1 = 0.48828856150309247, loss_2 = 0.008511989377439022
 
 epoch: 842, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.09039769818385442
+average loss = 0.08903479079405467
 weight = 0.1715131109070503
-loss_1 = 0.4867105682690938, loss_2 = 0.008353126235306263
+loss_1 = 0.47993165254592896, loss_2 = 0.008111441197494665
 
 epoch: 843, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.09232248365879059
+average loss = 0.09215221305688222
 weight = 0.1799816345270891
-loss_1 = 0.47721903522809345, loss_2 = 0.007843510247766972
+loss_1 = 0.47601477305094403, loss_2 = 0.007900187435249487
 
 epoch: 844, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.09673009316126506
+average loss = 0.09707465767860413
 weight = 0.1886542189572493
-loss_1 = 0.47853903969128925, loss_2 = 0.007951838119576374
+loss_1 = 0.4794987738132477, loss_2 = 0.008153356611728668
 
 epoch: 845, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.10560113936662674
+average loss = 0.10460849106311798
 weight = 0.19753086419753085
-loss_1 = 0.49789488315582275, loss_2 = 0.009036525152623653
+loss_1 = 0.49310067296028137, loss_2 = 0.008979649282991886
 
 epoch: 846, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.10510929177204768
+average loss = 0.10424325615167618
 weight = 0.20661157024793386
-loss_1 = 0.4780808389186859, loss_2 = 0.00798128048578898
+loss_1 = 0.47461241483688354, loss_2 = 0.007792951383938392
 
 epoch: 847, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.11596349378426869
+average loss = 0.12386639416217804
 weight = 0.21589633710845832
-loss_1 = 0.5028881927331289, loss_2 = 0.009427038331826528
+loss_1 = 0.5322409470876058, loss_2 = 0.011423899171253046
 
 epoch: 848, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.115865391989549
+average loss = 0.11826375126838684
 weight = 0.22538516477910417
-loss_1 = 0.48519396781921387, loss_2 = 0.008404009975492954
+loss_1 = 0.4935264786084493, loss_2 = 0.009075742214918137
 
 epoch: 849, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.11903410653273265
+average loss = 0.11759635806083679
 weight = 0.23507805325987147
-loss_1 = 0.47992926836013794, loss_2 = 0.00812274528046449
+loss_1 = 0.47453763087590534, loss_2 = 0.00790012115612626
 
 epoch: 850, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.12572970489660898
+average loss = 0.12337744484345119
 weight = 0.24497500255076016
-loss_1 = 0.48694829146067303, loss_2 = 0.008528919580082098
+loss_1 = 0.4786097009976705, loss_2 = 0.008118984444687763
 
 epoch: 851, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.12772437433401743
+average loss = 0.14030898114045462
 weight = 0.25507601265177027
-loss_1 = 0.47733067472775775, loss_2 = 0.008012581461419662
+loss_1 = 0.5190738836924235, loss_2 = 0.010612729315956434
 
 epoch: 852, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.13218371818463007
+average loss = 0.13299908737341562
 weight = 0.26538108356290174
-loss_1 = 0.47620710730552673, loss_2 = 0.007905257244904837
+loss_1 = 0.4786207675933838, loss_2 = 0.008143246794740358
 
 epoch: 853, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.14121666550636292
+average loss = 0.13736856480439505
 weight = 0.27589021528415475
-loss_1 = 0.4889188011487325, loss_2 = 0.008740049476424852
+loss_1 = 0.47690510749816895, loss_2 = 0.008003092215706905
 
 epoch: 854, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.14452322324117026
+average loss = 0.14227711657683054
 weight = 0.286603407815529
-loss_1 = 0.48337605595588684, loss_2 = 0.008390826949228844
+loss_1 = 0.4764116704463959, loss_2 = 0.008040267663697401
 
 epoch: 855, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.14725022514661154
+average loss = 0.15087675551573435
 weight = 0.29752066115702475
-loss_1 = 0.4761453866958618, loss_2 = 0.007953450238953034
+loss_1 = 0.486706684033076, loss_2 = 0.008642890180150667
 
 epoch: 856, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.1602866252263387
+average loss = 0.15070168177286783
 weight = 0.308641975308642
-loss_1 = 0.49837348858515423, loss_2 = 0.009354998202373585
+loss_1 = 0.4711098372936249, loss_2 = 0.00766233882556359
 
 epoch: 857, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.1605746696392695
+average loss = 0.16109625001748404
 weight = 0.31996735027038054
-loss_1 = 0.48389845093091327, loss_2 = 0.008445117001732191
+loss_1 = 0.4851621190706889, loss_2 = 0.00861753678570191
 
 epoch: 858, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.18439467748006186
+average loss = 0.16625415285428366
 weight = 0.33149678604224064
-loss_1 = 0.5330715179443359, loss_2 = 0.01149311444411675
+loss_1 = 0.4842921396096547, loss_2 = 0.008545765032370886
 
 epoch: 859, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.1699147423108419
+average loss = 0.16379048923651376
 weight = 0.343230282624222
-loss_1 = 0.4793770710627238, loss_2 = 0.008188586526860794
+loss_1 = 0.46347038944562274, loss_2 = 0.007176661863923073
 
 epoch: 860, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.18490021427472433
+average loss = 0.17307602862517038
 weight = 0.3551678400163248
-loss_1 = 0.503102312485377, loss_2 = 0.009637326002120972
+loss_1 = 0.47302666306495667, loss_2 = 0.0078658830995361
 
 epoch: 861, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.1827882726987203
+average loss = 0.17556227246920267
 weight = 0.36730945821854916
-loss_1 = 0.48311976591746014, loss_2 = 0.008430366714795431
+loss_1 = 0.46528170506159466, loss_2 = 0.007365216501057148
 
 epoch: 862, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.1883179893096288
+average loss = 0.18586362401644388
 weight = 0.3796551372308948
-loss_1 = 0.4822833736737569, loss_2 = 0.008409259375184774
+loss_1 = 0.47641350825627643, loss_2 = 0.008045193428794542
 
 epoch: 863, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.1937128802140554
- 64%|██████▎   | 63/99 [00:24<00:13,  2.60it/s] 65%|██████▍   | 64/99 [00:24<00:13,  2.63it/s] 66%|██████▌   | 65/99 [00:25<00:13,  2.60it/s] 67%|██████▋   | 66/99 [00:25<00:12,  2.59it/s] 68%|██████▊   | 67/99 [00:25<00:12,  2.60it/s] 69%|██████▊   | 68/99 [00:26<00:11,  2.62it/s] 70%|██████▉   | 69/99 [00:26<00:11,  2.61it/s] 71%|███████   | 70/99 [00:27<00:11,  2.62it/s] 72%|███████▏  | 71/99 [00:27<00:10,  2.63it/s] 73%|███████▎  | 72/99 [00:27<00:10,  2.62it/s] 74%|███████▎  | 73/99 [00:28<00:10,  2.59it/s] 75%|███████▍  | 74/99 [00:28<00:09,  2.56it/s] 76%|███████▌  | 75/99 [00:29<00:09,  2.55it/s] 77%|███████▋  | 76/99 [00:29<00:08,  2.59it/s] 78%|███████▊  | 77/99 [00:29<00:08,  2.62it/s] 79%|███████▉  | 78/99 [00:30<00:08,  2.62it/s] 80%|███████▉  | 79/99 [00:30<00:07,  2.61it/s] 81%|████████  | 80/99 [00:30<00:07,  2.62it/s] 82%|████████▏ | 81/99 [00:31<00:06,  2.63it/s] 83%|████████▎ | 82/99 [00:31<00:06,  2.63it/s] 84%|████████▍ | 83/99 [00:32<00:06,  2.65it/s] 85%|████████▍ | 84/99 [00:32<00:05,  2.67it/s] 86%|████████▌ | 85/99 [00:32<00:05,  2.62it/s] 87%|████████▋ | 86/99 [00:33<00:04,  2.64it/s] 88%|████████▊ | 87/99 [00:33<00:04,  2.58it/s] 89%|████████▉ | 88/99 [00:34<00:04,  2.53it/s] 90%|████████▉ | 89/99 [00:34<00:03,  2.57it/s] 91%|█████████ | 90/99 [00:34<00:03,  2.60it/s] 92%|█████████▏| 91/99 [00:35<00:03,  2.60it/s] 93%|█████████▎| 92/99 [00:35<00:02,  2.61it/s] 94%|█████████▍| 93/99 [00:35<00:02,  2.63it/s] 95%|█████████▍| 94/99 [00:36<00:01,  2.60it/s]weight = 0.39220487705336193
-loss_1 = 0.48106734951337177, loss_2 = 0.008285552263259888
+average loss = 0.18662029504776
+ 64%|██████▎   | 63/99 [00:23<00:13,  2.70it/s] 65%|██████▍   | 64/99 [00:23<00:12,  2.70it/s] 66%|██████▌   | 65/99 [00:24<00:12,  2.71it/s] 67%|██████▋   | 66/99 [00:24<00:12,  2.73it/s] 68%|██████▊   | 67/99 [00:24<00:11,  2.72it/s] 69%|██████▊   | 68/99 [00:25<00:11,  2.73it/s] 70%|██████▉   | 69/99 [00:25<00:10,  2.77it/s] 71%|███████   | 70/99 [00:25<00:10,  2.76it/s] 72%|███████▏  | 71/99 [00:26<00:10,  2.76it/s] 73%|███████▎  | 72/99 [00:26<00:09,  2.75it/s] 74%|███████▎  | 73/99 [00:27<00:09,  2.75it/s] 75%|███████▍  | 74/99 [00:27<00:09,  2.71it/s] 76%|███████▌  | 75/99 [00:27<00:08,  2.70it/s] 77%|███████▋  | 76/99 [00:28<00:08,  2.71it/s] 78%|███████▊  | 77/99 [00:28<00:08,  2.71it/s] 79%|███████▉  | 78/99 [00:28<00:07,  2.74it/s] 80%|███████▉  | 79/99 [00:29<00:07,  2.76it/s] 81%|████████  | 80/99 [00:29<00:06,  2.77it/s] 82%|████████▏ | 81/99 [00:29<00:06,  2.73it/s] 83%|████████▎ | 82/99 [00:30<00:06,  2.73it/s] 84%|████████▍ | 83/99 [00:30<00:05,  2.69it/s] 85%|████████▍ | 84/99 [00:31<00:05,  2.70it/s] 86%|████████▌ | 85/99 [00:31<00:05,  2.72it/s] 87%|████████▋ | 86/99 [00:31<00:04,  2.71it/s] 88%|████████▊ | 87/99 [00:32<00:04,  2.73it/s] 89%|████████▉ | 88/99 [00:32<00:04,  2.75it/s] 90%|████████▉ | 89/99 [00:32<00:03,  2.74it/s] 91%|█████████ | 90/99 [00:33<00:03,  2.75it/s] 92%|█████████▏| 91/99 [00:33<00:02,  2.76it/s] 93%|█████████▎| 92/99 [00:33<00:02,  2.78it/s] 94%|█████████▍| 93/99 [00:34<00:02,  2.76it/s] 95%|█████████▍| 94/99 [00:34<00:01,  2.75it/s]weight = 0.39220487705336193
+loss_1 = 0.46452651421229046, loss_2 = 0.007289836959292491
 
 epoch: 864, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.21408507724603018
+average loss = 0.19477449854214987
 weight = 0.4049586776859504
-loss_1 = 0.5134976704915365, loss_2 = 0.010318183029691378
+loss_1 = 0.4697359601656596, loss_2 = 0.007647958428909381
 
 epoch: 865, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.21052783727645874
+average loss = 0.20097277561823526
 weight = 0.4179165391286604
-loss_1 = 0.49136818448702496, loss_2 = 0.008893824182450771
+loss_1 = 0.47018106778462726, loss_2 = 0.007690191424141328
 
 epoch: 866, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.22265313069025675
+average loss = 0.2095552682876587
 weight = 0.4310784613814917
-loss_1 = 0.5036918123563131, loss_2 = 0.009706851715842882
+loss_1 = 0.47551266352335614, loss_2 = 0.008036251179873943
 
 epoch: 867, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.2143882761398951
+average loss = 0.20874479909737906
 weight = 0.4444444444444444
-loss_1 = 0.4726436833540599, loss_2 = 0.007783942545453708
+loss_1 = 0.4607899884382884, loss_2 = 0.007108650791148345
 
 epoch: 868, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.23918448388576508
+average loss = 0.2206359306971232
 weight = 0.4580144883175187
-loss_1 = 0.5102291901906332, loss_2 = 0.01013334064433972
+loss_1 = 0.47243016958236694, loss_2 = 0.007852730496476093
 
 epoch: 869, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.22934527198473612
+average loss = 0.2254451165596644
 weight = 0.4717885930007142
-loss_1 = 0.4771179258823395, loss_2 = 0.00803936334947745
+loss_1 = 0.46927712361017865, loss_2 = 0.007658911558489005
 
 epoch: 870, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.2541729062795639
+average loss = 0.23360797762870789
 weight = 0.4857667584940313
-loss_1 = 0.5123751759529114, loss_2 = 0.010263968259096146
+loss_1 = 0.4725830852985382, loss_2 = 0.007861838520814976
 
 epoch: 871, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.24215065936247507
+average loss = 0.23987987637519836
 weight = 0.49994898479746963
-loss_1 = 0.47633232673009235, loss_2 = 0.008016772723446289
+loss_1 = 0.4719947079817454, loss_2 = 0.00781240841994683
 
 epoch: 872, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.2632398009300232
+average loss = 0.24476363261540732
 weight = 0.5143352719110295
-loss_1 = 0.5026674966017405, loss_2 = 0.009677814319729805
+loss_1 = 0.4687161445617676, loss_2 = 0.007590400365491708
 
 epoch: 873, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.2581189175446828
+average loss = 0.2458098183075587
 weight = 0.5289256198347108
-loss_1 = 0.4805750846862793, loss_2 = 0.008343578316271305
+loss_1 = 0.45850521326065063, loss_2 = 0.006993954535573721
 
 epoch: 874, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.27038996418317157
+average loss = 0.25296901166439056
 weight = 0.5437200285685134
-loss_1 = 0.48980199297269184, loss_2 = 0.00893053381393353
+loss_1 = 0.45934905608495075, loss_2 = 0.007038947660475969
 
 epoch: 875, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.2820695638656616
+average loss = 0.26396342118581134
 weight = 0.5587184981124376
-loss_1 = 0.4974172115325928, loss_2 = 0.009412037829558054
+loss_1 = 0.46654194593429565, loss_2 = 0.007473262337346871
 
 epoch: 876, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.2812562783559163
+average loss = 0.275317261616389
 weight = 0.573921028466483
-loss_1 = 0.48371319969495136, loss_2 = 0.008550288310895363
+loss_1 = 0.47381136814753216, loss_2 = 0.007949138836314281
 
 epoch: 877, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.2877815862496694
+average loss = 0.2790987491607666
 weight = 0.5893276196306498
-loss_1 = 0.4824270009994507, loss_2 = 0.00845936763410767
+loss_1 = 0.46828846136728924, loss_2 = 0.007605607000490029
 
 epoch: 878, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.2971362868944804
+average loss = 0.28892351190249127
 weight = 0.6049382716049383
-loss_1 = 0.48554809888203937, loss_2 = 0.008630710033078989
+loss_1 = 0.4724523325761159, loss_2 = 0.007894999502847591
 
 epoch: 879, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.30263275901476544
+average loss = 0.32169901331265766
 weight = 0.620752984389348
-loss_1 = 0.48236722747484845, loss_2 = 0.008442677247027556
+loss_1 = 0.5119011203447977, loss_2 = 0.010375439810256163
 
 epoch: 880, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.3308042387167613
+average loss = 0.3057444393634796
 weight = 0.6367717579838792
-loss_1 = 0.5135820508003235, loss_2 = 0.010378330014646053
+loss_1 = 0.475554754336675, loss_2 = 0.00805172851930062
 
 epoch: 881, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.32156839966773987
+average loss = 0.3076893190542857
 weight = 0.6529945923885317
-loss_1 = 0.48778606454531354, loss_2 = 0.008780149432520071
+loss_1 = 0.4671955406665802, loss_2 = 0.007530659902840853
 
 epoch: 882, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.3217160205046336
+average loss = 0.3221030632654826
 weight = 0.6694214876033059
-loss_1 = 0.4766092399756114, loss_2 = 0.008057267560313145
+loss_1 = 0.47711731990178424, loss_2 = 0.008199201431125402
 
 epoch: 883, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.3849976658821106
+average loss = 0.32498647769292194
 weight = 0.6860524436282012
-loss_1 = 0.5552730758984884, loss_2 = 0.012904094532132149
+loss_1 = 0.4701856275399526, loss_2 = 0.007690731901675463
 
 epoch: 884, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.34103623032569885
+average loss = 0.3344180981318156
 weight = 0.7028874604632179
-loss_1 = 0.48163095116615295, loss_2 = 0.008427356680234274
+loss_1 = 0.47245510419209796, loss_2 = 0.007860061091681322
 
 epoch: 885, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.3516005575656891
+average loss = 0.334782342116038
 weight = 0.7199265381083564
-loss_1 = 0.4850226243336995, loss_2 = 0.008640209212899208
+loss_1 = 0.4622102677822113, loss_2 = 0.007229883534212907
 
 epoch: 886, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.3937280873457591
+average loss = 0.3647800385951996
 weight = 0.7371696765636159
-loss_1 = 0.5300524036089579, loss_2 = 0.011374344428380331
+loss_1 = 0.4915949006875356, loss_2 = 0.009097816422581673
 
 epoch: 887, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.3605891664822896
+average loss = 0.3661533792813619
 weight = 0.7546168758289972
-loss_1 = 0.4752407173315684, loss_2 = 0.008005965811510881
+loss_1 = 0.48244701822598773, loss_2 = 0.00852027970055739
 
 epoch: 888, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.4364959994951884
+average loss = 0.36108605066935223
 weight = 0.7722681359044995
-loss_1 = 0.561265250047048, loss_2 = 0.013387446602185568
+loss_1 = 0.4653558333714803, loss_2 = 0.007493781701972087
 
 epoch: 889, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.38205935557683307
+average loss = 0.37033472458521527
 weight = 0.7901234567901234
-loss_1 = 0.48131343722343445, loss_2 = 0.008396986871957779
+loss_1 = 0.46669431527455646, loss_2 = 0.007569181888053815
 
 epoch: 890, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.4020697871843974
+average loss = 0.3771851559480031
 weight = 0.8081828384858688
-loss_1 = 0.49529266357421875, loss_2 = 0.009293989899257818
+loss_1 = 0.46493255098660785, loss_2 = 0.0074792470162113505
 
 epoch: 891, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.4022503395875295
+average loss = 0.396592378616333
 weight = 0.8264462809917354
-loss_1 = 0.4849102199077606, loss_2 = 0.008631866735716661
+loss_1 = 0.47813600301742554, loss_2 = 0.00828938124080499
 
 epoch: 892, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.40363338589668274
+average loss = 0.40354398886362713
 weight = 0.8449137843077238
-loss_1 = 0.47623364130655926, loss_2 = 0.00810532799611489
+loss_1 = 0.47611089547475177, loss_2 = 0.008197575807571411
 
 epoch: 893, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.42407025893529254
+average loss = 0.4096365173657735
 weight = 0.8635853484338333
-loss_1 = 0.48964372277259827, loss_2 = 0.008951528929173946
+loss_1 = 0.47306928038597107, loss_2 = 0.008069701182345549
 
 epoch: 894, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.42961246768633526
+average loss = 0.41257039705912274
 weight = 0.8824609733700643
-loss_1 = 0.4856773416201274, loss_2 = 0.008687959518283606
+loss_1 = 0.46650245785713196, loss_2 = 0.00765872389699022
 
 epoch: 895, start epoch: 801, L: 99
- 96%|█████████▌| 95/99 [00:36<00:01,  2.61it/s] 97%|█████████▋| 96/99 [00:37<00:01,  2.54it/s] 98%|█████████▊| 97/99 [00:37<00:00,  2.54it/s] 99%|█████████▉| 98/99 [00:37<00:00,  2.59it/s]100%|██████████| 99/99 [00:38<00:00,  2.61it/s]100%|██████████| 99/99 [00:38<00:00,  2.59it/s]
+ 96%|█████████▌| 95/99 [00:35<00:01,  2.77it/s] 97%|█████████▋| 96/99 [00:35<00:01,  2.73it/s] 98%|█████████▊| 97/99 [00:35<00:00,  2.74it/s] 99%|█████████▉| 98/99 [00:36<00:00,  2.76it/s]100%|██████████| 99/99 [00:36<00:00,  2.72it/s]100%|██████████| 99/99 [00:36<00:00,  2.71it/s]
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.45060721039772034
+average loss = 0.45246734221776325
 weight = 0.9015406591164167
-loss_1 = 0.49878018101056415, loss_2 = 0.009512700140476227
+loss_1 = 0.5008097986380259, loss_2 = 0.009820892785986265
 
 epoch: 896, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.46559855341911316
+average loss = 0.4215148389339447
 weight = 0.9208244056728905
-loss_1 = 0.5047813951969147, loss_2 = 0.009895999915897846
+loss_1 = 0.4571490486462911, loss_2 = 0.00708353395263354
 
 epoch: 897, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.4551965296268463
+average loss = 0.44237325588862103
 weight = 0.9403122130394859
-loss_1 = 0.48354748884836835, loss_2 = 0.008559810308118662
+loss_1 = 0.4699517786502838, loss_2 = 0.007905536486456791
 
 epoch: 898, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.46075968941052753
+average loss = 0.45414677262306213
 weight = 0.9600040812162024
-loss_1 = 0.4796094000339508, loss_2 = 0.00831874848032991
+loss_1 = 0.47273000081380206, loss_2 = 0.008101506624370813
 
 epoch: 899, start epoch: 801, L: 99
 length of train_pos_loader: 8, length of train_neg_loader1: 3514, length of train_neg_loader2: 1761
-average loss = 0.4818393687407176
+average loss = 0.4855530460675557
 weight = 0.9799000102030406
-loss_1 = 0.49153746167818707, loss_2 = 0.009044985907773176
-epoch_list: [801, 802, 803, 804, 805, 806, 807, 808, 809, 810, 811, 812, 813, 814, 815, 816, 817, 818, 819, 820, 821, 822, 823, 824, 825, 826, 827, 828, 829, 830, 831, 832, 833, 834, 835, 836, 837, 838, 839, 840, 841, 842, 843, 844, 845, 846, 847, 848, 849, 850, 851, 852, 853, 854, 855, 856, 857, 858, 859, 860, 861, 862, 863, 864, 865, 866, 867, 868, 869, 870, 871, 872, 873, 874, 875, 876, 877, 878, 879, 880, 881, 882, 883, 884, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899], loss_list: [0.015571911198397478, 0.014812858154376348, 0.014590555801987648, 0.014038393273949623, 0.014145133395989736, 0.014220234317084154, 0.014445760287344456, 0.014891666049758593, 0.0159272663295269, 0.016214779888590176, 0.017498891179760296, 0.018404229854544003, 0.01989948811630408, 0.020524947593609493, 0.022144537419080734, 0.023027514417966206, 0.024574918672442436, 0.02640052946905295, 0.02800002135336399, 0.03041699280341466, 0.03202960267663002, 0.03391696885228157, 0.036963995546102524, 0.03930732732017835, 0.04087757815917333, 0.04340699687600136, 0.04806241144736608, 0.04853866125146548, 0.05028320848941803, 0.052684235076109566, 0.054095337788263954, 0.0582639624675115, 0.061209969222545624, 0.0631580501794815, 0.06592118243376414, 0.071640911201636, 0.07145318140586217, 0.07439233114322026, 0.0794220119714737, 0.08310670405626297, 0.08606081952651341, 0.09039769818385442, 0.09232248365879059, 0.09673009316126506, 0.10560113936662674, 0.10510929177204768, 0.11596349378426869, 0.115865391989549, 0.11903410653273265, 0.12572970489660898, 0.12772437433401743, 0.13218371818463007, 0.14121666550636292, 0.14452322324117026, 0.14725022514661154, 0.1602866252263387, 0.1605746696392695, 0.18439467748006186, 0.1699147423108419, 0.18490021427472433, 0.1827882726987203, 0.1883179893096288, 0.1937128802140554, 0.21408507724603018, 0.21052783727645874, 0.22265313069025675, 0.2143882761398951, 0.23918448388576508, 0.22934527198473612, 0.2541729062795639, 0.24215065936247507, 0.2632398009300232, 0.2581189175446828, 0.27038996418317157, 0.2820695638656616, 0.2812562783559163, 0.2877815862496694, 0.2971362868944804, 0.30263275901476544, 0.3308042387167613, 0.32156839966773987, 0.3217160205046336, 0.3849976658821106, 0.34103623032569885, 0.3516005575656891, 0.3937280873457591, 0.3605891664822896, 0.4364959994951884, 0.38205935557683307, 0.4020697871843974, 0.4022503395875295, 0.40363338589668274, 0.42407025893529254, 0.42961246768633526, 0.45060721039772034, 0.46559855341911316, 0.4551965296268463, 0.46075968941052753, 0.4818393687407176], loss_1_list: [0.6931474804878235, 0.6465227206548055, 0.6372150381406149, 0.6201151013374329, 0.6119335889816284, 0.6014086008071899, 0.5916374921798706, 0.5838470458984375, 0.583536704381307, 0.5707908272743225, 0.5713574886322021, 0.5652090112368265, 0.5659020145734152, 0.554054061571757, 0.5540932019551595, 0.5440321167310079, 0.5412466526031494, 0.5406839847564697, 0.5366161863009135, 0.540264904499054, 0.5346072912216187, 0.5310937166213989, 0.5377116401990255, 0.5367354154586792, 0.5287545919418335, 0.5295939048131307, 0.5470873316129049, 0.529159426689148, 0.5203184684117635, 0.5166719754536947, 0.5040934681892395, 0.5116922656695048, 0.5087632139523824, 0.49926770726839703, 0.4952765802542369, 0.5086265305678049, 0.4872412383556366, 0.4835747679074605, 0.490383118391037, 0.48958579699198407, 0.4848879873752594, 0.4867105682690938, 0.47721903522809345, 0.47853903969128925, 0.49789488315582275, 0.4780808389186859, 0.5028881927331289, 0.48519396781921387, 0.47992926836013794, 0.48694829146067303, 0.47733067472775775, 0.47620710730552673, 0.4889188011487325, 0.48337605595588684, 0.4761453866958618, 0.49837348858515423, 0.48389845093091327, 0.5330715179443359, 0.4793770710627238, 0.503102312485377, 0.48311976591746014, 0.4822833736737569, 0.48106734951337177, 0.5134976704915365, 0.49136818448702496, 0.5036918123563131, 0.4726436833540599, 0.5102291901906332, 0.4771179258823395, 0.5123751759529114, 0.47633232673009235, 0.5026674966017405, 0.4805750846862793, 0.48980199297269184, 0.4974172115325928, 0.48371319969495136, 0.4824270009994507, 0.48554809888203937, 0.48236722747484845, 0.5135820508003235, 0.48778606454531354, 0.4766092399756114, 0.5552730758984884, 0.48163095116615295, 0.4850226243336995, 0.5300524036089579, 0.4752407173315684, 0.561265250047048, 0.48131343722343445, 0.49529266357421875, 0.4849102199077606, 0.47623364130655926, 0.48964372277259827, 0.4856773416201274, 0.49878018101056415, 0.5047813951969147, 0.48354748884836835, 0.4796094000339508, 0.49153746167818707], loss_2_list: [0.015571911198397478, 0.014748398214578629, 0.01433634509642919, 0.01348133726666371, 0.013167656647662321, 0.012718627539773783, 0.01231786422431469, 0.01203288696706295, 0.012196445216735205, 0.01159331388771534, 0.011789597570896149, 0.011569170281291008, 0.011757791973650455, 0.011163816166420778, 0.011289571722348532, 0.010785865286986033, 0.01071761486430963, 0.01077522182216247, 0.010611435708900293, 0.010919630837937197, 0.010645593206087748, 0.010492295337220034, 0.010951130340496698, 0.010927315180500349, 0.010415015121301016, 0.010291605566938719, 0.01109355284521977, 0.009917348312834898, 0.009415107468763987, 0.009133602182070414, 0.008595022217681011, 0.00897158527125915, 0.008994576521217823, 0.008644339628517628, 0.008508247168113789, 0.009221671770016352, 0.008095001801848412, 0.007958415274818739, 0.008412334291885296, 0.008438258742292723, 0.00825037807226181, 0.008353126235306263, 0.007843510247766972, 0.007951838119576374, 0.009036525152623653, 0.00798128048578898, 0.009427038331826528, 0.008404009975492954, 0.00812274528046449, 0.008528919580082098, 0.008012581461419662, 0.007905257244904837, 0.008740049476424852, 0.008390826949228844, 0.007953450238953034, 0.009354998202373585, 0.008445117001732191, 0.01149311444411675, 0.008188586526860794, 0.009637326002120972, 0.008430366714795431, 0.008409259375184774, 0.008285552263259888, 0.010318183029691378, 0.008893824182450771, 0.009706851715842882, 0.007783942545453708, 0.01013334064433972, 0.00803936334947745, 0.010263968259096146, 0.008016772723446289, 0.009677814319729805, 0.008343578316271305, 0.00893053381393353, 0.009412037829558054, 0.008550288310895363, 0.00845936763410767, 0.008630710033078989, 0.008442677247027556, 0.010378330014646053, 0.008780149432520071, 0.008057267560313145, 0.012904094532132149, 0.008427356680234274, 0.008640209212899208, 0.011374344428380331, 0.008005965811510881, 0.013387446602185568, 0.008396986871957779, 0.009293989899257818, 0.008631866735716661, 0.00810532799611489, 0.008951528929173946, 0.008687959518283606, 0.009512700140476227, 0.009895999915897846, 0.008559810308118662, 0.00831874848032991, 0.009044985907773176]
+loss_1 = 0.4953176975250244, loss_2 = 0.00951405211041371
+epoch_list: [801, 802, 803, 804, 805, 806, 807, 808, 809, 810, 811, 812, 813, 814, 815, 816, 817, 818, 819, 820, 821, 822, 823, 824, 825, 826, 827, 828, 829, 830, 831, 832, 833, 834, 835, 836, 837, 838, 839, 840, 841, 842, 843, 844, 845, 846, 847, 848, 849, 850, 851, 852, 853, 854, 855, 856, 857, 858, 859, 860, 861, 862, 863, 864, 865, 866, 867, 868, 869, 870, 871, 872, 873, 874, 875, 876, 877, 878, 879, 880, 881, 882, 883, 884, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899], loss_list: [0.011744259856641293, 0.010916410324474176, 0.0109159459049503, 0.010632241144776344, 0.011770392147203287, 0.011374379508197308, 0.012657561339437962, 0.013025601394474506, 0.013477825870116552, 0.015130531042814255, 0.015148110687732697, 0.017218435183167458, 0.01842009462416172, 0.019726600497961044, 0.0207715705037117, 0.022843549648920696, 0.02329447182516257, 0.025592712685465813, 0.028037441273530323, 0.029976985106865566, 0.03133914309243361, 0.03346194326877594, 0.03667105113466581, 0.03878547872106234, 0.04018950338164965, 0.04354700818657875, 0.04535567263762156, 0.047806307673454285, 0.05158948401610056, 0.053359837581714, 0.05789270500342051, 0.05954137692848841, 0.06476437548796336, 0.0675144890944163, 0.06863319377104442, 0.07318517565727234, 0.0735003153483073, 0.07602794965108235, 0.07757585992415746, 0.08224237461884816, 0.08683486531178157, 0.08903479079405467, 0.09215221305688222, 0.09707465767860413, 0.10460849106311798, 0.10424325615167618, 0.12386639416217804, 0.11826375126838684, 0.11759635806083679, 0.12337744484345119, 0.14030898114045462, 0.13299908737341562, 0.13736856480439505, 0.14227711657683054, 0.15087675551573435, 0.15070168177286783, 0.16109625001748404, 0.16625415285428366, 0.16379048923651376, 0.17307602862517038, 0.17556227246920267, 0.18586362401644388, 0.18662029504776, 0.19477449854214987, 0.20097277561823526, 0.2095552682876587, 0.20874479909737906, 0.2206359306971232, 0.2254451165596644, 0.23360797762870789, 0.23987987637519836, 0.24476363261540732, 0.2458098183075587, 0.25296901166439056, 0.26396342118581134, 0.275317261616389, 0.2790987491607666, 0.28892351190249127, 0.32169901331265766, 0.3057444393634796, 0.3076893190542857, 0.3221030632654826, 0.32498647769292194, 0.3344180981318156, 0.334782342116038, 0.3647800385951996, 0.3661533792813619, 0.36108605066935223, 0.37033472458521527, 0.3771851559480031, 0.396592378616333, 0.40354398886362713, 0.4096365173657735, 0.41257039705912274, 0.45246734221776325, 0.4215148389339447, 0.44237325588862103, 0.45414677262306213, 0.4855530460675557], loss_1_list: [0.6931474804878235, 0.5446271896362305, 0.5331935087839762, 0.5181525349617004, 0.5277948975563049, 0.5134608149528503, 0.5239590803782145, 0.5186187823613485, 0.5131832857926687, 0.5239212910334269, 0.5102942089239756, 0.5236284136772156, 0.5235580603281657, 0.5235108931859335, 0.5189940532048544, 0.5257082978884379, 0.5122336049874624, 0.5189225474993387, 0.5255869626998901, 0.5255192915598551, 0.5187166531880697, 0.5186663667360941, 0.5276230971018473, 0.5253493587176005, 0.5163456002871195, 0.5231019457181295, 0.5164122978846232, 0.5143232345581055, 0.5213735898335775, 0.513308048248291, 0.5240529378255209, 0.5153283874193827, 0.5293986598650614, 0.5255963802337646, 0.5119524498780569, 0.5191502173741659, 0.5003428558508555, 0.49132070938746136, 0.48145171999931335, 0.4851478735605876, 0.48828856150309247, 0.47993165254592896, 0.47601477305094403, 0.4794987738132477, 0.49310067296028137, 0.47461241483688354, 0.5322409470876058, 0.4935264786084493, 0.47453763087590534, 0.4786097009976705, 0.5190738836924235, 0.4786207675933838, 0.47690510749816895, 0.4764116704463959, 0.486706684033076, 0.4711098372936249, 0.4851621190706889, 0.4842921396096547, 0.46347038944562274, 0.47302666306495667, 0.46528170506159466, 0.47641350825627643, 0.46452651421229046, 0.4697359601656596, 0.47018106778462726, 0.47551266352335614, 0.4607899884382884, 0.47243016958236694, 0.46927712361017865, 0.4725830852985382, 0.4719947079817454, 0.4687161445617676, 0.45850521326065063, 0.45934905608495075, 0.46654194593429565, 0.47381136814753216, 0.46828846136728924, 0.4724523325761159, 0.5119011203447977, 0.475554754336675, 0.4671955406665802, 0.47711731990178424, 0.4701856275399526, 0.47245510419209796, 0.4622102677822113, 0.4915949006875356, 0.48244701822598773, 0.4653558333714803, 0.46669431527455646, 0.46493255098660785, 0.47813600301742554, 0.47611089547475177, 0.47306928038597107, 0.46650245785713196, 0.5008097986380259, 0.4571490486462911, 0.4699517786502838, 0.47273000081380206, 0.4953176975250244], loss_2_list: [0.011744259856641293, 0.010861950305600962, 0.010702705942094326, 0.010165770538151264, 0.010926612031956514, 0.01009040263791879, 0.010772578418254852, 0.010485192760825157, 0.010193328373134136, 0.010890608342985312, 0.01004403829574585, 0.01088831014931202, 0.010887748251358667, 0.01088736237337192, 0.010604822697738806, 0.011028119052449862, 0.010180965686837832, 0.010604032936195532, 0.011027202320595583, 0.011026691334942976, 0.010601880960166454, 0.010601351658503214, 0.01116704847663641, 0.011025308320919672, 0.010458781073490778, 0.010883338438967863, 0.010458767103652159, 0.010318338560561338, 0.010743219094971815, 0.010188360077639421, 0.010758205937842527, 0.009992585517466068, 0.010556157988806566, 0.010254253633320332, 0.009353027989466986, 0.009483311014870802, 0.008457644221683344, 0.008601976713786522, 0.0077904413143793745, 0.008230382887025675, 0.008511989377439022, 0.008111441197494665, 0.007900187435249487, 0.008153356611728668, 0.008979649282991886, 0.007792951383938392, 0.011423899171253046, 0.009075742214918137, 0.00790012115612626, 0.008118984444687763, 0.010612729315956434, 0.008143246794740358, 0.008003092215706905, 0.008040267663697401, 0.008642890180150667, 0.00766233882556359, 0.00861753678570191, 0.008545765032370886, 0.007176661863923073, 0.0078658830995361, 0.007365216501057148, 0.008045193428794542, 0.007289836959292491, 0.007647958428909381, 0.007690191424141328, 0.008036251179873943, 0.007108650791148345, 0.007852730496476093, 0.007658911558489005, 0.007861838520814976, 0.00781240841994683, 0.007590400365491708, 0.006993954535573721, 0.007038947660475969, 0.007473262337346871, 0.007949138836314281, 0.007605607000490029, 0.007894999502847591, 0.010375439810256163, 0.00805172851930062, 0.007530659902840853, 0.008199201431125402, 0.007690731901675463, 0.007860061091681322, 0.007229883534212907, 0.009097816422581673, 0.00852027970055739, 0.007493781701972087, 0.007569181888053815, 0.0074792470162113505, 0.00828938124080499, 0.008197575807571411, 0.008069701182345549, 0.00765872389699022, 0.009820892785986265, 0.00708353395263354, 0.007905536486456791, 0.008101506624370813, 0.00951405211041371]
 Test
 inquiry 0
 model storage/model.ep801 loaded.
 0it [00:00, ?it/s]/home/teamcommon/pjy/Bipedal_walker/criticality/stage2/my_test.py:228: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
   labels_cls = torch.tensor(labels[:, 0], dtype=torch.int64)
-1it [00:03,  3.08s/it]2it [00:06,  3.08s/it]3it [00:09,  3.05s/it]4it [00:12,  3.04s/it]5it [00:14,  2.68s/it]6it [00:17,  2.82s/it]7it [00:20,  2.88s/it]8it [00:23,  2.92s/it]9it [00:26,  2.94s/it]10it [00:28,  2.67s/it]11it [00:31,  2.76s/it]12it [00:34,  2.85s/it]13it [00:37,  2.90s/it]14it [00:40,  2.93s/it]15it [00:42,  2.65s/it]16it [00:45,  2.76s/it]17it [00:48,  2.84s/it]18it [00:51,  2.95s/it]19it [00:54,  3.02s/it]20it [00:57,  3.02s/it]21it [00:59,  2.71s/it]22it [01:02,  2.80s/it]23it [01:05,  2.87s/it]24it [01:08,  2.92s/it]25it [01:12,  3.11s/it]26it [01:15,  3.03s/it]27it [01:17,  2.75s/it]28it [01:20,  2.83s/it]29it [01:23,  2.89s/it]30it [01:26,  2.94s/it]31it [01:29,  2.94s/it]32it [01:31,  2.75s/it]33it [01:34,  2.74s/it]34it [01:37,  2.82s/it]35it [01:40,  2.85s/it]36it [01:43,  2.90s/it]37it [01:46,  2.92s/it]38it [01:48,  2.66s/it]39it [01:51,  2.76s/it]40it [01:54,  2.93s/it]41it [01:57,  2.97s/it]42it [02:00,  2.98s/it]43it [02:03,  2.97s/it]44it [02:05,  2.70s/it]45it [02:08,  2.78s/it]46it [02:11,  2.85s/it]47it [02:14,  2.89s/it]48it [02:18,  3.08s/it]49it [02:21,  3.23s/it]50it [02:24,  2.92s/it]51it [02:27,  2.94s/it]52it [02:30,  2.97s/it]53it [02:33,  2.99s/it]54it [02:36,  2.97s/it]55it [02:39,  2.99s/it]56it [02:42,  3.00s/it]57it [02:44,  2.70s/it]58it [02:47,  2.74s/it]59it [02:49,  2.80s/it]60it [02:53,  2.88s/it]61it [02:56,  2.91s/it]62it [02:59,  2.95s/it]63it [03:01,  2.69s/it]63it [03:01,  2.88s/it]
-TP is [156, 156, 156, 156, 156, 156, 156, 156, 156, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-FP is [64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-TN is [0, 0, 0, 0, 0, 0, 0, 0, 0, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267]
-FN is [0, 0, 0, 0, 0, 0, 0, 0, 0, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156]
+1it [00:02,  2.87s/it]2it [00:05,  2.46s/it]3it [00:07,  2.52s/it]4it [00:10,  2.67s/it]5it [00:13,  2.75s/it]6it [00:16,  2.79s/it]7it [00:19,  2.82s/it]8it [00:21,  2.82s/it]9it [00:24,  2.78s/it]10it [00:26,  2.51s/it]11it [00:29,  2.61s/it]12it [00:32,  2.68s/it]13it [00:35,  2.76s/it]14it [00:38,  2.77s/it]15it [00:40,  2.81s/it]16it [00:43,  2.77s/it]17it [00:45,  2.58s/it]18it [00:48,  2.67s/it]19it [00:51,  2.74s/it]20it [00:54,  2.79s/it]21it [00:57,  2.82s/it]22it [00:59,  2.74s/it]23it [01:02,  2.59s/it]24it [01:05,  2.69s/it]25it [01:07,  2.66s/it]26it [01:10,  2.73s/it]27it [01:13,  2.79s/it]28it [01:16,  2.80s/it]29it [01:18,  2.55s/it]30it [01:21,  2.64s/it]31it [01:26,  3.53s/it]32it [01:32,  4.33s/it]33it [01:38,  4.72s/it]34it [01:44,  5.13s/it]35it [01:50,  5.44s/it]36it [01:56,  5.49s/it]37it [02:02,  5.70s/it]38it [02:08,  5.81s/it]39it [02:14,  5.89s/it]40it [02:20,  5.83s/it]41it [02:26,  5.90s/it]42it [02:32,  5.98s/it]43it [02:38,  5.86s/it]44it [02:44,  5.93s/it]45it [02:50,  6.01s/it]46it [02:56,  5.90s/it]47it [03:02,  5.96s/it]48it [03:08,  6.01s/it]49it [03:14,  5.91s/it]50it [03:20,  5.95s/it]51it [03:26,  6.01s/it]52it [03:32,  6.09s/it]53it [03:38,  5.95s/it]54it [03:44,  5.99s/it]55it [03:50,  6.03s/it]56it [03:55,  5.87s/it]57it [04:01,  5.94s/it]58it [04:08,  5.98s/it]59it [04:14,  6.02s/it]60it [04:19,  5.88s/it]61it [04:25,  5.94s/it]62it [04:31,  5.98s/it]63it [04:37,  5.82s/it]63it [04:37,  4.40s/it]
+TP is [156, 156, 156, 156, 156, 156, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+FP is [64267, 64267, 64267, 64267, 64267, 64267, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+TN is [0, 0, 0, 0, 0, 0, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267]
+FN is [0, 0, 0, 0, 0, 0, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156]
 
-TPR is [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-FPR is [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-precison is [0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+TPR is [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+FPR is [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+precison is [0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
 figure generated
 inquiry 1
 model storage/model.ep826 loaded.
-0it [00:00, ?it/s]1it [00:03,  3.03s/it]2it [00:06,  3.03s/it]3it [00:09,  3.03s/it]4it [00:12,  3.03s/it]5it [00:15,  3.04s/it]6it [00:17,  2.69s/it]7it [00:20,  2.81s/it]8it [00:23,  2.88s/it]9it [00:26,  2.91s/it]10it [00:29,  2.94s/it]11it [00:32,  2.93s/it]12it [00:34,  2.64s/it]13it [00:37,  2.75s/it]14it [00:40,  2.83s/it]15it [00:43,  2.88s/it]16it [00:46,  2.91s/it]17it [00:49,  2.94s/it]18it [00:51,  2.66s/it]19it [00:54,  2.78s/it]20it [00:57,  2.85s/it]21it [01:00,  2.93s/it]22it [01:03,  3.12s/it]23it [01:07,  3.25s/it]24it [01:09,  3.02s/it]25it [01:12,  2.98s/it]26it [01:15,  2.99s/it]27it [01:18,  2.99s/it]28it [01:21,  2.99s/it]29it [01:24,  3.00s/it]30it [01:27,  3.01s/it]31it [01:30,  2.86s/it]32it [01:32,  2.77s/it]33it [01:35,  2.85s/it]34it [01:39,  2.91s/it]35it [01:42,  2.94s/it]36it [01:44,  2.67s/it]37it [01:47,  2.77s/it]38it [01:50,  2.84s/it]39it [01:53,  2.89s/it]40it [01:56,  2.91s/it]41it [01:58,  2.79s/it]42it [02:01,  2.75s/it]43it [02:04,  2.85s/it]44it [02:07,  2.93s/it]45it [02:10,  3.10s/it]46it [02:13,  3.07s/it]47it [02:16,  2.96s/it]48it [02:19,  2.79s/it]49it [02:21,  2.84s/it]50it [02:25,  2.91s/it]51it [02:27,  2.92s/it]52it [02:30,  2.94s/it]53it [02:32,  2.65s/it]54it [02:36,  2.88s/it]55it [02:39,  3.01s/it]56it [02:42,  3.05s/it]57it [02:45,  3.04s/it]58it [02:48,  3.02s/it]59it [02:51,  3.00s/it]60it [02:53,  2.74s/it]61it [02:56,  2.84s/it]62it [02:59,  2.87s/it]63it [03:02,  2.85s/it]63it [03:02,  2.90s/it]
-TP is [156, 156, 156, 156, 156, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-FP is [64267, 64267, 64267, 64267, 64267, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-TN is [0, 0, 0, 0, 0, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267]
-FN is [0, 0, 0, 0, 0, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156]
+0it [00:00, ?it/s]1it [00:05,  5.55s/it]2it [00:11,  5.88s/it]3it [00:17,  6.00s/it]4it [00:23,  5.85s/it]5it [00:29,  5.94s/it]6it [00:35,  6.03s/it]7it [00:41,  5.91s/it]8it [00:47,  5.98s/it]9it [00:53,  6.03s/it]10it [00:59,  5.92s/it]11it [01:05,  5.99s/it]12it [01:11,  6.03s/it]13it [01:17,  6.03s/it]14it [01:23,  5.93s/it]15it [01:29,  5.99s/it]16it [01:35,  6.01s/it]17it [01:41,  5.94s/it]18it [01:47,  6.00s/it]19it [01:53,  6.06s/it]20it [01:59,  6.04s/it]21it [02:05,  5.92s/it]22it [02:11,  5.99s/it]23it [02:17,  5.99s/it]24it [02:23,  5.98s/it]25it [02:29,  6.04s/it]26it [02:35,  6.07s/it]27it [02:41,  5.95s/it]28it [02:47,  6.01s/it]29it [02:53,  6.06s/it]30it [02:59,  6.09s/it]31it [03:05,  5.95s/it]32it [03:11,  6.01s/it]33it [03:17,  5.90s/it]34it [03:23,  5.96s/it]35it [03:29,  6.04s/it]36it [03:35,  6.08s/it]37it [03:41,  5.92s/it]38it [03:47,  5.99s/it]39it [03:53,  6.04s/it]40it [03:59,  5.92s/it]41it [04:05,  5.98s/it]42it [04:11,  6.01s/it]43it [04:17,  5.90s/it]44it [04:23,  5.95s/it]45it [04:28,  5.87s/it]46it [04:34,  5.88s/it]47it [04:40,  5.97s/it]48it [04:47,  6.00s/it]49it [04:52,  5.98s/it]50it [04:59,  6.05s/it]51it [05:05,  6.02s/it]52it [05:11,  5.97s/it]53it [05:17,  6.02s/it]54it [05:23,  6.06s/it]55it [05:29,  5.96s/it]56it [05:35,  6.05s/it]57it [05:41,  6.04s/it]58it [05:47,  6.05s/it]59it [05:53,  5.94s/it]60it [05:59,  6.01s/it]61it [06:05,  6.06s/it]62it [06:11,  5.94s/it]63it [06:16,  5.86s/it]63it [06:16,  5.98s/it]
+TP is [156, 156, 156, 156, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+FP is [64267, 64267, 64267, 64267, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+TN is [0, 0, 0, 0, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267]
+FN is [0, 0, 0, 0, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156]
 
-TPR is [1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-FPR is [1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-precison is [0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+TPR is [1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+FPR is [1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+precison is [0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
 figure generated
 inquiry 2
 model storage/model.ep851 loaded.
-0it [00:00, ?it/s]1it [00:03,  3.06s/it]2it [00:05,  2.53s/it]3it [00:08,  2.75s/it]4it [00:11,  2.86s/it]5it [00:14,  2.92s/it]6it [00:17,  2.95s/it]7it [00:19,  2.65s/it]8it [00:22,  2.76s/it]9it [00:25,  2.83s/it]10it [00:28,  2.89s/it]11it [00:31,  3.06s/it]12it [00:35,  3.22s/it]13it [00:37,  2.91s/it]14it [00:40,  2.94s/it]15it [00:43,  2.95s/it]16it [00:46,  2.98s/it]17it [00:49,  2.90s/it]18it [00:52,  2.93s/it]19it [00:55,  2.99s/it]20it [00:58,  2.87s/it]21it [01:00,  2.90s/it]22it [01:04,  2.94s/it]23it [01:07,  2.97s/it]24it [01:10,  2.97s/it]25it [01:13,  2.99s/it]26it [01:15,  2.79s/it]27it [01:18,  2.79s/it]28it [01:21,  2.84s/it]29it [01:24,  2.88s/it]30it [01:27,  2.92s/it]31it [01:30,  2.97s/it]32it [01:32,  2.78s/it]33it [01:36,  3.02s/it]34it [01:39,  3.07s/it]35it [01:42,  3.06s/it]36it [01:45,  3.03s/it]37it [01:47,  2.91s/it]38it [01:50,  2.79s/it]39it [01:53,  2.85s/it]40it [01:56,  2.88s/it]41it [01:59,  2.92s/it]42it [02:02,  2.93s/it]43it [02:04,  2.72s/it]44it [02:07,  2.78s/it]45it [02:10,  2.84s/it]46it [02:13,  2.90s/it]47it [02:16,  2.93s/it]48it [02:19,  2.88s/it]49it [02:22,  2.91s/it]50it [02:24,  2.65s/it]51it [02:27,  2.76s/it]52it [02:30,  2.85s/it]53it [02:33,  3.03s/it]54it [02:37,  3.17s/it]55it [02:40,  3.10s/it]56it [02:43,  3.06s/it]57it [02:45,  2.74s/it]58it [02:48,  2.83s/it]59it [02:51,  2.87s/it]60it [02:54,  2.95s/it]61it [02:57,  2.96s/it]62it [03:00,  2.96s/it]63it [03:02,  2.60s/it]63it [03:02,  2.89s/it]
-TP is [156, 156, 156, 156, 136, 136, 136, 136, 136, 136, 136, 136, 133, 133, 133, 0, 0, 0, 0]
-FP is [64267, 64267, 64267, 64267, 3683, 3373, 3199, 3134, 3075, 3040, 2960, 2871, 2818, 2729, 2231, 0, 0, 0, 0]
-TN is [0, 0, 0, 0, 60584, 60894, 61068, 61133, 61192, 61227, 61307, 61396, 61449, 61538, 62036, 64267, 64267, 64267, 64267]
-FN is [0, 0, 0, 0, 20, 20, 20, 20, 20, 20, 20, 20, 23, 23, 23, 156, 156, 156, 156]
+0it [00:00, ?it/s]1it [00:06,  6.24s/it]2it [00:11,  5.92s/it]3it [00:17,  5.94s/it]4it [00:24,  6.03s/it]5it [00:30,  6.07s/it]6it [00:36,  6.08s/it]7it [00:41,  5.84s/it]8it [00:47,  5.94s/it]9it [00:53,  6.01s/it]10it [01:00,  6.06s/it]11it [01:05,  5.91s/it]12it [01:11,  5.97s/it]13it [01:17,  6.02s/it]14it [01:23,  5.90s/it]15it [01:29,  5.96s/it]16it [01:35,  6.00s/it]17it [01:41,  5.89s/it]18it [01:47,  5.97s/it]19it [01:53,  6.03s/it]20it [01:59,  5.91s/it]21it [02:05,  5.97s/it]22it [02:11,  6.05s/it]23it [02:17,  6.04s/it]24it [02:23,  5.91s/it]25it [02:29,  5.97s/it]26it [02:35,  6.01s/it]27it [02:41,  6.02s/it]28it [02:47,  5.92s/it]29it [02:53,  6.02s/it]30it [02:59,  6.08s/it]31it [03:05,  5.96s/it]32it [03:11,  6.00s/it]33it [03:17,  6.06s/it]34it [03:23,  6.07s/it]35it [03:29,  5.95s/it]36it [03:35,  6.02s/it]37it [03:41,  6.04s/it]38it [03:47,  5.95s/it]39it [03:53,  6.01s/it]40it [03:59,  6.06s/it]41it [04:05,  6.10s/it]42it [04:11,  5.95s/it]43it [04:17,  5.99s/it]44it [04:23,  6.03s/it]45it [04:29,  5.87s/it]46it [04:35,  5.95s/it]47it [04:41,  6.04s/it]48it [04:47,  6.06s/it]49it [04:53,  5.94s/it]50it [04:59,  5.97s/it]51it [05:05,  6.04s/it]52it [05:11,  5.94s/it]53it [05:17,  6.01s/it]54it [05:23,  6.03s/it]55it [05:29,  6.02s/it]56it [05:35,  5.96s/it]57it [05:41,  6.03s/it]58it [05:47,  6.04s/it]59it [05:53,  5.92s/it]60it [05:59,  5.97s/it]61it [06:05,  6.05s/it]62it [06:11,  5.95s/it]63it [06:17,  5.86s/it]63it [06:17,  5.99s/it]
+TP is [156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 0, 0, 0, 0]
+FP is [64267, 64267, 64267, 64267, 13825, 13132, 12981, 12869, 12537, 12187, 12111, 11986, 11887, 11735, 10877, 0, 0, 0, 0]
+TN is [0, 0, 0, 0, 50442, 51135, 51286, 51398, 51730, 52080, 52156, 52281, 52380, 52532, 53390, 64267, 64267, 64267, 64267]
+FN is [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 156, 156, 156, 156]
 
-TPR is [1.0, 1.0, 1.0, 1.0, 0.8717948717948718, 0.8717948717948718, 0.8717948717948718, 0.8717948717948718, 0.8717948717948718, 0.8717948717948718, 0.8717948717948718, 0.8717948717948718, 0.8525641025641025, 0.8525641025641025, 0.8525641025641025, 0.0, 0.0, 0.0, 0.0]
-FPR is [1.0, 1.0, 1.0, 1.0, 0.05730779404671137, 0.05248416761323852, 0.04977671277638601, 0.04876530723388364, 0.04784726220299687, 0.04730265921857252, 0.046057852397031133, 0.044673004808066345, 0.043848320288795185, 0.0424634726998304, 0.03471455023573529, 0.0, 0.0, 0.0, 0.0]
-precison is [0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 0.0356114166012045, 0.03875748076375036, 0.040779610194902546, 0.04159021406727829, 0.04235440672687636, 0.042821158690176324, 0.04392764857881137, 0.04522780179580978, 0.04506946797695696, 0.04647099930118798, 0.05626057529610829, 1, 1, 1, 1]
+TPR is [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0]
+FPR is [1.0, 1.0, 1.0, 1.0, 0.21511817884762008, 0.20433503975601786, 0.2019854668803585, 0.20024273733020057, 0.19507678902080383, 0.18963075917656028, 0.18844819269609597, 0.18650318203743757, 0.1849627335957801, 0.18259760063485148, 0.16924704747382016, 0.0, 0.0, 0.0, 0.0]
+precison is [0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 0.011158000143051284, 0.011739915713425647, 0.01187485727335008, 0.011976967370441459, 0.01229023871425195, 0.01263874260714575, 0.012717045732452923, 0.01284796573875803, 0.01295358299427053, 0.013119165755613489, 0.014139399981872565, 1, 1, 1, 1]
 
 figure generated
 inquiry 3
 model storage/model.ep876 loaded.
-0it [00:00, ?it/s]1it [00:02,  2.97s/it]2it [00:05,  3.00s/it]3it [00:08,  2.99s/it]4it [00:11,  2.99s/it]5it [00:14,  3.00s/it]6it [00:17,  2.68s/it]7it [00:20,  2.79s/it]8it [00:23,  2.87s/it]9it [00:26,  2.92s/it]10it [00:29,  2.92s/it]11it [00:31,  2.85s/it]12it [00:33,  2.62s/it]13it [00:36,  2.73s/it]14it [00:39,  2.83s/it]15it [00:43,  2.96s/it]16it [00:46,  3.04s/it]17it [00:48,  2.83s/it]18it [00:51,  2.86s/it]19it [00:54,  2.89s/it]20it [00:57,  2.90s/it]21it [01:00,  2.93s/it]22it [01:03,  2.95s/it]23it [01:05,  2.81s/it]24it [01:08,  2.75s/it]25it [01:11,  2.85s/it]26it [01:14,  2.91s/it]27it [01:17,  2.93s/it]28it [01:20,  2.96s/it]29it [01:23,  2.88s/it]30it [01:25,  2.75s/it]31it [01:28,  2.80s/it]32it [01:31,  2.86s/it]33it [01:34,  2.91s/it]34it [01:37,  2.73s/it]35it [01:40,  2.84s/it]36it [01:43,  3.03s/it]37it [01:46,  2.99s/it]38it [01:49,  3.00s/it]39it [01:52,  3.01s/it]40it [01:54,  2.72s/it]41it [01:57,  2.81s/it]42it [02:00,  2.86s/it]43it [02:03,  2.93s/it]44it [02:06,  3.01s/it]45it [02:09,  2.84s/it]46it [02:12,  2.83s/it]47it [02:15,  2.88s/it]48it [02:18,  2.91s/it]49it [02:21,  2.98s/it]50it [02:24,  3.00s/it]51it [02:26,  2.69s/it]52it [02:29,  2.79s/it]53it [02:32,  2.86s/it]54it [02:35,  2.93s/it]55it [02:38,  3.01s/it]56it [02:41,  3.01s/it]57it [02:43,  2.72s/it]58it [02:46,  2.81s/it]59it [02:49,  2.87s/it]60it [02:52,  2.92s/it]61it [02:55,  2.94s/it]62it [02:58,  2.97s/it]63it [03:01,  2.87s/it]63it [03:01,  2.88s/it]
-TP is [156, 156, 156, 156, 152, 151, 151, 151, 151, 151, 150, 150, 148, 148, 147, 0, 0, 0, 0]
-FP is [64267, 64267, 64267, 64267, 6018, 5838, 5732, 5616, 5563, 5526, 5490, 5391, 5286, 5209, 5127, 0, 0, 0, 0]
-TN is [0, 0, 0, 0, 58249, 58429, 58535, 58651, 58704, 58741, 58777, 58876, 58981, 59058, 59140, 64267, 64267, 64267, 64267]
-FN is [0, 0, 0, 0, 4, 5, 5, 5, 5, 5, 6, 6, 8, 8, 9, 156, 156, 156, 156]
+0it [00:00, ?it/s]1it [00:06,  6.16s/it]2it [00:11,  5.88s/it]3it [00:18,  6.03s/it]4it [00:24,  6.08s/it]5it [00:29,  5.97s/it]6it [00:35,  5.98s/it]7it [00:41,  5.99s/it]8it [00:48,  6.04s/it]9it [00:54,  6.03s/it]10it [00:59,  5.90s/it]11it [01:05,  5.98s/it]12it [01:12,  6.03s/it]13it [01:17,  5.95s/it]14it [01:23,  6.02s/it]15it [01:30,  6.06s/it]16it [01:36,  6.08s/it]17it [01:41,  5.92s/it]18it [01:47,  5.99s/it]19it [01:54,  6.04s/it]20it [02:00,  6.08s/it]21it [02:05,  5.88s/it]22it [02:11,  5.95s/it]23it [02:17,  6.00s/it]24it [02:23,  5.83s/it]25it [02:29,  5.93s/it]26it [02:35,  6.01s/it]27it [02:41,  6.04s/it]28it [02:47,  5.91s/it]29it [02:53,  5.99s/it]30it [02:59,  6.03s/it]31it [03:05,  5.91s/it]32it [03:11,  5.94s/it]33it [03:17,  6.01s/it]34it [03:23,  6.06s/it]35it [03:29,  5.92s/it]36it [03:35,  6.01s/it]37it [03:41,  6.06s/it]38it [03:47,  6.09s/it]39it [03:53,  5.95s/it]40it [03:59,  6.01s/it]41it [04:05,  5.99s/it]42it [04:11,  6.04s/it]43it [04:17,  5.92s/it]44it [04:23,  6.01s/it]45it [04:29,  6.04s/it]46it [04:35,  5.91s/it]47it [04:41,  5.99s/it]48it [04:47,  6.03s/it]49it [04:53,  6.05s/it]50it [04:59,  5.91s/it]51it [05:05,  5.96s/it]52it [05:11,  6.02s/it]53it [05:17,  5.91s/it]54it [05:23,  5.92s/it]55it [05:29,  5.99s/it]56it [05:35,  5.91s/it]57it [05:41,  5.94s/it]58it [05:47,  5.99s/it]59it [05:53,  6.01s/it]60it [05:58,  5.91s/it]61it [06:05,  5.97s/it]62it [06:11,  6.02s/it]63it [06:16,  5.92s/it]63it [06:16,  5.98s/it]
+TP is [156, 156, 156, 156, 150, 150, 150, 150, 148, 148, 148, 148, 147, 147, 146, 0, 0, 0, 0]
+FP is [64267, 64267, 64267, 64267, 5349, 5117, 5030, 4980, 4699, 4617, 4524, 4507, 4455, 4324, 4142, 0, 0, 0, 0]
+TN is [0, 0, 0, 0, 58918, 59150, 59237, 59287, 59568, 59650, 59743, 59760, 59812, 59943, 60125, 64267, 64267, 64267, 64267]
+FN is [0, 0, 0, 0, 6, 6, 6, 6, 8, 8, 8, 8, 9, 9, 10, 156, 156, 156, 156]
 
-TPR is [1.0, 1.0, 1.0, 1.0, 0.9743589743589743, 0.967948717948718, 0.967948717948718, 0.967948717948718, 0.967948717948718, 0.967948717948718, 0.9615384615384616, 0.9615384615384616, 0.9487179487179487, 0.9487179487179487, 0.9423076923076923, 0.0, 0.0, 0.0, 0.0]
-FPR is [1.0, 1.0, 1.0, 1.0, 0.09364059315045047, 0.09083977780198235, 0.08919040876344002, 0.08738543887220503, 0.08656075435293385, 0.08598503119797096, 0.08542486812827735, 0.08388441968661989, 0.08225061073334682, 0.08105248416761324, 0.07977655717553332, 0.0, 0.0, 0.0, 0.0]
-precison is [0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 0.024635332252836303, 0.025212890298881283, 0.02566717661057284, 0.026183457603606727, 0.026426321316065805, 0.02659855557512771, 0.026595744680851064, 0.02707092582566324, 0.027235921972764077, 0.027627403397423932, 0.027872582480091012, 1, 1, 1, 1]
+TPR is [1.0, 1.0, 1.0, 1.0, 0.9615384615384616, 0.9615384615384616, 0.9615384615384616, 0.9615384615384616, 0.9487179487179487, 0.9487179487179487, 0.9487179487179487, 0.9487179487179487, 0.9423076923076923, 0.9423076923076923, 0.9358974358974359, 0.0, 0.0, 0.0, 0.0]
+FPR is [1.0, 1.0, 1.0, 1.0, 0.08323089610531066, 0.07962095632284065, 0.0782672289044144, 0.07748922464095104, 0.07311684068028693, 0.07184091368820701, 0.07039382575816515, 0.07012930430858762, 0.06932017987458572, 0.0672818087043117, 0.06444987318530505, 0.0, 0.0, 0.0, 0.0]
+precison is [0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 0.027277686852154936, 0.028479210176571103, 0.02895752895752896, 0.029239766081871343, 0.030534351145038167, 0.0310598111227702, 0.031678082191780824, 0.0317937701396348, 0.031942633637548894, 0.03287855065980765, 0.03404850746268657, 1, 1, 1, 1]
 
 figure generated
 final test
 model storage/model.ep899 loaded.
-0it [00:00, ?it/s]1it [00:02,  2.93s/it]2it [00:06,  3.03s/it]3it [00:09,  3.01s/it]4it [00:12,  3.01s/it]5it [00:14,  2.92s/it]6it [00:16,  2.67s/it]7it [00:20,  2.79s/it]8it [00:23,  2.87s/it]9it [00:26,  2.91s/it]10it [00:29,  2.94s/it]11it [00:32,  2.95s/it]12it [00:34,  2.93s/it]13it [00:37,  2.74s/it]14it [00:40,  2.88s/it]15it [00:43,  2.95s/it]16it [00:46,  2.96s/it]17it [00:49,  2.99s/it]18it [00:52,  3.00s/it]19it [00:54,  2.75s/it]20it [00:57,  2.80s/it]21it [01:00,  2.83s/it]22it [01:03,  2.90s/it]23it [01:06,  2.94s/it]24it [01:09,  2.96s/it]25it [01:12,  2.95s/it]26it [01:14,  2.72s/it]27it [01:17,  2.80s/it]28it [01:20,  2.86s/it]29it [01:23,  2.90s/it]30it [01:26,  2.94s/it]31it [01:29,  2.87s/it]32it [01:31,  2.70s/it]33it [01:34,  2.79s/it]34it [01:37,  2.77s/it]35it [01:40,  2.84s/it]36it [01:43,  2.91s/it]37it [01:45,  2.69s/it]38it [01:48,  2.75s/it]39it [01:51,  2.83s/it]40it [01:54,  2.89s/it]41it [01:57,  2.93s/it]42it [02:00,  2.96s/it]43it [02:02,  2.67s/it]44it [02:05,  2.81s/it]45it [02:08,  2.86s/it]46it [02:11,  2.90s/it]47it [02:14,  2.94s/it]48it [02:17,  2.96s/it]49it [02:20,  2.74s/it]50it [02:23,  2.77s/it]51it [02:26,  2.84s/it]52it [02:29,  2.89s/it]53it [02:32,  2.93s/it]54it [02:35,  2.96s/it]55it [02:37,  2.83s/it]56it [02:40,  2.75s/it]57it [02:43,  2.82s/it]58it [02:46,  2.86s/it]59it [02:49,  2.90s/it]60it [02:52,  2.97s/it]61it [02:54,  2.73s/it]62it [02:57,  2.72s/it]63it [02:59,  2.73s/it]63it [02:59,  2.85s/it]
-TP is [156, 156, 156, 156, 153, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 0, 0, 0, 0]
-FP is [64267, 64267, 64267, 64267, 6417, 5992, 5917, 5884, 5850, 5831, 5814, 5666, 5648, 5544, 5426, 0, 0, 0, 0]
-TN is [0, 0, 0, 0, 57850, 58275, 58350, 58383, 58417, 58436, 58453, 58601, 58619, 58723, 58841, 64267, 64267, 64267, 64267]
-FN is [0, 0, 0, 0, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 156, 156, 156, 156]
+0it [00:00, ?it/s]1it [00:06,  6.16s/it]2it [00:12,  6.10s/it]3it [00:18,  6.08s/it]4it [00:23,  5.85s/it]5it [00:29,  5.94s/it]6it [00:35,  6.00s/it]7it [00:42,  6.03s/it]8it [00:47,  5.85s/it]9it [00:53,  5.92s/it]10it [00:59,  5.97s/it]11it [01:05,  5.97s/it]12it [01:11,  5.88s/it]13it [01:17,  5.95s/it]14it [01:23,  5.98s/it]15it [01:29,  5.87s/it]16it [01:35,  5.94s/it]17it [01:41,  5.99s/it]18it [01:46,  5.89s/it]19it [01:53,  5.97s/it]20it [01:59,  6.03s/it]21it [02:05,  6.08s/it]22it [02:11,  5.91s/it]23it [02:17,  5.98s/it]24it [02:23,  6.04s/it]25it [02:28,  5.85s/it]26it [02:34,  5.92s/it]27it [02:40,  5.97s/it]28it [02:47,  6.00s/it]29it [02:52,  5.86s/it]30it [02:58,  5.94s/it]31it [03:04,  5.98s/it]32it [03:10,  5.88s/it]33it [03:16,  5.96s/it]34it [03:22,  6.00s/it]35it [03:28,  5.87s/it]36it [03:34,  5.96s/it]37it [03:40,  6.01s/it]38it [03:46,  6.00s/it]39it [03:52,  5.98s/it]40it [03:58,  6.00s/it]41it [04:04,  5.92s/it]42it [04:10,  5.96s/it]43it [04:16,  5.98s/it]44it [04:21,  5.90s/it]45it [04:28,  5.96s/it]46it [04:34,  6.03s/it]47it [04:40,  5.99s/it]48it [04:45,  5.86s/it]49it [04:51,  5.94s/it]50it [04:57,  5.99s/it]51it [05:04,  6.01s/it]52it [05:09,  5.85s/it]53it [05:15,  5.86s/it]54it [05:21,  5.90s/it]55it [05:27,  5.97s/it]56it [05:32,  5.83s/it]57it [05:39,  5.91s/it]58it [05:45,  5.96s/it]59it [05:51,  6.01s/it]60it [05:56,  5.90s/it]61it [06:03,  5.96s/it]62it [06:09,  6.03s/it]63it [06:14,  5.89s/it]63it [06:14,  5.95s/it]
+TP is [156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 0, 0, 0, 0]
+FP is [64267, 64267, 64267, 64267, 10001, 9777, 9693, 9668, 9563, 9502, 9484, 9475, 9475, 9394, 9197, 0, 0, 0, 0]
+TN is [0, 0, 0, 0, 54266, 54490, 54574, 54599, 54704, 54765, 54783, 54792, 54792, 54873, 55070, 64267, 64267, 64267, 64267]
+FN is [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 156, 156, 156, 156]
 
-TPR is [1.0, 1.0, 1.0, 1.0, 0.9807692307692307, 0.9743589743589743, 0.9743589743589743, 0.9743589743589743, 0.9743589743589743, 0.9743589743589743, 0.9743589743589743, 0.9743589743589743, 0.9743589743589743, 0.9743589743589743, 0.9743589743589743, 0.0, 0.0, 0.0, 0.0]
-FPR is [1.0, 1.0, 1.0, 1.0, 0.0998490671728881, 0.09323603093344951, 0.09206902453825447, 0.09155554172436865, 0.09102649882521356, 0.09073085720509748, 0.09046633575551995, 0.08816344313566839, 0.08788336160082157, 0.08626511273281777, 0.08442902267104424, 0.0, 0.0, 0.0, 0.0]
-precison is [0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 0.023287671232876714, 0.024739583333333332, 0.025045312242544075, 0.025182239893969515, 0.025324891702765744, 0.02540531505933478, 0.025477707006369428, 0.026125816431763493, 0.02620689655172414, 0.026685393258426966, 0.027249910362136965, 1, 1, 1, 1]
+TPR is [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0]
+FPR is [1.0, 1.0, 1.0, 1.0, 0.15561641277794203, 0.15213095367762616, 0.1508239065150077, 0.15043490438327603, 0.14880109543000294, 0.14785193022857765, 0.14757184869373083, 0.14743180792630745, 0.14743180792630745, 0.14617144101949678, 0.14310610422145115, 0.0, 0.0, 0.0, 0.0]
+precison is [0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 0.015358865806832727, 0.01570522500755059, 0.015839171489491318, 0.015879478827361564, 0.01605103405700175, 0.016152412507765584, 0.016182572614107885, 0.0161976949434119, 0.0161976949434119, 0.016335078534031412, 0.016679140382764888, 1, 1, 1, 1]
 
 figure generated

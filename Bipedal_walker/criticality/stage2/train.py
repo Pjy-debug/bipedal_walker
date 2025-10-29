@@ -284,7 +284,7 @@ if __name__ == '__main__':
     parser.add_argument('--start_epoch', default=801, type=int, help='the number of epochs')
     parser.add_argument('--epochs', default=900, type=int, help='the number of epochs')
     # 1e-4
-    parser.add_argument('--lr', default=1e-5, type=float, help='learning rate')
+    parser.add_argument('--lr', default=1e-4, type=float, help='learning rate')
     parser.add_argument('--no_cuda', action='store_true')
     parser.add_argument('--final_ratio',default=0,type=int,help='ratio of negative / positive')
     parser.add_argument('--start_ratio',default=0,type=int, help='ratio of negative / positive')
