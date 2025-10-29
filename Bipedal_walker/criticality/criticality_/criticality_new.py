@@ -5,6 +5,15 @@
 [developer]                 （必需）
 [change log]               （若修改过则必需注明）
 *************************************************************************'''
+import sys
+import os
+# 获取当前文件的绝对路径
+current_path = os.path.abspath(__file__)
+# 向上一级目录
+parent_dir = os.path.dirname(os.path.dirname(current_path))
+# 将criticality目录添加到Python的模块搜索路径
+sys.path.append(parent_dir)
+
 import numpy as np
 from copy import deepcopy
 import gymnasium as gym
@@ -13,7 +22,8 @@ import math
 import random
 from scipy.stats import norm
 from env_step import env_step
-from criticality_model import Criticality_model_mlp,Criticality_model, distill_q_trans, Reward_Model
+# 不知道为什么，这里不从父文件夹导入的话nade_test就会找不到criticality_model.py
+from criticality_.criticality_model import Criticality_model_mlp,Criticality_model, distill_q_trans, Reward_Model
 
 
 
@@ -30,12 +40,12 @@ print("Successfully loading model!")
 """
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 rw=Reward_Model()
-rw.load_state_dict(torch.load('rw_149.pt' ))
+rw.load_state_dict(torch.load('/home/teamcommon/pjy/Bipedal_walker/criticality/stage1/storage/rw_149.pt' ))
 rw.eval().to(device)
 
 cm =  Criticality_model()
 #cm.load_state_dict(torch.load('/root/autodl-tmp/new_nde/new_model/stage2/trans_197.pt')) #99
-cm.load_state_dict(torch.load('dqn_model_2.pt' ))
+cm.load_state_dict(torch.load('/home/teamcommon/pjy/Bipedal_walker/criticality/stage3/dqn_model_2.pt' ))
 
 cm.eval().to(device)
 
@@ -271,6 +281,7 @@ def calculate_criticality_(terrain_state, action ,states,cur_pos, current_i,agen
 
     inputs = torch.tensor(inputs, dtype=torch.float32,device=device)
     inputs = inputs.reshape(1,-1)
+    # shape of inputs is (1, 105)
 
     with torch.no_grad():
         re = rw(inputs)

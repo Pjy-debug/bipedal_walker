@@ -37,3 +37,20 @@ https://cloud.tencent.com/developer/article/2527142
 
 需要跑一下test_nde。
 
+跑了一下，可以运行。
+
+10.24
+stage2发现给train的batch_size太小了，模型学进去太多噪声了。8->128，但是太大会使模型泛化能力下降。
+upper branch使用focal loss，lower branch使用ce loss
+
+10.25
+发现手机热点连不上。。。
+只能用校园网。。。
+试了一些my_ratio，发现ratio=2或3比较好。ratio=1会分反，ratio太大会分不开。
+需要改进的地方：下半支不是只采负例，是正负都采，均匀采样。
+               上下半支到底哪个用哪个loss？
+
+10.26
+ratio=1好像又可以了
+改小步长（1e-5->1e-6）发现分类效果变好了
+

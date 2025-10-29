@@ -25,6 +25,7 @@ from pathlib import Path
 import numpy as np
 import math
 from torch.optim import lr_scheduler
+from statistics import mean
 
 '''*************************************************************************
 [class name]        Trainer
@@ -43,6 +44,7 @@ class Trainer:
         self.train_pos_loader = train_pos_loader
         self.train_neg_loader1 = train_neg_loader1
         self.train_neg_iter1 = iter(self.train_neg_loader1)
+        # 其实lower branch不是只有neg的，但是这里暂时懒得改了
         self.train_neg_loader2 = train_neg_loader2
         self.train_neg_iter2 = iter(self.train_neg_loader2)
         self.test_loader = test_loader
@@ -86,7 +88,7 @@ class Trainer:
         self.lr_scheduler = lr_scheduler.CosineAnnealingWarmRestarts(self.optimizer, T_0=20, T_mult=2, eta_min=1e-5)
         
         self.criterion2 = nn.CrossEntropyLoss()
-        self.criterion1 = FocalLoss()
+        self.criterion1 = FocalLoss(gamma=2, size_average=True)
         self.SCLoss = SCLoss(device=self.device)
         self.tripleLoss = TripletLoss()
         self.centerloss = CenterLoss()
@@ -107,10 +109,13 @@ class Trainer:
         #weight = (31/50)**2
         #weight = (33.5/50)**2
         # 轮次越多，上半支的权重越大，下半支的权重越小（详见BBN）
-        weight = (self.weight_l + self.delta_weight * (epoch - self.args.start_epoch) / self.L)**2
-        losses, accs, precisions, recalls = 0, 0, 0, 0
+        # 先学neg特征，再学class balanced特征
+        # weight = (self.weight_l + self.delta_weight * (epoch - self.args.start_epoch) / self.L)**2
+        weight = pow((epoch - self.args.start_epoch) / self.L, 2)
+        losses, accs, precisions, recalls = [], 0, 0, 0
         n_batches = len(self.train_pos_loader)
-        n_samples = self.args.batch_size * 151  * n_batches
+        my_ratio=1
+        n_samples = self.args.batch_size * (my_ratio+1)  * n_batches
         #self.train_neg_iter = iter(self.train_neg_loader)
         self.model.train()
         TP1 = 0
@@ -123,7 +128,8 @@ class Trainer:
         label_neg1 = 0
         label_pos2 = 0
         label_neg2 = 0
-
+        
+        print(f'\nepoch: {epoch}, start epoch: {self.args.start_epoch}, L: {self.L}')
         print(f'length of train_pos_loader: {len(self.train_pos_loader)}, length of train_neg_loader1: {len(self.train_neg_loader1)}, length of train_neg_loader2: {len(self.train_neg_loader2)}')
         
         for i, data1 in enumerate(self.train_pos_loader):
@@ -139,8 +145,9 @@ class Trainer:
                 self.train_neg_iter2 = iter(self.train_neg_loader2)
                 data3 = next(self.train_neg_iter2)
             
-            if len(data2[0])/len(data1[0])!=150 and len(data3[0])/len(data1[0])!=151:
-                print(f'data1的shape：{data1[0].shape}', f'data2的shape：{data2[0].shape}', f'data3的shape：{data3[0].shape}')
+            
+            if len(data2[0])/len(data1[0])!=my_ratio and len(data3[0])/len(data1[0])!=my_ratio+1:
+                print(f'unexpected ratio: data1的shape：{data1[0].shape}', f'data2的shape：{data2[0].shape}', f'data3的shape：{data3[0].shape}')
                 continue
 
             input1, label1 = data1[0],data1[1]
@@ -179,6 +186,10 @@ class Trainer:
             labels2.reshape(-1,2)
             labels_cls2 = torch.tensor(labels2[:,0],dtype=torch.int64)
             
+            # labels_cls: (bs, 2)->(2*bs, 1)
+            # labels_cls1=labels1
+            # labels_cls2=labels2
+
             """
             if self.args.two_model:
                 _, mix_feats, feats1, feats2 = self.pre_model(inputs1,inputs2,weight)
@@ -186,66 +197,79 @@ class Trainer:
             outputs, feats, feats1, feats2 = self.model(inputs1,inputs2,weight)
             # outputs: (batch_size, 2)
             # attention_weights: [(batch_size, n_attn_heads, seq_len, seq_len)] * n_layers
-
-            cls_loss1 = self.criterion2(outputs, labels_cls1) # cross entropy loss
-            cls_loss2 = self.criterion1(outputs, labels_cls2) # focal loss
-            loss = weight * cls_loss1 + (1-weight) * cls_loss2
+            # print(f'shape of outputs: {outputs.shape}, shape of labels_cls1: {labels_cls1.shape}, shape of labels_cls2: {labels_cls2.shape}')
             
-            losses += loss.item()
+            # cls_loss1 = self.criterion2(outputs, labels_cls1) # cross entropy loss
+            # cls_loss2 = self.criterion1(outputs, labels_cls2) # focal loss
+            # loss = weight * cls_loss1 + (1-weight) * cls_loss2
             
-            pred_cls = outputs[:,-1]> self.args.threshold
-                
-            acc1 = (pred_cls == labels_cls1).sum()
-            acc2 = (pred_cls == labels_cls2).sum()
-            accs += weight * acc1.item() + (1-weight) * acc2.item()
+            outputs_1=outputs[0:len(labels_cls1),:]
+            outputs_2=outputs[len(labels_cls1):,:]
+            # print(f'outputs.shape is {outputs.shape}, labels_cls_all.shape is {labels_cls_all.shape}')
+            # print(f'outputs_1.shape is {outputs_1.shape}, outputs_2.shape is {outputs_2.shape}')
+            # print(f'labels_cls1 is {labels_cls1}, labels_cls2 is {labels_cls2}')
+            loss_1 = self.criterion2(outputs_1, labels_cls1) # ce loss for upper branch
+            loss_2 = self.criterion1(outputs_2, labels_cls2) # focal loss for lower branch
             
-            for k in range(len(labels_cls1)):
-                # print(outputs.argmax(dim=-1)[k],labels_cls[k],(labels_cls[k]==0).item())
-                if (pred_cls[k] == 1).item() and (labels_cls1[k] == 1).item():
-                    TP1 += 1
-                    # print(TP)
-                if (pred_cls[k] == 1).item() and (labels_cls2[k] == 1).item():
-                    TP2 += 1
-                if (pred_cls[k] == 1).item() and (labels_cls1[k] == 0).item():
-                    FP1 += 1
-                if (pred_cls[k] == 1).item() and (labels_cls2[k] == 0).item():
-                    FP2 += 1
-            # print(TP)
-            pred_pos += ((pred_cls == 1).sum()).item()
-            pred_neg += ((pred_cls == 0).sum()).item()
-            label_pos1 += ((labels_cls1 == 1).sum()).item()
-            label_neg1 += ((labels_cls1 == 0).sum()).item()
-            label_pos2 += ((labels_cls2 == 1).sum()).item()
-            label_neg2 += ((labels_cls2 == 0).sum()).item()
+            loss = weight * loss_1 + (1-weight) * loss_2
+            losses.append(loss.item())
+            
+            # pred_cls = outputs[:,-1]> self.args.threshold
+            #     
+            # acc1 = (pred_cls == labels_cls1).sum()
+            # acc2 = (pred_cls == labels_cls2).sum()
+            # accs += weight * acc1.item() + (1-weight) * acc2.item()
+            # 
+            # for k in range(len(labels_cls1)):
+            #     # print(outputs.argmax(dim=-1)[k],labels_cls[k],(labels_cls[k]==0).item())
+            #     if (pred_cls[k] == 1).item() and (labels_cls1[k] == 1).item():
+            #         TP1 += 1
+            #         # print(TP)
+            #     if (pred_cls[k] == 1).item() and (labels_cls2[k] == 1).item():
+            #         TP2 += 1
+            #     if (pred_cls[k] == 1).item() and (labels_cls1[k] == 0).item():
+            #         FP1 += 1
+            #     if (pred_cls[k] == 1).item() and (labels_cls2[k] == 0).item():
+            #         FP2 += 1
+            # # print(TP)
+            # pred_pos += ((pred_cls == 1).sum()).item()
+            # pred_neg += ((pred_cls == 0).sum()).item()
+            # label_pos1 += ((labels_cls1 == 1).sum()).item()
+            # label_neg1 += ((labels_cls1 == 0).sum()).item()
+            # label_pos2 += ((labels_cls2 == 1).sum()).item()
+            # label_neg2 += ((labels_cls2 == 0).sum()).item()
 
             self.optimizer.zero_grad()
             loss.backward()
+            
             self.optimizer.step()
             self.lr_scheduler.step()
 
         
-        if not pred_pos:
-            precisions = 0.0
-        else:
-            precisions = weight * TP1 / pred_pos + (1-weight) * TP2 / pred_pos
-        if (not label_pos1) or (not label_pos2) :
-            recalls = 0.0
-        else:
-            recalls = weight * TP1 / label_pos1 + (1-weight) * TP2 / label_pos2
-        if (precisions + recalls):
-            F1_score = 2 * precisions * recalls / (precisions + recalls)
-        else:
-            F1_score = 0
-    
-        print('Train dataset: Epoch : {}\t>\tLoss: {:.4f} / Acc: {:.4f} / F1:{:.4f} / Precison: {:.4f} / Recall:{:.4f}'.format(epoch, losses / n_batches, accs / n_samples, F1_score, precisions, recalls))
+        # if not pred_pos:
+        #     precisions = 0.0
+        # else:
+        #     precisions = weight * TP1 / pred_pos + (1-weight) * TP2 / pred_pos
+        # if (not label_pos1) or (not label_pos2) :
+        #     recalls = 0.0
+        # else:
+        #     recalls = weight * TP1 / label_pos1 + (1-weight) * TP2 / label_pos2
+        # if (precisions + recalls):
+        #     F1_score = 2 * precisions * recalls / (precisions + recalls)
+        # else:
+        #     F1_score = 0
+    # 
+        # print('Train dataset: Epoch : {}\t>\tLoss: {:.4f} / Acc: {:.4f} / F1:{:.4f} / Precison: {:.4f} / Recall:{:.4f}'.format(epoch, losses / n_batches, accs / n_samples, F1_score, precisions, recalls))
         
-        return losses / n_batches, accs / n_samples, precisions, recalls
+        return mean(losses), accs / n_samples, precisions, recalls
 
     def validate(self, epoch):
         # weight = 0.5 * math.cos(math.pi * (epoch - self.args.start_epoch) / self.L) + 0.5 + self.epsilon
-
-        weight = (self.weight_l + self.delta_weight * (epoch - self.args.start_epoch) / self.L)**2
-        losses, accs, precisions, recalls, TPRs, FPRs = 0, 0, 0, 0, 0, 0
+        weight = pow((epoch - self.args.start_epoch) / self.L, 2)
+        # weight = (self.weight_l + self.delta_weight * (epoch - self.args.start_epoch) / self.L)**2
+        
+        losses, accs, precisions, recalls, TPRs, FPRs = [], 0, 0, 0, 0, 0
+        losses_1,losses_2=[], []
         n_batches, n_samples = len(self.test_loader), len(self.test_loader.dataset)
 
         self.model.eval()
@@ -264,69 +288,78 @@ class Trainer:
                 # inputs: (batch_size, seq_len), |labels| : (batch_size)
 
                 outputs, mix_feature, feats1, feats2 = self.model(inputs, inputs, weight)
+                
+                outputs_1=outputs[0:len(labels_cls),:]
+                outputs_2=outputs[len(labels_cls):,:]
 
-                cls_loss = self.criterion1(outputs, labels_cls)
-                loss = cls_loss 
-                losses += loss.item()
+                loss_1 = self.criterion2(outputs_1, labels_cls)
+                loss_2 = self.criterion1(outputs_2, labels_cls)
+                loss = weight * loss_1 + (1-weight) * loss_2
+                losses.append(loss.item())
+                losses_1.append(loss_1.item())
+                losses_2.append(loss_2.item())
                 
-                pred_cls = outputs[:,-1]> self.args.threshold
-                acc = (pred_cls == labels_cls).sum()
-                # acc = (outputs.argmax(dim=-1) == labels_cls).sum()
-                accs += acc.item()
+                # pred_cls = outputs[:,-1]> self.args.threshold
+                # acc = (pred_cls == labels_cls).sum()
+                # # acc = (outputs.argmax(dim=-1) == labels_cls).sum()
+                # accs += acc.item()
                 
-                for k in range(len(labels_cls)):
-                    # print(outputs.argmax(dim=-1)[k],labels_cls[k],(labels_cls[k]==0).item())
-                    if (pred_cls[k] == 1).item() and (labels_cls[k] == 1).item():
-                        TP += 1
-                        # print(TP)
-                    if (pred_cls[k] == 1).item() and (labels_cls[k] == 0).item():
-                        FP += 1
-                # print(TP)
-                pred_pos += ((pred_cls == 1).sum()).item()
-                pred_neg += ((pred_cls == 0).sum()).item()
-                label_pos += ((labels_cls == 1).sum()).item()
-                label_neg += ((labels_cls == 0).sum()).item()
+                # for k in range(len(labels_cls)):
+                #     # print(outputs.argmax(dim=-1)[k],labels_cls[k],(labels_cls[k]==0).item())
+                #     if (pred_cls[k] == 1).item() and (labels_cls[k] == 1).item():
+                #         TP += 1
+                #         # print(TP)
+                #     if (pred_cls[k] == 1).item() and (labels_cls[k] == 0).item():
+                #         FP += 1
+                # # print(TP)
+                # pred_pos += ((pred_cls == 1).sum()).item()
+                # pred_neg += ((pred_cls == 0).sum()).item()
+                # label_pos += ((labels_cls == 1).sum()).item()
+                # label_neg += ((labels_cls == 0).sum()).item()
                 
-                if not pred_pos:
-                    precision = 0.0
-                else:
-                    precision = TP / pred_pos
-                if not label_pos:
-                    recall = 0.0
-                    TPR = 0.0
-                else:
-                    recall = TP / label_pos
-                    TPR = recall
-                if not label_neg:
-                    FPR = 0.0
-                else:
-                    FPR = FP / label_neg
-                if i % 1000 == 0:
-                    print('Val Epoch {} Iteration {} ({}/{})\tLoss: {:.4f} / Acc: {:.4f} / Precison:{:.4f} / Recall:{:.4f}'.format(epoch, i, i, n_batches, losses / (i+1), accs / ((i+1) * self.args.batch_size) * 100., precision, recall))
+                # if not pred_pos:
+                #     precision = 0.0
+                # else:
+                #     precision = TP / pred_pos
+                # if not label_pos:
+                #     recall = 0.0
+                #     TPR = 0.0
+                # else:
+                #     recall = TP / label_pos
+                #     TPR = recall
+                # if not label_neg:
+                #     FPR = 0.0
+                # else:
+                #     FPR = FP / label_neg
+                # if i % 1000 == 0:
+                #     print('Val Epoch {} Iteration {} ({}/{})\tLoss: {:.4f} / Acc: {:.4f} / Precison:{:.4f} / Recall:{:.4f}'.format(epoch, i, i, n_batches, losses / (i+1), accs / ((i+1) * self.args.batch_size) * 100., precision, recall))
         
-        if not pred_pos:
-            precisions = 0.0
-        else:
-            precisions = TP / pred_pos
-        if not label_pos:
-            recalls = 0.0
-        else:
-            recalls = TP / label_pos
-        TPRs = recall
-        if not pred_neg:
-            FPRs = 0.0
-        else:
-            FPRs = FP / pred_neg
-        if (precisions + recalls):
-            F1_score = 2*precisions*recalls / (precisions + recalls)
-        else:
-            F1_score = 0
-    
-
-        print('Val dataset: Epoch: {}\t>\tLoss: {:.4f} / Acc: {:.4f}% /F1:{:.4f}/ Precison: {:.4f} / Recall:{:.4f}'.format(epoch,losses / n_batches,accs / n_samples * 100.,F1_score,precisions, recalls ))
-        print(f'TP:{TP},FP:{FP},pred_pos:{pred_pos},label_pos:{label_pos},label_neg:{label_neg},pred_pos:{pred_pos},pred_neg:{pred_neg},TPR:{TPRs},FPR:{FPRs}\n')
-
-        return losses / n_batches, accs / n_samples, precisions , recalls , TPRs, FPRs
+        # if not pred_pos:
+        #     precisions = 0.0
+        # else:
+        #     precisions = TP / pred_pos
+        # if not label_pos:
+        #     recalls = 0.0
+        # else:
+        #     recalls = TP / label_pos
+        # TPRs = recall
+        # if not pred_neg:
+        #     FPRs = 0.0
+        # else:
+        #     FPRs = FP / pred_neg
+        # if (precisions + recalls):
+        #     F1_score = 2*precisions*recalls / (precisions + recalls)
+        # else:
+        #     F1_score = 0
+    # 
+# 
+        # print('Val dataset: Epoch: {}\t>\tLoss: {:.4f} / Acc: {:.4f}% /F1:{:.4f}/ Precison: {:.4f} / Recall:{:.4f}'.format(epoch,losses / n_batches,accs / n_samples * 100.,F1_score,precisions, recalls ))
+        # print(f'TP:{TP},FP:{FP},pred_pos:{pred_pos},label_pos:{label_pos},label_neg:{label_neg},pred_pos:{pred_pos},pred_neg:{pred_neg},TPR:{TPRs},FPR:{FPRs}\n')
+        
+        print(f'average loss = {mean(losses)}')
+        print(f'weight = {weight}')
+        print(f'loss_1 = {mean(losses_1)}, loss_2 = {mean(losses_2)}')
+        return mean(losses), accs / n_samples, precisions , recalls , TPRs, FPRs, mean(losses_1), mean(losses_2)
 
     def save(self, epoch, model_prefix='model', root='new_log/model_new'):
         path = Path(root) / (model_prefix + '.ep%d' % epoch)

@@ -1,0 +1,245 @@
+nohup: 忽略输入
+Namespace(batch_size=128, output_model_prefix='mlp', start_epoch=801, epochs=900, lr=0.0001, no_cuda=False, final_ratio=0, start_ratio=0, warm_up_epochs=20, threshold=0.5, input_dim=107, embed_dim=256, embed_dim_1=256, embed_dim_2=1024, n_layers=6, n_heads=8, dropout=0.1, ffn_dim=1024, num_classes=2, max_seq_len=11, dataset_dir='/mnt1/hyj/Acc_Test/tta_new/data/test_2025-6-8/processed_data/', log_dir='../new_log/log', is_resume=0, is_chuan=0, model_path='storage/mlp.ep546', best_model_path='storage/mlp.ep680', first_model_path='storage/mlp.ep546', two_model=1)
+ratio is 0,loading data...
+pos data is being loaded...
+neg data is being loaded...
+len of data pos is 780, len of data neg is 321336
+train_pos_size is 546, val_pos_size is 78, test_pos_size is 156
+train_neg_size is 224935, val_neg_size is 32134, test_neg_size is 64267
+train_data_neg_len is 224935, train_data_neg_len_1 is 102243, train_data_neg_len_2 is 122691
+num of pos is 546
+num of neg is 102243
+num of neg is 122691
+32134 78
+sampling...
+num of pos is 78,num of neg is 500,ratio is 6.410256410256411
+num of pos is {}, num of neg is {} 78 500
+  0%|          | 0/578 [00:00<?, ?it/s]100%|██████████| 578/578 [00:00<00:00, 49254.52it/s]
+64267 156
+num of pos is 156,num of neg is 64267,ratio is 411.96794871794873
+num of pos is {}, num of neg is {} 156 64267
+  0%|          | 0/64423 [00:00<?, ?it/s] 12%|█▏        | 7876/64423 [00:00<00:00, 78747.68it/s] 25%|██▌       | 16304/64423 [00:00<00:00, 81997.11it/s] 38%|███▊      | 24646/64423 [00:00<00:00, 82643.05it/s] 51%|█████     | 32991/64423 [00:00<00:00, 82945.55it/s] 64%|██████▍   | 41477/64423 [00:00<00:00, 83633.02it/s] 77%|███████▋  | 49841/64423 [00:00<00:00, 83433.36it/s] 90%|█████████ | 58185/64423 [00:00<00:00, 83245.51it/s]100%|██████████| 64423/64423 [00:00<00:00, 82783.68it/s]
+Successfully build train datasets!
+Successfully build val datasets!
+Successfully build test datasets!
+Train & Validate
+  0%|          | 0/99 [00:00<?, ?it/s]/home/teamcommon/pjy/Bipedal_walker/criticality/stage2/trainer_bing.py:174: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  labels_cls1 = torch.tensor(labels1[:,0],dtype=torch.int64)
+/home/teamcommon/pjy/Bipedal_walker/criticality/stage2/trainer_bing.py:182: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  labels_cls2 = torch.tensor(labels2[:,0],dtype=torch.int64)
+/home/teamcommon/pjy/Bipedal_walker/criticality/stage2/trainer_bing.py:279: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  labels_cls = torch.tensor(labels[:, 0],dtype=torch.int64)
+  1%|          | 1/99 [00:00<01:32,  1.05it/s]  2%|▏         | 2/99 [00:01<01:02,  1.54it/s]  3%|▎         | 3/99 [00:01<00:52,  1.81it/s]  4%|▍         | 4/99 [00:02<00:47,  1.99it/s]  5%|▌         | 5/99 [00:05<02:21,  1.51s/it]  6%|▌         | 6/99 [00:06<01:47,  1.15s/it]  7%|▋         | 7/99 [00:06<01:24,  1.09it/s]  8%|▊         | 8/99 [00:06<01:09,  1.31it/s]  9%|▉         | 9/99 [00:07<01:00,  1.50it/s] 10%|█         | 10/99 [00:07<00:52,  1.69it/s] 11%|█         | 11/99 [00:08<00:48,  1.83it/s] 12%|█▏        | 12/99 [00:08<00:44,  1.95it/s] 13%|█▎        | 13/99 [00:09<00:43,  1.99it/s] 14%|█▍        | 14/99 [00:09<00:40,  2.08it/s] 15%|█▌        | 15/99 [00:09<00:39,  2.15it/s] 16%|█▌        | 16/99 [00:10<00:37,  2.20it/s] 17%|█▋        | 17/99 [00:10<00:36,  2.22it/s] 18%|█▊        | 18/99 [00:11<00:35,  2.27it/s] 19%|█▉        | 19/99 [00:11<00:35,  2.25it/s] 20%|██        | 20/99 [00:12<00:34,  2.30it/s] 21%|██        | 21/99 [00:12<00:33,  2.32it/s] 22%|██▏       | 22/99 [00:12<00:32,  2.34it/s] 23%|██▎       | 23/99 [00:13<00:32,  2.31it/s] 24%|██▍       | 24/99 [00:13<00:32,  2.31it/s] 25%|██▌       | 25/99 [00:14<00:32,  2.30it/s] 26%|██▋       | 26/99 [00:14<00:31,  2.30it/s] 27%|██▋       | 27/99 [00:15<00:31,  2.28it/s] 28%|██▊       | 28/99 [00:15<00:30,  2.30it/s] 29%|██▉       | 29/99 [00:16<00:30,  2.32it/s] 30%|███       | 30/99 [00:16<00:29,  2.35it/s] 31%|███▏      | 31/99 [00:16<00:28,  2.35it/s] 32%|███▏      | 32/99 [00:17<00:28,  2.32it/s] 33%|███▎      | 33/99 [00:17<00:28,  2.29it/s] 34%|███▍      | 34/99 [00:18<00:28,  2.27it/s] 35%|███▌      | 35/99 [00:18<00:28,  2.29it/s] 36%|███▋      | 36/99 [00:19<00:27,  2.30it/s] 37%|███▋      | 37/99 [00:19<00:27,  2.27it/s] 38%|███▊      | 38/99 [00:19<00:26,  2.27it/s] 39%|███▉      | 39/99 [00:20<00:26,  2.25it/s] 40%|████      | 40/99 [00:20<00:28,  2.10it/s] 41%|████▏     | 41/99 [00:21<00:27,  2.14it/s] 42%|████▏     | 42/99 [00:21<00:26,  2.18it/s] 43%|████▎     | 43/99 [00:22<00:25,  2.22it/s] 44%|████▍     | 44/99 [00:22<00:24,  2.24it/s] 45%|████▌     | 45/99 [00:23<00:24,  2.24it/s] 46%|████▋     | 46/99 [00:23<00:23,  2.24it/s] 47%|████▋     | 47/99 [00:24<00:23,  2.25it/s] 48%|████▊     | 48/99 [00:24<00:23,  2.20it/s] 49%|████▉     | 49/99 [00:24<00:22,  2.19it/s] 51%|█████     | 50/99 [00:25<00:22,  2.20it/s] 52%|█████▏    | 51/99 [00:25<00:21,  2.23it/s] 53%|█████▎    | 52/99 [00:26<00:20,  2.28it/s] 54%|█████▎    | 53/99 [00:26<00:20,  2.24it/s] 55%|█████▍    | 54/99 [00:27<00:20,  2.24it/s] 56%|█████▌    | 55/99 [00:27<00:19,  2.24it/s] 57%|█████▋    | 56/99 [00:28<00:19,  2.25it/s] 58%|█████▊    | 57/99 [00:28<00:18,  2.25it/s] 59%|█████▊    | 58/99 [00:28<00:18,  2.24it/s] 60%|█████▉    | 59/99 [00:29<00:17,  2.25it/s] 61%|██████    | 60/99 [00:29<00:17,  2.25it/s] 62%|██████▏   | 61/99 [00:30<00:17,  2.23it/s] 63%|██████▎   | 62/99 [00:30<00:16,  2.21it/s]length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.6872054735819497
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.5234273274739585
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.445111354192098
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.419830004374186
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.433596690495809
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.355728546778361
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.335386594136556
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.33215061823527
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.345317761103312
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.3776822090148926
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.3915794690450034
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.4205865065256753
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.4586824576059976
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.4898348649342856
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.5253775119781494
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.551038146018982
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.5807732741038003
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.6184413035710654
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.652524550755819
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.6910832722981772
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.708108107248942
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.7581750551859536
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.791579763094584
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.8169798056284585
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.866403023401896
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.894327441851298
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.941018581390381
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 2.974737008412679
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 3.013797879219055
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 3.053196986516317
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 3.099436640739441
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 3.1426881154378257
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 3.1765679121017456
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 3.217236797014872
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 3.25344971815745
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 3.2991227308909097
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 3.343462864557902
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 3.37712295850118
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 3.4251914024353027
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 3.4735024770100913
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 3.5082306067148843
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 3.5571008920669556
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 3.5895237922668457
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 3.6419787804285684
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 3.6856473286946616
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 3.725165843963623
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 3.7724408706029258
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 3.817054828008016
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 3.8634310166041055
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 3.9043230613072715
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 3.954207261403402
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 3.99722150961558
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 4.039174874623616
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 4.089926560719808
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 4.136759678522746
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 4.183913469314575
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 4.231390873591105
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 4.277822971343994
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 4.328639030456543
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 4.371705452601115
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 4.427117665608724
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 4.469598889350891
+ 64%|██████▎   | 63/99 [00:31<00:16,  2.24it/s] 65%|██████▍   | 64/99 [00:31<00:15,  2.27it/s] 66%|██████▌   | 65/99 [00:32<00:15,  2.25it/s] 67%|██████▋   | 66/99 [00:32<00:14,  2.28it/s] 68%|██████▊   | 67/99 [00:32<00:14,  2.26it/s] 69%|██████▊   | 68/99 [00:33<00:13,  2.24it/s] 70%|██████▉   | 69/99 [00:33<00:13,  2.26it/s] 71%|███████   | 70/99 [00:34<00:12,  2.26it/s] 72%|███████▏  | 71/99 [00:34<00:12,  2.25it/s] 73%|███████▎  | 72/99 [00:35<00:11,  2.26it/s] 74%|███████▎  | 73/99 [00:35<00:11,  2.29it/s] 75%|███████▍  | 74/99 [00:36<00:10,  2.33it/s] 76%|███████▌  | 75/99 [00:36<00:10,  2.35it/s] 77%|███████▋  | 76/99 [00:36<00:09,  2.32it/s] 78%|███████▊  | 77/99 [00:37<00:09,  2.32it/s] 79%|███████▉  | 78/99 [00:37<00:09,  2.31it/s] 80%|███████▉  | 79/99 [00:38<00:08,  2.30it/s] 81%|████████  | 80/99 [00:38<00:09,  2.11it/s] 82%|████████▏ | 81/99 [00:39<00:08,  2.15it/s] 83%|████████▎ | 82/99 [00:39<00:07,  2.13it/s] 84%|████████▍ | 83/99 [00:40<00:07,  2.17it/s] 85%|████████▍ | 84/99 [00:40<00:07,  2.14it/s] 86%|████████▌ | 85/99 [00:41<00:06,  2.17it/s] 87%|████████▋ | 86/99 [00:41<00:05,  2.17it/s] 88%|████████▊ | 87/99 [00:41<00:05,  2.20it/s] 89%|████████▉ | 88/99 [00:42<00:04,  2.22it/s] 90%|████████▉ | 89/99 [00:42<00:04,  2.24it/s] 91%|█████████ | 90/99 [00:43<00:03,  2.27it/s] 92%|█████████▏| 91/99 [00:43<00:03,  2.27it/s] 93%|█████████▎| 92/99 [00:44<00:03,  2.27it/s] 94%|█████████▍| 93/99 [00:44<00:02,  2.28it/s] 95%|█████████▍| 94/99 [00:45<00:02,  2.26it/s] 96%|█████████▌| 95/99 [00:45<00:01,  2.28it/s] 97%|█████████▋| 96/99 [00:45<00:01,  2.25it/s] 98%|█████████▊| 97/99 [00:46<00:00,  2.30it/s] 99%|█████████▉| 98/99 [00:46<00:00,  2.32it/s]100%|██████████| 99/99 [00:47<00:00,  2.30it/s]100%|██████████| 99/99 [00:47<00:00,  2.10it/s]
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 4.515125552813212
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 4.566206892331441
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 4.620143016179402
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 4.673059384028117
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 4.72875718275706
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 4.773490031560262
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 4.8223527272542315
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 4.880109707514445
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 4.928408940633138
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 4.977099061012268
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 5.034445563952128
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 5.087328592936198
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 5.139364560445149
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 5.189980109532674
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 5.247713565826416
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 5.300051927566528
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 5.350494464238484
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 5.4056822458903
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 5.461144129435222
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 5.5232917467753095
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 5.570781866709392
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 5.627085606257121
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 5.686752796173096
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 5.739492257436116
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 5.794622262318929
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 5.84809931119283
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 5.912690162658691
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 5.964847882588704
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 6.019345998764038
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 6.07891050974528
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 6.137797037760417
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 6.19332488377889
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 6.253714720408122
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 6.312592267990112
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 6.373504718144734
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 6.432107766469319
+length of train_pos_loader: 4, length of train_neg_loader1: 159, length of train_neg_loader2: 159
+average loss = 6.4910478591918945
+Test
+model storage/model.ep899 loaded.
+0it [00:00, ?it/s]/home/teamcommon/pjy/Bipedal_walker/criticality/stage2/my_test.py:228: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  labels_cls = torch.tensor(labels[:, 0], dtype=torch.int64)
+1it [00:01,  1.14s/it]2it [00:02,  1.12s/it]3it [00:03,  1.11s/it]4it [00:04,  1.11s/it]5it [00:05,  1.10s/it]6it [00:06,  1.10s/it]7it [00:07,  1.10s/it]8it [00:08,  1.10s/it]9it [00:09,  1.10s/it]10it [00:11,  1.10s/it]11it [00:12,  1.10s/it]12it [00:13,  1.10s/it]13it [00:14,  1.09s/it]14it [00:15,  1.09s/it]15it [00:16,  1.10s/it]16it [00:17,  1.10s/it]17it [00:18,  1.10s/it]18it [00:19,  1.10s/it]19it [00:20,  1.10s/it]20it [00:22,  1.10s/it]21it [00:23,  1.10s/it]22it [00:24,  1.09s/it]23it [00:25,  1.10s/it]24it [00:26,  1.10s/it]25it [00:27,  1.10s/it]26it [00:28,  1.10s/it]27it [00:29,  1.10s/it]28it [00:30,  1.10s/it]29it [00:31,  1.09s/it]30it [00:32,  1.09s/it]31it [00:34,  1.10s/it]32it [00:35,  1.10s/it]33it [00:36,  1.10s/it]34it [00:37,  1.10s/it]35it [00:38,  1.09s/it]36it [00:39,  1.10s/it]37it [00:40,  1.10s/it]38it [00:41,  1.09s/it]39it [00:42,  1.09s/it]40it [00:43,  1.09s/it]41it [00:45,  1.10s/it]42it [00:46,  1.10s/it]43it [00:47,  1.10s/it]44it [00:48,  1.09s/it]45it [00:49,  1.09s/it]46it [00:50,  1.09s/it]47it [00:51,  1.10s/it]48it [00:52,  1.09s/it]49it [00:53,  1.09s/it]50it [00:54,  1.09s/it]51it [00:55,  1.09s/it]52it [00:57,  1.09s/it]53it [00:58,  1.09s/it]54it [00:59,  1.10s/it]55it [01:00,  1.10s/it]56it [01:01,  1.09s/it]57it [01:02,  1.09s/it]58it [01:03,  1.10s/it]59it [01:04,  1.10s/it]60it [01:05,  1.10s/it]61it [01:06,  1.09s/it]62it [01:08,  1.09s/it]63it [01:09,  1.07s/it]63it [01:09,  1.10s/it]
+TP is [156, 156, 156, 156, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+FP is [64267, 64267, 64267, 64267, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+TN is [0, 0, 0, 0, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267, 64267]
+FN is [0, 0, 0, 0, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156]
+
+TPR is [1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+FPR is [1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+precison is [0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 0.0024214954286512582, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+
+figure generated

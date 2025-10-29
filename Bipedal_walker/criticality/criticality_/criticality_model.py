@@ -232,7 +232,7 @@ class TransformerEncoder(nn.Module):
 class BackBone(nn.Module):
     # input_dim = 105
     # state_embedding = 25
-    def __init__(self,input_dim=104, seq_len=11, n_layers=6, n_heads=8,
+    def __init__(self,input_dim=104, seq_len=10, n_layers=6, n_heads=8,
                  embed_dim=256, ff_dim=1024, dropout=0.1, num_classes=2):
         super(BackBone,self).__init__()
         self.seq_embedding = Embedding(8, embed_dim)
@@ -285,10 +285,12 @@ class BackBone(nn.Module):
         #print(outputs.shape)
         #print(input_state.shape)
         #print(self.state_embedding)
-        outputs = torch.cat((self.state_embedding(input_state),outputs),dim=1)
-        #print('cat:',outputs[:10])
+
         outputs += self.pos_embedding
         # print('shape of input of encoder is',outputs.shape)
+
+        outputs = torch.cat((self.state_embedding(input_state),outputs),dim=1)
+        #print('cat:',outputs[:10])
         # attn_mask = self.get_attn_pad_mask(inputs, inputs)
         #print('layer1:',outputs[:10])
         attention_weights = []
@@ -392,7 +394,8 @@ class Criticality_model(nn.Module):
         # Backbone的input_dim是104,到底是多少呢。。。
         self.backbone1 = BackBone()
         self.backbone2 = BackBone()
-        self.classifier = FCNorm(embed_dim * 2, num_classes)
+        # embed_dim * 2 -> embed_dim
+        self.classifier = FCNorm(embed_dim, num_classes)
         self.softmax = nn.Softmax(dim=-1)
         
 
@@ -402,7 +405,8 @@ class Criticality_model(nn.Module):
         else:
             feats1 = self.backbone1(inputs1)
             feats2 = self.backbone1(inputs2)
-            mixed_feature = 2 * torch.cat((weight * feats1, (1-weight) * feats2), dim=-1)
+            # 这里在bs维度上cat会有好的效果？dim=-1->dim=0
+            mixed_feature = 2 * torch.cat((weight * feats1, (1-weight) * feats2), dim=0) 
         outputs = self.softmax(self.classifier(mixed_feature))
 
         return outputs, mixed_feature, feats1, feats2
@@ -701,10 +705,11 @@ class Reward_Model(nn.Module):
             
             chosen_mean_scores.append(chosen_reward[-1]) 
             rejected_mean_scores.append(rejected_reward[-1])
-            
-        loss = loss / bs
-        chosen_mean_scores = torch.stack(chosen_mean_scores)
-        rejected_mean_scores = torch.stack(rejected_mean_scores)
+        
+        if bs!=0:
+            loss = loss / bs 
+            chosen_mean_scores = torch.stack(chosen_mean_scores)
+            rejected_mean_scores = torch.stack(rejected_mean_scores)
         
         # for debug
         # print('loss type: ', type(loss), ' chosen_mean_scores type: ', type(chosen_mean_scores), ' rejected_mean_scores type: ', type(rejected_mean_scores))

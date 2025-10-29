@@ -16,14 +16,14 @@ sys.path.append(parent_dir)
 
 # 现在可以导入criticality_目录下的函数了
 from data_.data_utils import create_dataset,create_dataset_new,create_pos_dataset,create_neg_dataset,create_distill_dataset
-
-
+from plot.draw_two import draw_loss
+import  matplotlib.pyplot as plt
 import argparse
 from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
 import numpy as np
 from trainer_bing import Trainer
-from my_test import test
+from my_test import test, test_new
 import tqdm
 
 def data_load_and_divide_712():
@@ -32,7 +32,7 @@ def data_load_and_divide_712():
     data_pos = np.load(dataset_path_pos, allow_pickle=True)
 
     # for all neg data and neg val data
-    dataset_path_neg='/home/teamcommon/pjy/Bipedal_walker/criticality/data/processed_by_stage1/FP_samples.npy'
+    dataset_path_neg='/home/teamcommon/pjy/Bipedal_walker/criticality/data/processed_by_stage1/FP_samples_contracted.npy'
     print('neg data is being loaded...')
     data_neg=np.load(dataset_path_neg, allow_pickle=True)
 
@@ -122,17 +122,23 @@ def main(args):
     
     # 这里需要修改，train_data_pos和train_data_neg1的比例不是简单1:1
     # 按照文献的说法这个比例也不是固定的，而是随着训练的进行而变化的
-    train_data_neg_len=len(train_data_neg)
-    train_data_neg_len_1=train_data_neg_len*150//301
-    train_data_neg_len_2=train_data_neg_len*151//301
-    print(f'train_data_neg_len is {train_data_neg_len}, train_data_neg_len_1 is {train_data_neg_len_1}, train_data_neg_len_2 is {train_data_neg_len_2}')
+    # neg1/pos = my_ratio
+    my_ratio=1
+    # train_data_neg_len=len(train_data_neg)
+    # train_data_neg_len_1=train_data_neg_len*my_ratio//(2*my_ratio+1)
+    # train_data_neg_len_2=train_data_neg_len*(my_ratio+1)//(2*my_ratio+1)
+    # print(f'train_data_neg_len is {train_data_neg_len}, train_data_neg_len_1 is {train_data_neg_len_1}, train_data_neg_len_2 is {train_data_neg_len_2}')
     # 对于trainer，需要三个dataset：train_pos_dataset，train_neg_dataset1，train_neg_dataset2
+    
     train_pos_dataset = create_pos_dataset(train_data_pos)
-    train_neg_dataset = create_neg_dataset(train_data_neg[0:train_data_neg_len_1])
-    train_neg_dataset2 = create_neg_dataset(train_data_neg[train_data_neg_len_1:train_data_neg_len_1+train_data_neg_len_2])
+    train_neg_dataset = create_neg_dataset(train_data_neg)
+    train_dataset2 = create_dataset_new(train_data_pos, train_data_neg, 0, 'train')
     
     val_dataset = create_dataset_new(val_data_pos, val_data_neg, 0,'val')
     # build dataset
+    test_data_pos_fake=train_data_pos[0:len(train_data_pos)//3]
+    test_data_neg_fake=train_data_neg[0:len(train_data_neg)//3]
+
     test_dataset = create_dataset_new(test_data_pos, test_data_neg, 0, 'test')
 
     print(f'Successfully build train datasets!')
@@ -142,23 +148,27 @@ def main(args):
     # Build DataLoader
     # 强制地给正负例设置了倍率
     train_pos_loader = DataLoader(train_pos_dataset, batch_size=args.batch_size, shuffle=True, drop_last=True)
-    train_neg_loader = DataLoader(train_neg_dataset, batch_size=args.batch_size*150, shuffle=True, drop_last=True)
-    train_neg_loader2 = DataLoader(train_neg_dataset2, batch_size=args.batch_size*151, shuffle=True, drop_last=True)
+    train_neg_loader = DataLoader(train_neg_dataset, batch_size=args.batch_size*my_ratio, shuffle=True, drop_last=True)
+    train_loader2 = DataLoader(train_dataset2, batch_size=args.batch_size*(my_ratio+1), shuffle=True, drop_last=True)
     val_loader = DataLoader(val_dataset, batch_size=256, shuffle=True)
-    test_loader = DataLoader(test_dataset, batch_size=256, shuffle=True)
+    test_loader = DataLoader(test_dataset, batch_size=1024, shuffle=True)
 
     # Build Trainer
-    trainer = Trainer(args,train_pos_loader,train_neg_loader,train_neg_loader2, val_loader)
+    trainer = Trainer(args,train_pos_loader,train_neg_loader,train_loader2, val_loader)
     best_acc = 0
     # Train & Validate
     print('Train & Validate')
     old_data_idx = 0
+    epoch_list=[]
+    loss_list=[]
+    loss_1_list=[]
+    loss_2_list=[]
     for epoch in tqdm.tqdm(range(args.start_epoch,args.epochs)):
-        train_neg_loader = DataLoader(train_neg_dataset,batch_size=args.batch_size*150,shuffle=True,drop_last = True)
+        train_neg_loader = DataLoader(train_neg_dataset,batch_size=args.batch_size*my_ratio,shuffle=True,drop_last = True)
         trainer.train_neg_loader1 = train_neg_loader
         # 151似乎是什么倍率...
-        train_neg_loader2 = DataLoader(train_neg_dataset2,batch_size=args.batch_size * 151,shuffle=True,drop_last = True)
-        trainer.train_neg_loader2 = train_neg_loader2
+        train_loader2 = DataLoader(train_dataset2,batch_size=args.batch_size * (my_ratio+1),shuffle=True,drop_last = True)
+        trainer.train_neg_loader2 = train_loader2
         """
         weight = int(1 + (epoch - args.start_epoch) * 80 / (args.epochs - args.start_epoch))
         train_pos_loader = DataLoader(train_dataset_neg,batch_size=args.batch_size * weight,shuffle=True,drop_last = True)
@@ -186,11 +196,15 @@ def main(args):
         old_ratio = ratio
         """
         train_loss, train_acc, train_precision, train_recall = trainer.train(epoch)
-        val_loss, val_acc, val_precision, val_recall, val_TPR, val_FPR = trainer.validate(epoch)
+        val_loss, val_acc, val_precision, val_recall, val_TPR, val_FPR, val_loss_1, val_loss_2 = trainer.validate(epoch)
+        epoch_list.append(epoch)
+        loss_list.append(val_loss)
+        loss_1_list.append(val_loss_1)
+        loss_2_list.append(val_loss_2)
         trainer.save(epoch, 'model', 'storage')
-        if val_acc > best_acc:
-            trainer.save_best(root = 'storage')
-            best_acc = val_acc
+        # if val_acc > best_acc:
+        #     trainer.save_best(root = 'storage')
+        #     best_acc = val_acc
         
         
         train_info.append({'train_loss':train_loss,
@@ -214,14 +228,27 @@ def main(args):
         
         np.save(f'../new_log/result_new/train_info_{epoch}.npy', train_info, allow_pickle=True)
         np.save(f'../new_log/result_new/val_info_{epoch}.npy', val_info, allow_pickle=True)
-
+    
+    draw_loss(epoch_list, loss_list, 'storage/val_loss_curve.png')
+    plt.clf()
+    draw_loss(epoch_list, loss_1_list, 'storage/val_loss_1_curve.png')
+    plt.clf()
+    draw_loss(epoch_list, loss_2_list, 'storage/val_loss_2_curve.png', 0.02, 0.0)
+    plt.clf()
+    print(f'epoch_list: {epoch_list}, loss_list: {loss_list}, loss_1_list: {loss_1_list}, loss_2_list: {loss_2_list}')
     # Test
     print('Test')
+    for i in range(4):
+        print('inquiry %d'% i)
+        my_epoch = args.start_epoch+25*i
+        args.model_path= 'storage/model.ep%d'% my_epoch
+        test_loss, test_precision, test_recall, test_TPR, test_FPR = test_new(args,test_loader, is_inquire=True, inquire_turn=i)
+    
+    print('final test')
     args.model_path= 'storage/model.ep%d'% epoch
-    test_loss, test_acc, test_precision, test_recall, test_TPR, test_FPR = test(args,test_loader)
+    test_loss, test_precision, test_recall, test_TPR, test_FPR = test_new(args,test_loader)
     
     test_info.append({'train_loss':test_loss,
-                      'train_acc':test_acc,
                       'train_precision':test_precision,
                       'train_recall':test_recall,
                       'epoch':epoch})
@@ -238,11 +265,11 @@ def main(args):
     np.save(f'../new_log/result_new/test_info_{epoch}.npy', test_info, allow_pickle=True)
 
 def only_test(args):
-    args.model_path= 'storage/model.ep849'
+    args.model_path= 'storage/model.ep899'
     [train_data_pos, val_data_pos, test_data_pos, train_data_neg, val_data_neg, test_data_neg]=data_load_and_divide_712()
     test_dataset = create_dataset_new(test_data_pos, test_data_neg, 0, 'test')
-    test_loader = DataLoader(test_dataset, batch_size=256, shuffle=True)
-    test_loss, test_acc, test_precision, test_recall, test_TPR, test_FPR = test(args,test_loader)
+    test_loader = DataLoader(test_dataset, batch_size=1024, shuffle=True)
+    test_loss, test_precision, test_recall, test_TPR, test_FPR = test_new(args,test_loader)
 
 
 if __name__ == '__main__':
@@ -250,14 +277,14 @@ if __name__ == '__main__':
 
     # Input parameters
     # 2048
-    parser.add_argument('--batch_size', default=8, type=int, help='batch size')
+    parser.add_argument('--batch_size', default=64, type=int, help='batch size')
     parser.add_argument('--output_model_prefix', default='mlp')
 
     # Train parameters
     parser.add_argument('--start_epoch', default=801, type=int, help='the number of epochs')
     parser.add_argument('--epochs', default=900, type=int, help='the number of epochs')
     # 1e-4
-    parser.add_argument('--lr', default=1e-4, type=float, help='learning rate')
+    parser.add_argument('--lr', default=1e-5, type=float, help='learning rate')
     parser.add_argument('--no_cuda', action='store_true')
     parser.add_argument('--final_ratio',default=0,type=int,help='ratio of negative / positive')
     parser.add_argument('--start_ratio',default=0,type=int, help='ratio of negative / positive')

@@ -134,8 +134,8 @@ def create_dataset_new(train_data_pos, train_data_neg, ratio, data_type):
     print(len(train_data_neg),len(train_data_pos))
     if ratio == 0:
         if data_type == 'train':
-            samples_data_pos = train_data_pos
-            samples_data_neg = train_data_neg
+            samples_data_pos = list(train_data_pos)
+            samples_data_neg = list(train_data_neg)
             #samples_data_pos = train_data_pos[:400000]
             #samples_data_pos = random.sample(train_data_pos,len(train_data_neg))
             #samples_data_neg = train_data_neg[400000:800000]
@@ -160,7 +160,7 @@ def create_dataset_new(train_data_pos, train_data_neg, ratio, data_type):
         print(f'num of pos is {len(samples_data_pos)},num of neg is {len(samples_data_neg)},ratio is {len(samples_data_neg)/len(samples_data_pos)}')
     
     print("num of pos is {}, num of neg is {}", len(samples_data_pos), len(samples_data_neg))
-    train_data = samples_data_pos + samples_data_neg
+    train_data = samples_data_neg + samples_data_pos
     inputs = []
     labels = []
 
